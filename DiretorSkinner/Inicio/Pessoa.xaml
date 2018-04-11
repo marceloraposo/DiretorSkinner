@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="DiretorSkinner.Inicio.Pessoa"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dg="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit"
+             xmlns:local="clr-namespace:DiretorSkinner.Inicio"
+             mc:Ignorable="d" 
+             HorizontalAlignment="Stretch" VerticalAlignment="Stretch"	HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+    <UserControl.Resources>
+        <local:TipoPessoaBoolMultiCoverter x:Key="Coverter_TipoPessoaBoolMultiCoverter" />
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="185" />
+        </Grid.RowDefinitions>
+        <GroupBox Header="Filtros:" Grid.Row="0" VerticalAlignment="Top" MinWidth="120" Height="60">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Margin="5" Height="Auto" VerticalAlignment="Center" Text="{Binding Pesquisa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="200" Name="txtPesquisa" />
+                <Button  Margin="5" Height="Auto" VerticalAlignment="Center" Grid.Column="1" Content="Pesquisar" Name="btnPesquisa" Click="btnPesquisa_Click" MinWidth="80" />
+            </Grid>
+        </GroupBox>
+        <Grid Grid.Row="1" VerticalAlignment="Stretch">
+            <ScrollViewer  
+                       HorizontalScrollBarVisibility="Auto"
+                       VerticalScrollBarVisibility="Visible">
+            <StackPanel>
+                <Grid Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                        <dg:DataGrid Name="dgPessoa" VirtualizingPanel.ScrollUnit="Item" VirtualizingPanel.IsVirtualizingWhenGrouping="True" InitializingNewItem="dgPessoa_InitializingNewItem" ItemsSource="{Binding ListaPessoas,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewKeyDown="dgPessoa_PreviewKeyDown" RowEditEnding="dgPessoa_RowEditEnding" AutoGenerateColumns="False" CanUserAddRows="True" CanUserDeleteRows="True" CanUserSortColumns="True" >
+                        <dg:DataGrid.Columns>
+                            <dg:DataGridTextColumn Binding="{Binding Path=Id, NotifyOnTargetUpdated=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="50" Header="Id" IsReadOnly="True" />
+                            <dg:DataGridTextColumn Binding="{Binding Path=Codigo, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="70" Header="Código"/>
+                            <dg:DataGridTextColumn Binding="{Binding Path=Apelido, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="70" Header="Apelido"/>
+                            <dg:DataGridTextColumn Binding="{Binding Path=Nome, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="70" Header="Nome"/>
+                            <dg:DataGridTemplateColumn Header="Tipo de Pessoa">
+                                <dg:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox x:Name="cmbTipoPessoas" ItemsSource="{Binding TipoPessoas, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                            <ComboBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <CheckBox Width="Auto" Content="{Binding Nome}">
+                                                            <CheckBox.IsChecked>
+                                                                <MultiBinding Converter="{StaticResource Coverter_TipoPessoaBoolMultiCoverter}">
+                                                                    <Binding Path="Selecionado" />
+                                                                    <Binding Path="." />
+                                                                    <Binding Mode="OneWay" RelativeSource="{RelativeSource Mode=FindAncestor,AncestorType=ComboBox}" />
+                                                                </MultiBinding>
+                                                            </CheckBox.IsChecked>
+                                                        </CheckBox>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ComboBox.ItemTemplate>
+                                        </ComboBox>
+                                    </DataTemplate>
+                                </dg:DataGridTemplateColumn.CellTemplate>
+                                <dg:DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <ComboBox x:Name="cmbTipoPessoas" ItemsSource="{Binding TipoPessoas, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                            <ComboBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <CheckBox  Width="Auto" Content="{Binding Nome}">
+                                                            <CheckBox.IsChecked>
+                                                                <MultiBinding Converter="{StaticResource Coverter_TipoPessoaBoolMultiCoverter}">
+                                                                    <Binding Path="Selecionado" />
+                                                                    <Binding Path="." RelativeSource="{RelativeSource Self}" />
+                                                                    <Binding Mode="TwoWay" RelativeSource="{RelativeSource Mode=FindAncestor,AncestorType=ComboBox}" />
+                                                                </MultiBinding>
+                                                            </CheckBox.IsChecked>
+                                                        </CheckBox>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ComboBox.ItemTemplate>
+                                        </ComboBox>
+                                    </DataTemplate>
+                                </dg:DataGridTemplateColumn.CellEditingTemplate>
+                            </dg:DataGridTemplateColumn>
+                        </dg:DataGrid.Columns>
+                    </dg:DataGrid>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

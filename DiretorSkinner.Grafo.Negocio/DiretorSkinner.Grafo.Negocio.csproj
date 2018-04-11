@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{10585AEF-92F7-4DB3-AF8A-9469D2353565}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DiretorSkinner.Grafo.Negocio</RootNamespace>
+    <AssemblyName>DiretorSkinner.Grafo.Negocio</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Neo4j.Driver, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Neo4j.Driver.1.5.2\lib\net452\Neo4j.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="Neo4jClient, Version=3.0.1.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Neo4jClient.3.0.1.9\lib\net46\Neo4jClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.2\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConceitoNegocioGrafo.cs" />
+    <Compile Include="DiretorSkinnerNegocioGrafo.cs" />
+    <Compile Include="DisciplinaNegocioGrafo.cs" />
+    <Compile Include="Nodes\Conceito.cs" />
+    <Compile Include="Nodes\Disciplina.cs" />
+    <Compile Include="Nodes\Pessoa.cs" />
+    <Compile Include="Nodes\TipoDisciplina.cs" />
+    <Compile Include="Nodes\TipoPessoa.cs" />
+    <Compile Include="Nodes\Turma.cs" />
+    <Compile Include="PessoaNegocioGrafo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TipoDisciplinaNegocioGrafo.cs" />
+    <Compile Include="TipoPessoaNegocioGrafo.cs" />
+    <Compile Include="TurmaNegocioGrafo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DiretorSkinner.Grafo.Interface\DiretorSkinner.Grafo.Interface.csproj">
+      <Project>{d21d4cd2-4033-492c-b7c3-8b26ee4b541d}</Project>
+      <Name>DiretorSkinner.Grafo.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DiretorSkinner.Tranporte\DiretorSkinner.Tranporte.csproj">
+      <Project>{24ec9744-9684-4bd1-b4a8-6208c32fcf1f}</Project>
+      <Name>DiretorSkinner.Tranporte</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DiretorSkinner.Util\DiretorSkinner.Util.csproj">
+      <Project>{5fbf91e6-bf15-4652-9010-d9c2fd293c8b}</Project>
+      <Name>DiretorSkinner.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,82 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiretorSkinner", "DiretorSkinner\DiretorSkinner.csproj", "{100DAFEB-8A7C-4989-8FB1-5B2BB5DB050B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B4F895EB-E37C-463C-9C40-4EA311F36432} = {B4F895EB-E37C-463C-9C40-4EA311F36432}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiretorSkinner.Negocio", "DiretorSkinner.Negocio\DiretorSkinner.Negocio.csproj", "{B87DF6C0-04B2-4AD4-93E1-CF431E541B0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiretorSkinner.Util", "DiretorSkinner.Util\DiretorSkinner.Util.csproj", "{5FBF91E6-BF15-4652-9010-D9C2FD293C8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiretorSkinner.Tranporte", "DiretorSkinner.Tranporte\DiretorSkinner.Tranporte.csproj", "{24EC9744-9684-4BD1-B4A8-6208C32FCF1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiretorSkinner.Dados", "DiretorSkinner.Dados\DiretorSkinner.Dados.csproj", "{F86BE987-AE17-4786-88BA-CDF3B59309D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiretorSkinner.Interface", "DiretorSkinner.Interface\DiretorSkinner.Interface.csproj", "{7626ED79-0943-4D26-9AD1-37706351B82E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiretorSkinner.Servico", "DiretorSkinner.Servico\DiretorSkinner.Servico.csproj", "{B4F895EB-E37C-463C-9C40-4EA311F36432}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiretorSkinner.Grafo.Interface", "DiretorSkinner.Grafo.Interface\DiretorSkinner.Grafo.Interface.csproj", "{D21D4CD2-4033-492C-B7C3-8B26EE4B541D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiretorSkinner.Grafo.Negocio", "DiretorSkinner.Grafo.Negocio\DiretorSkinner.Grafo.Negocio.csproj", "{10585AEF-92F7-4DB3-AF8A-9469D2353565}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiretorSkinner.Grafo.Servico", "DiretorSkinner.Grafo.Servico\DiretorSkinner.Grafo.Servico.csproj", "{99A427B7-FFE1-43F6-85EB-E9EEA46867DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{100DAFEB-8A7C-4989-8FB1-5B2BB5DB050B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{100DAFEB-8A7C-4989-8FB1-5B2BB5DB050B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{100DAFEB-8A7C-4989-8FB1-5B2BB5DB050B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{100DAFEB-8A7C-4989-8FB1-5B2BB5DB050B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B87DF6C0-04B2-4AD4-93E1-CF431E541B0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B87DF6C0-04B2-4AD4-93E1-CF431E541B0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B87DF6C0-04B2-4AD4-93E1-CF431E541B0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B87DF6C0-04B2-4AD4-93E1-CF431E541B0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FBF91E6-BF15-4652-9010-D9C2FD293C8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FBF91E6-BF15-4652-9010-D9C2FD293C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FBF91E6-BF15-4652-9010-D9C2FD293C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FBF91E6-BF15-4652-9010-D9C2FD293C8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24EC9744-9684-4BD1-B4A8-6208C32FCF1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24EC9744-9684-4BD1-B4A8-6208C32FCF1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24EC9744-9684-4BD1-B4A8-6208C32FCF1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24EC9744-9684-4BD1-B4A8-6208C32FCF1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F86BE987-AE17-4786-88BA-CDF3B59309D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F86BE987-AE17-4786-88BA-CDF3B59309D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F86BE987-AE17-4786-88BA-CDF3B59309D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F86BE987-AE17-4786-88BA-CDF3B59309D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7626ED79-0943-4D26-9AD1-37706351B82E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7626ED79-0943-4D26-9AD1-37706351B82E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7626ED79-0943-4D26-9AD1-37706351B82E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7626ED79-0943-4D26-9AD1-37706351B82E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4F895EB-E37C-463C-9C40-4EA311F36432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4F895EB-E37C-463C-9C40-4EA311F36432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4F895EB-E37C-463C-9C40-4EA311F36432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4F895EB-E37C-463C-9C40-4EA311F36432}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D21D4CD2-4033-492C-B7C3-8B26EE4B541D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D21D4CD2-4033-492C-B7C3-8B26EE4B541D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D21D4CD2-4033-492C-B7C3-8B26EE4B541D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D21D4CD2-4033-492C-B7C3-8B26EE4B541D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10585AEF-92F7-4DB3-AF8A-9469D2353565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10585AEF-92F7-4DB3-AF8A-9469D2353565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10585AEF-92F7-4DB3-AF8A-9469D2353565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10585AEF-92F7-4DB3-AF8A-9469D2353565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99A427B7-FFE1-43F6-85EB-E9EEA46867DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A427B7-FFE1-43F6-85EB-E9EEA46867DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A427B7-FFE1-43F6-85EB-E9EEA46867DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A427B7-FFE1-43F6-85EB-E9EEA46867DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B22EB3A4-38B2-4AF5-A299-EFDBEC0EB4FF}
+	EndGlobalSection
+EndGlobal
