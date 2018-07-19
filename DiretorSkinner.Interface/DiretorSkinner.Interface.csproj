@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="IDiretorSkinnerNegocio.cs" />
     <Compile Include="IPessoaNegocio.cs" />
+    <Compile Include="ISalaDeAulaNegocio.cs" />
     <Compile Include="ITurmaNegocio.cs" />
     <Compile Include="ITipoPessoaNegocio.cs" />
     <Compile Include="ITipoDisciplinaNegocio.cs" />

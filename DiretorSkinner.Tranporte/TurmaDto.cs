@@ -1,10 +1,33 @@
-﻿namespace DiretorSkinner.Tranporte
+﻿using System;
+using System.Collections.Generic;
+
+namespace DiretorSkinner.Tranporte
 {
     public class TurmaDto : RootDto
     {
-        public string Semestre { get; set; }
-        public int PessoaId { get; set; }
-        public int DisciplinaId { get; set; }
-        public int ConceitoId { get; set; }
+        public TurmaDto()
+        {
+            this.SalasDeAula = new List<SalaDeAulaDto>();
+        }
+
+        public int Id { get; set; }
+        public string Codigo { get; set; }
+        public DateTime DataIngresso { get; set; }
+        public string DataIngressoValor
+        {
+            get
+            {
+                if (this.DataIngresso != null)
+                {
+                    return this.DataIngresso.ToShortDateString();
+                }
+                else
+                {
+                    return DateTime.Now.ToShortDateString();
+                }
+            }
+        }
+        public List<SalaDeAulaDto> SalasDeAula { get; set; }
+
     }
 }

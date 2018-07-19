@@ -48,6 +48,7 @@
     <Compile Include="PessoaDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RootDto.cs" />
+    <Compile Include="SalaDeAulaDto.cs" />
     <Compile Include="TipoDisciplinaDto.cs" />
     <Compile Include="TipoPessoaDto.cs" />
     <Compile Include="TurmaDto.cs" />

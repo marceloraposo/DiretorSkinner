@@ -1,4 +1,5 @@
 ﻿using DiretorSkinner.Tranporte;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
@@ -21,48 +22,6 @@ namespace DiretorSkinner.Inicio
             set { listaTurmas = value; OnPropertyChanged("ListaTurmas"); }
         }
 
-        private ObservableCollection<PessoaDto> listaPessoa;
-        public ObservableCollection<PessoaDto> ListaPessoa
-        {
-            get { return listaPessoa; }
-            set { listaPessoa = value; }
-        }
-
-        private ObservableCollection<DisciplinaDto> listaDisciplina;
-        public ObservableCollection<DisciplinaDto> ListaDisciplina
-        {
-            get { return listaDisciplina; }
-            set { listaDisciplina = value; }
-        }
-
-        private ObservableCollection<ConceitoDto> listaConceito;
-        public ObservableCollection<ConceitoDto> ListaConceito
-        {
-            get { return listaConceito; }
-            set { listaConceito = value; }
-        }
-
-        private int? pessoaId;
-        public int? PessoaId
-        {
-            get { return pessoaId; }
-            set { pessoaId = value; }
-        }
-
-        private int? conceitoId;
-        public int? ConceitoId
-        {
-            get { return conceitoId; }
-            set { conceitoId = value; }
-        }
-
-        private int? disciplinaId;
-        public int? DisciplinaId
-        {
-            get { return disciplinaId; }
-            set { disciplinaId = value; }
-        }
-
         public Turma()
         {
             InitializeComponent();
@@ -74,42 +33,13 @@ namespace DiretorSkinner.Inicio
 
         public void CarregarDados()
         {
-            CarregarTurmas(PessoaId,DisciplinaId,ConceitoId);
-            CarregarPessoa();
-            CarregarDisciplina();
-            CarregarConceito();
+            CarregarTurmas();
         }
 
-        public void CarregarTurmas(int? pessoaId, int? disciplinaId, int? conceitoId)
+        public void CarregarTurmas()
         {
             //colocar regras para visualizações
-            //this.ListaTurmas = new ObservableCollection<TurmaDto>(App.Server.ListarTurmas());
-            if (pessoaId.HasValue || disciplinaId.HasValue || conceitoId.HasValue)
-            {
-                this.ListaTurmas = new ObservableCollection<TurmaDto>(App.Server.ListarTurma(conceitoId.HasValue ? new ConceitoDto() { Id = conceitoId.Value } : null, disciplinaId.HasValue ? new DisciplinaDto() { Id = disciplinaId.Value } : null, pessoaId.HasValue ? new PessoaDto() { Id = pessoaId.Value } : null));
-            }
-            else
-            {
-                this.ListaTurmas = new ObservableCollection<TurmaDto>();
-            }
-        }
-
-        public void CarregarPessoa()
-        {
-            //colocar regras para visualizações
-            this.ListaPessoa = new ObservableCollection<PessoaDto>(App.Server.ListarPessoas());
-        }
-
-        public void CarregarDisciplina()
-        {
-            //colocar regras para visualizações
-            this.ListaDisciplina = new ObservableCollection<DisciplinaDto>(App.Server.ListarDisciplinas());
-        }
-
-        public void CarregarConceito()
-        {
-            //colocar regras para visualizações
-            this.ListaConceito = new ObservableCollection<ConceitoDto>(App.Server.ListarConceitos());
+            this.ListaTurmas = new ObservableCollection<TurmaDto>(App.Server.ListarTurmas());
         }
 
         private void dgTurma_RowEditEnding(object sender, Microsoft.Windows.Controls.DataGridRowEditEndingEventArgs e)
@@ -147,11 +77,11 @@ namespace DiretorSkinner.Inicio
         {
             if (turmaDto != null)
             {
-                var confirmaInserir = MessageBox.Show(string.Format("Confirma salvar {0} ?", turmaDto.Semestre), "Confirmação", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var confirmaInserir = MessageBox.Show(string.Format("Confirma salvar {0} ?", turmaDto.Codigo), "Confirmação", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (confirmaInserir == MessageBoxResult.Yes)
                 {
                     App.Server.SalvarTurma(turmaDto);
-                    MessageBox.Show(string.Format("{0} alterado.", turmaDto.Semestre), "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(string.Format("{0} alterado.", turmaDto.Codigo), "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                     this.CarregarDados();
                 }
                 else
@@ -159,9 +89,14 @@ namespace DiretorSkinner.Inicio
             }
         }
 
-        private void btnPesquisa_Click(object sender, RoutedEventArgs e)
+        private void DatePicker_Loaded(object sender, RoutedEventArgs e)
         {
-            this.CarregarTurmas(PessoaId,DisciplinaId,ConceitoId);
+            var _dpEffDate = sender as DatePicker;
+
+            _dpEffDate.DisplayDateEnd = DateTime.Now;
+            _dpEffDate.DisplayDateStart = DateTime.Now.AddDays(-30);
+            _dpEffDate.DisplayDate = DateTime.Now;
+
         }
 
         protected void OnPropertyChanged(string name)
@@ -171,6 +106,27 @@ namespace DiretorSkinner.Inicio
             {
                 handler(this, new PropertyChangedEventArgs(name));
             }
+        }
+
+        private void AbrirPopUp_Click(object sender, RoutedEventArgs e)
+        {
+            int turmaId = (int)((Button)sender).CommandParameter;
+            SalaDeAula salaDeAulaWindow = new SalaDeAula(turmaId);
+            //salaDeAulaWindow.TurmaId = turmaId;
+
+            Window window = new Window
+            {
+                Title = "Sala de Aula",
+                Content = salaDeAulaWindow,
+                SizeToContent = SizeToContent.WidthAndHeight,
+                ResizeMode = ResizeMode.CanResizeWithGrip,
+                WindowStyle = WindowStyle.SingleBorderWindow
+            };
+
+            window.ShowDialog();
+
+            //this.btnFechar.Content = string.Format("{0}: {1}","Fechar", turmaId);
+            //popUpServer.IsOpen = true;
         }
     }
 }

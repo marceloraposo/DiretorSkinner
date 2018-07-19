@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DiretorSkinnerNegocio.cs" />
+    <Compile Include="Entidades\SalaDeAula.cs" />
+    <Compile Include="SalaDeAulaNegocio.cs" />
     <Compile Include="TurmaNegocio.cs" />
     <Compile Include="TipoPessoaNegocio.cs" />
     <Compile Include="TipoDisciplinaNegocio.cs" />

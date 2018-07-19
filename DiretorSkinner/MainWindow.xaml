@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:DiretorSkinner"
         mc:Ignorable="d"  SnapsToDevicePixels="True"
         UseLayoutRounding="True" ResizeMode="CanMinimize"
-        Title="Veja Como Fazem" Height="365" Width="565" Background="#FFAAAAAA">
+        Title="Gerenciamento Acadêmico" Height="365" Width="565" Background="#FFAAAAAA">
     <Grid>
         <StackPanel>
             <Grid Margin="0">

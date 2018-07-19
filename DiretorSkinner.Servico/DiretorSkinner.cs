@@ -152,29 +152,49 @@ namespace DiretorSkinner.Servico
             negocio.DeletarTipoPessoa(tipoPessoa);
         }
 
+        public List<SalaDeAulaDto> ListarSalasDeAula()
+        {
+            return negocio.ListarSalasDeAula();
+        }
+
+        public List<SalaDeAulaDto> ListarSalaDeAulaPorPessoa(PessoaDto pessoa)
+        {
+            return negocio.ListarSalaDeAulaPorPessoa(pessoa);
+        }
+
+        public List<SalaDeAulaDto> ListarSalaDeAulaPorDisciplina(DisciplinaDto disciplina)
+        {
+            return negocio.ListarSalaDeAulaPorDisciplina(disciplina);
+        }
+
+        public List<SalaDeAulaDto> ListarSalaDeAulaPorConceito(ConceitoDto conceito)
+        {
+            return negocio.ListarSalaDeAulaPorConceito(conceito);
+        }
+
+        public List<SalaDeAulaDto> ListarSalaDeAulaPorTurma(TurmaDto turma)
+        {
+            return negocio.ListarSalaDeAulaPorTurma(turma);
+        }
+
+        public List<SalaDeAulaDto> ListarSalaDeAula(ConceitoDto conceito, DisciplinaDto disciplina, PessoaDto pessoa, TurmaDto turma)
+        {
+            return negocio.ListarSalaDeAula(conceito, disciplina, pessoa, turma);
+        }
+
+        public void SalvarSalaDeAula(SalaDeAulaDto turma)
+        {
+            negocio.SalvarSalaDeAula(turma);
+        }
+
+        public void DeletarSalaDeAula(SalaDeAulaDto turma)
+        {
+            negocio.DeletarSalaDeAula(turma);
+        }
+
         public List<TurmaDto> ListarTurmas()
         {
             return negocio.ListarTurmas();
-        }
-
-        public List<TurmaDto> ListarTurmaPorPessoa(PessoaDto pessoa)
-        {
-            return negocio.ListarTurmaPorPessoa(pessoa);
-        }
-
-        public List<TurmaDto> ListarTurmaPorDisciplina(DisciplinaDto disciplina)
-        {
-            return negocio.ListarTurmaPorDisciplina(disciplina);
-        }
-
-        public List<TurmaDto> ListarTurmaPorConceito(ConceitoDto conceito)
-        {
-            return negocio.ListarTurmaPorConceito(conceito);
-        }
-
-        public List<TurmaDto> ListarTurma(ConceitoDto conceito, DisciplinaDto disciplina, PessoaDto pessoa)
-        {
-            return negocio.ListarTurma(conceito, disciplina, pessoa);
         }
 
         public void SalvarTurma(TurmaDto turma)

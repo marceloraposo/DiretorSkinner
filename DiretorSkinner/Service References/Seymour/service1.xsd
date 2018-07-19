@@ -107,6 +107,115 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="ListarSalasDeAula">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarSalasDeAulaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarSalasDeAulaResult" nillable="true" type="q10:ArrayOfSalaDeAulaDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarSalaDeAulaPorPessoa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="pessoa" nillable="true" type="q11:PessoaDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarSalaDeAulaPorPessoaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarSalaDeAulaPorPessoaResult" nillable="true" type="q12:ArrayOfSalaDeAulaDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarSalaDeAulaPorDisciplina">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="disciplina" nillable="true" type="q13:DisciplinaDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarSalaDeAulaPorDisciplinaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarSalaDeAulaPorDisciplinaResult" nillable="true" type="q14:ArrayOfSalaDeAulaDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarSalaDeAulaPorConceito">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="conceito" nillable="true" type="q15:ConceitoDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarSalaDeAulaPorConceitoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarSalaDeAulaPorConceitoResult" nillable="true" type="q16:ArrayOfSalaDeAulaDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarSalaDeAulaPorTurma">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="turma" nillable="true" type="q17:TurmaDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarSalaDeAulaPorTurmaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarSalaDeAulaPorTurmaResult" nillable="true" type="q18:ArrayOfSalaDeAulaDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarSalaDeAula">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="conceito" nillable="true" type="q19:ConceitoDto" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="disciplina" nillable="true" type="q20:DisciplinaDto" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="pessoa" nillable="true" type="q21:PessoaDto" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="turma" nillable="true" type="q22:TurmaDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarSalaDeAulaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarSalaDeAulaResult" nillable="true" type="q23:ArrayOfSalaDeAulaDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SalvarSalaDeAula">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="SalaDeAula" nillable="true" type="q24:SalaDeAulaDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SalvarSalaDeAulaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletarSalaDeAula">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="SalaDeAula" nillable="true" type="q25:SalaDeAulaDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletarSalaDeAulaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ListarTurmas">
     <xs:complexType>
       <xs:sequence />
@@ -115,72 +224,14 @@
   <xs:element name="ListarTurmasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarTurmasResult" nillable="true" type="q10:ArrayOfTurmaDto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarTurmaPorPessoa">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="pessoa" nillable="true" type="q11:PessoaDto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarTurmaPorPessoaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarTurmaPorPessoaResult" nillable="true" type="q12:ArrayOfTurmaDto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarTurmaPorDisciplina">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="disciplina" nillable="true" type="q13:DisciplinaDto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarTurmaPorDisciplinaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarTurmaPorDisciplinaResult" nillable="true" type="q14:ArrayOfTurmaDto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarTurmaPorConceito">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="conceito" nillable="true" type="q15:ConceitoDto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarTurmaPorConceitoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarTurmaPorConceitoResult" nillable="true" type="q16:ArrayOfTurmaDto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarTurma">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="conceito" nillable="true" type="q17:ConceitoDto" />
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="disciplina" nillable="true" type="q18:DisciplinaDto" />
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="pessoa" nillable="true" type="q19:PessoaDto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarTurmaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarTurmaResult" nillable="true" type="q20:ArrayOfTurmaDto" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarTurmasResult" nillable="true" type="q26:ArrayOfTurmaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SalvarTurma">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="turma" nillable="true" type="q21:TurmaDto" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="turma" nillable="true" type="q27:TurmaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -192,7 +243,7 @@
   <xs:element name="DeletarTurma">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="turma" nillable="true" type="q22:TurmaDto" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="turma" nillable="true" type="q28:TurmaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -209,7 +260,7 @@
   <xs:element name="ListarTiposPessoaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarTiposPessoaResult" nillable="true" type="q23:ArrayOfTipoPessoaDto" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarTiposPessoaResult" nillable="true" type="q29:ArrayOfTipoPessoaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -223,28 +274,28 @@
   <xs:element name="ListarTipoPessoaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarTipoPessoaResult" nillable="true" type="q24:TipoPessoaDto" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarTipoPessoaResult" nillable="true" type="q30:TipoPessoaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ListarTipoPessoaPorPessoa">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="pessoa" nillable="true" type="q25:PessoaDto" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="pessoa" nillable="true" type="q31:PessoaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ListarTipoPessoaPorPessoaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarTipoPessoaPorPessoaResult" nillable="true" type="q26:ArrayOfTipoPessoaDto" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarTipoPessoaPorPessoaResult" nillable="true" type="q32:ArrayOfTipoPessoaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SalvarTipoPessoa">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="tipoPessoa" nillable="true" type="q27:TipoPessoaDto" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="tipoPessoa" nillable="true" type="q33:TipoPessoaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -256,7 +307,7 @@
   <xs:element name="DeletarTipoPessoa">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="tipoPessoa" nillable="true" type="q28:TipoPessoaDto" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="tipoPessoa" nillable="true" type="q34:TipoPessoaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -273,7 +324,7 @@
   <xs:element name="ListarTiposDisciplinaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarTiposDisciplinaResult" nillable="true" type="q29:ArrayOfTipoDisciplinaDto" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarTiposDisciplinaResult" nillable="true" type="q35:ArrayOfTipoDisciplinaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -287,14 +338,14 @@
   <xs:element name="ListarTipoDisciplinaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarTipoDisciplinaResult" nillable="true" type="q30:TipoDisciplinaDto" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarTipoDisciplinaResult" nillable="true" type="q36:TipoDisciplinaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SalvarTipoDisciplina">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="tipoDisciplina" nillable="true" type="q31:TipoDisciplinaDto" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="tipoDisciplina" nillable="true" type="q37:TipoDisciplinaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -306,7 +357,7 @@
   <xs:element name="DeletarTipoDisciplina">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="tipoDisciplina" nillable="true" type="q32:TipoDisciplinaDto" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="tipoDisciplina" nillable="true" type="q38:TipoDisciplinaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -323,21 +374,21 @@
   <xs:element name="ListarDisciplinasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarDisciplinasResult" nillable="true" type="q33:ArrayOfDisciplinaDto" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarDisciplinasResult" nillable="true" type="q39:ArrayOfDisciplinaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ListarDisciplinaPorTipo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="tipoDisciplina" nillable="true" type="q34:TipoDisciplinaDto" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="tipoDisciplina" nillable="true" type="q40:TipoDisciplinaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ListarDisciplinaPorTipoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarDisciplinaPorTipoResult" nillable="true" type="q35:ArrayOfDisciplinaDto" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarDisciplinaPorTipoResult" nillable="true" type="q41:ArrayOfDisciplinaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -351,14 +402,14 @@
   <xs:element name="ListarDisciplinaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarDisciplinaResult" nillable="true" type="q36:DisciplinaDto" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarDisciplinaResult" nillable="true" type="q42:DisciplinaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SalvarDisciplina">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="disciplina" nillable="true" type="q37:DisciplinaDto" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="disciplina" nillable="true" type="q43:DisciplinaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -370,7 +421,7 @@
   <xs:element name="DeletarDisciplina">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="disciplina" nillable="true" type="q38:DisciplinaDto" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="disciplina" nillable="true" type="q44:DisciplinaDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -387,7 +438,7 @@
   <xs:element name="ListarConceitosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarConceitosResult" nillable="true" type="q39:ArrayOfConceitoDto" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarConceitosResult" nillable="true" type="q45:ArrayOfConceitoDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -401,14 +452,14 @@
   <xs:element name="ListarConceitoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarConceitoResult" nillable="true" type="q40:ConceitoDto" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="ListarConceitoResult" nillable="true" type="q46:ConceitoDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SalvarConceito">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="conceito" nillable="true" type="q41:ConceitoDto" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="conceito" nillable="true" type="q47:ConceitoDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -420,7 +471,7 @@
   <xs:element name="DeletarConceito">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="conceito" nillable="true" type="q42:ConceitoDto" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" minOccurs="0" name="conceito" nillable="true" type="q48:ConceitoDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

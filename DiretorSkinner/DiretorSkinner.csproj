@@ -95,6 +95,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controle\FilteredComboBox.cs" />
+    <Compile Include="Inicio\SalaDeAula.xaml.cs">
+      <DependentUpon>SalaDeAula.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Inicio\Conceito .xaml.cs">
       <DependentUpon>Conceito .xaml</DependentUpon>
     </Compile>
@@ -112,6 +116,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Page Include="Inicio\SalaDeAula.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Inicio\Conceito .xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
