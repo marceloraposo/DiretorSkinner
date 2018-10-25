@@ -16,18 +16,19 @@ namespace DiretorSkinner.Negocio
         {
             List<SalaDeAulaDto> list = new List<SalaDeAulaDto>();
             SalaDeAula SalaDeAula;
-            SQLiteCommand cmd = new SQLiteCommand("select * from SalaDeAula");
+            SQLiteCommand cmd = new SQLiteCommand("select sda.Id,sda.semestre,sda.disciplinaId,sda.Nota,sda.pessoaId,sda.turmaId,p.Nome from SalaDeAula sda, Pessoa p where p.Id = sda.pessoaId");
             DataSet ds = Conexao.ExecutarDataSet(cmd);
             foreach (DataRow item in ds.Tables[0].Rows)
             {
                 SalaDeAula = new SalaDeAula();
+                SalaDeAula.Id = item.ToInteger("id");
                 SalaDeAula.Semestre = item.ToString("semestre");
                 SalaDeAula.Disciplina = new Disciplina();
                 SalaDeAula.Disciplina.Id = item.ToInteger("disciplinaId");
-                SalaDeAula.Conceito = new Conceito();
-                SalaDeAula.Conceito.Id = item.ToInteger("conceitoId");
+                SalaDeAula.Nota = item.ToDecimalOrNull("Nota");
                 SalaDeAula.Pessoa = new Pessoa();
                 SalaDeAula.Pessoa.Id = item.ToInteger("pessoaId");
+                SalaDeAula.Pessoa.Nome = item.ToString("Nome");
                 SalaDeAula.Turma = new Turma();
                 SalaDeAula.Turma.Id = item.ToInteger("turmaId");
                 list.Add(SalaDeAula.ToDto());
@@ -36,25 +37,53 @@ namespace DiretorSkinner.Negocio
             return list;
         }
 
+        public SalaDeAulaDto ListarSalaDeAula(int id)
+        {
+            List<SalaDeAulaDto> list = new List<SalaDeAulaDto>();
+            SalaDeAula SalaDeAula; SalaDeAulaDto SalaDeAulaDto = null;
+            List<SQLiteParameter> pars = new List<SQLiteParameter>();
+            SQLiteCommand cmd = new SQLiteCommand("select sda.Id,sda.semestre,sda.disciplinaId,sda.Nota,sda.pessoaId,sda.turmaId,p.Nome from SalaDeAula sda, Pessoa p where p.Id = sda.pessoaId and sda.Id = @Id");
+            pars.Add(new SQLiteParameter("id", id));
+            cmd.Parameters.AddRange(pars.ToArray());
+            DataSet ds = Conexao.ExecutarDataSet(cmd);
+            foreach (DataRow item in ds.Tables[0].Rows)
+            {
+                SalaDeAula = new SalaDeAula();
+                SalaDeAula.Id = item.ToInteger("id");
+                SalaDeAula.Semestre = item.ToString("semestre");
+                SalaDeAula.Disciplina = new Disciplina();
+                SalaDeAula.Disciplina.Id = item.ToInteger("disciplinaId");
+                SalaDeAula.Nota = item.ToDecimalOrNull("Nota");
+                SalaDeAula.Pessoa = new Pessoa();
+                SalaDeAula.Pessoa.Id = item.ToInteger("pessoaId");
+                SalaDeAula.Pessoa.Nome = item.ToString("Nome");
+                SalaDeAula.Turma = new Turma();
+                SalaDeAula.Turma.Id = item.ToInteger("turmaId");
+                SalaDeAulaDto = SalaDeAula.ToDto();
+            }
+            return SalaDeAulaDto;
+        }
+
         public List<SalaDeAulaDto> ListarSalaDeAulaPorTurma(TurmaDto turmaDto)
         {
             List<SalaDeAulaDto> list = new List<SalaDeAulaDto>();
             SalaDeAula SalaDeAula;
             List<SQLiteParameter> pars = new List<SQLiteParameter>();
-            SQLiteCommand cmd = new SQLiteCommand(string.Format("select * from SalaDeAula where turmaId = @turmaId"));
+            SQLiteCommand cmd = new SQLiteCommand(string.Format("select sda.Id,sda.semestre,sda.disciplinaId,sda.Nota,sda.pessoaId,sda.turmaId,p.Nome from SalaDeAula sda, Pessoa p where p.Id = sda.pessoaId and sda.turmaId = @turmaId"));
             pars.Add(new SQLiteParameter("turmaId", turmaDto.Id));
             cmd.Parameters.AddRange(pars.ToArray());
             DataSet ds = Conexao.ExecutarDataSet(cmd);
             foreach (DataRow item in ds.Tables[0].Rows)
             {
                 SalaDeAula = new SalaDeAula();
+                SalaDeAula.Id = item.ToInteger("id");
                 SalaDeAula.Semestre = item.ToString("semestre");
                 SalaDeAula.Disciplina = new Disciplina();
                 SalaDeAula.Disciplina.Id = item.ToInteger("disciplinaId");
-                SalaDeAula.Conceito = new Conceito();
-                SalaDeAula.Conceito.Id = item.ToInteger("conceitoId");
+                SalaDeAula.Nota = item.ToDecimalOrNull("Nota");
                 SalaDeAula.Pessoa = new Pessoa();
                 SalaDeAula.Pessoa.Id = item.ToInteger("pessoaId");
+                SalaDeAula.Pessoa.Nome = item.ToString("Nome");
                 SalaDeAula.Turma = new Turma();
                 SalaDeAula.Turma.Id = item.ToInteger("turmaId");
                 list.Add(SalaDeAula.ToDto());
@@ -68,20 +97,21 @@ namespace DiretorSkinner.Negocio
             List<SalaDeAulaDto> list = new List<SalaDeAulaDto>();
             SalaDeAula SalaDeAula;
             List<SQLiteParameter> pars = new List<SQLiteParameter>();
-            SQLiteCommand cmd = new SQLiteCommand(string.Format("select * from SalaDeAula where disciplinaId = @disciplinaId"));
+            SQLiteCommand cmd = new SQLiteCommand(string.Format("select sda.Id,sda.semestre,sda.disciplinaId,sda.Nota,sda.pessoaId,sda.turmaId,p.Nome from SalaDeAula sda, Pessoa p where p.Id = sda.pessoaId and sda.disciplinaId = @disciplinaId"));
             pars.Add(new SQLiteParameter("disciplinaId", disciplinaDto.Id));
             cmd.Parameters.AddRange(pars.ToArray());
             DataSet ds = Conexao.ExecutarDataSet(cmd);
             foreach (DataRow item in ds.Tables[0].Rows)
             {
                 SalaDeAula = new SalaDeAula();
+                SalaDeAula.Id = item.ToInteger("id");
                 SalaDeAula.Semestre = item.ToString("semestre");
                 SalaDeAula.Disciplina = new Disciplina();
                 SalaDeAula.Disciplina.Id = item.ToInteger("disciplinaId");
-                SalaDeAula.Conceito = new Conceito();
-                SalaDeAula.Conceito.Id = item.ToInteger("conceitoId");
+                SalaDeAula.Nota = item.ToDecimalOrNull("Nota");
                 SalaDeAula.Pessoa = new Pessoa();
                 SalaDeAula.Pessoa.Id = item.ToInteger("pessoaId");
+                SalaDeAula.Pessoa.Nome = item.ToString("Nome");
                 SalaDeAula.Turma = new Turma();
                 SalaDeAula.Turma.Id = item.ToInteger("turmaId");
                 list.Add(SalaDeAula.ToDto());
@@ -95,20 +125,21 @@ namespace DiretorSkinner.Negocio
             List<SalaDeAulaDto> list = new List<SalaDeAulaDto>();
             SalaDeAula SalaDeAula;
             List<SQLiteParameter> pars = new List<SQLiteParameter>();
-            SQLiteCommand cmd = new SQLiteCommand(string.Format("select * from SalaDeAula where conceitoId = @conceitoId"));
+            SQLiteCommand cmd = new SQLiteCommand(string.Format("select sda.Id,sda.semestre,sda.disciplinaId,sda.Nota,sda.pessoaId,sda.turmaId,p.Nome from SalaDeAula sda, Pessoa p, Conceito c where p.Id = sda.pessoaId and sda.Nota >= c.Minimo and sda.Nota <= c.Maximo and c.Id =  @conceitoId"));
             pars.Add(new SQLiteParameter("conceitoId", conceitoDto.Id));
             cmd.Parameters.AddRange(pars.ToArray());
             DataSet ds = Conexao.ExecutarDataSet(cmd);
             foreach (DataRow item in ds.Tables[0].Rows)
             {
                 SalaDeAula = new SalaDeAula();
+                SalaDeAula.Id = item.ToInteger("id");
                 SalaDeAula.Semestre = item.ToString("semestre");
                 SalaDeAula.Disciplina = new Disciplina();
                 SalaDeAula.Disciplina.Id = item.ToInteger("disciplinaId");
-                SalaDeAula.Conceito = new Conceito();
-                SalaDeAula.Conceito.Id = item.ToInteger("conceitoId");
+                SalaDeAula.Nota = item.ToDecimalOrNull("Nota");
                 SalaDeAula.Pessoa = new Pessoa();
                 SalaDeAula.Pessoa.Id = item.ToInteger("pessoaId");
+                SalaDeAula.Pessoa.Nome = item.ToString("Nome");
                 SalaDeAula.Turma = new Turma();
                 SalaDeAula.Turma.Id = item.ToInteger("turmaId");
                 list.Add(SalaDeAula.ToDto());
@@ -122,20 +153,21 @@ namespace DiretorSkinner.Negocio
             List<SalaDeAulaDto> list = new List<SalaDeAulaDto>();
             SalaDeAula SalaDeAula;
             List<SQLiteParameter> pars = new List<SQLiteParameter>();
-            SQLiteCommand cmd = new SQLiteCommand(string.Format("select * from SalaDeAula where pessoaId = @pessoaId"));
+            SQLiteCommand cmd = new SQLiteCommand(string.Format("select sda.Id,sda.semestre,sda.disciplinaId,sda.Nota,sda.pessoaId,sda.turmaId,p.Nome from SalaDeAula sda, Pessoa p where p.Id = sda.pessoaId and sda.pessoaId = @pessoaId"));
             pars.Add(new SQLiteParameter("pessoaId", pessoaDto.Id));
             cmd.Parameters.AddRange(pars.ToArray());
             DataSet ds = Conexao.ExecutarDataSet(cmd);
             foreach (DataRow item in ds.Tables[0].Rows)
             {
                 SalaDeAula = new SalaDeAula();
+                SalaDeAula.Id = item.ToInteger("id");
                 SalaDeAula.Semestre = item.ToString("semestre");
                 SalaDeAula.Disciplina = new Disciplina();
                 SalaDeAula.Disciplina.Id = item.ToInteger("disciplinaId");
-                SalaDeAula.Conceito = new Conceito();
-                SalaDeAula.Conceito.Id = item.ToInteger("conceitoId");
+                SalaDeAula.Nota = item.ToDecimalOrNull("Nota");
                 SalaDeAula.Pessoa = new Pessoa();
                 SalaDeAula.Pessoa.Id = item.ToInteger("pessoaId");
+                SalaDeAula.Pessoa.Nome = item.ToString("Nome");
                 SalaDeAula.Turma = new Turma();
                 SalaDeAula.Turma.Id = item.ToInteger("turmaId");
                 list.Add(SalaDeAula.ToDto());
@@ -144,12 +176,12 @@ namespace DiretorSkinner.Negocio
             return list;
         }
 
-        public List<SalaDeAulaDto> ListarSalaDeAula(ConceitoDto conceito, DisciplinaDto disciplina, PessoaDto pessoa, TurmaDto turma)
+        public List<SalaDeAulaDto> ListarSalaDeAulaPorFiltros(ConceitoDto conceito, DisciplinaDto disciplina, PessoaDto pessoa, TurmaDto turma)
         {
             List<SalaDeAulaDto> list = new List<SalaDeAulaDto>();
             SalaDeAula SalaDeAula;
             List<SQLiteParameter> pars = new List<SQLiteParameter>();
-            SQLiteCommand cmd = new SQLiteCommand(string.Format("select * from SalaDeAula where turmaId = ifnull(@turmaId,turmaId) and pessoaId = ifnull(@pessoaId,pessoaId) and disciplinaId = ifnull(@disciplinaId,disciplinaId) and (ifnull(conceitoId,conceitoId) = ifnull(@conceitoId,conceitoId) OR ifnull(conceitoId,0) = ifnull(@conceitoId,0))"));
+            SQLiteCommand cmd = new SQLiteCommand(string.Format("select sda.Id,sda.semestre,sda.disciplinaId,sda.Nota,sda.pessoaId,sda.turmaId,p.Nome from SalaDeAula sda, Pessoa p, Conceito c where  p.Id = sda.pessoaId and sda.Nota >= c.Minimo and sda.Nota <= c.Maximo and sda.turmaId = ifnull(@turmaId,sda.turmaId) and sda.pessoaId = ifnull(@pessoaId,sda.pessoaId) and sda.disciplinaId = ifnull(@disciplinaId,sda.disciplinaId) and (ifnull(c.Id,c.Id) = ifnull(@conceitoId,c.Id) OR ifnull(c.Id,0) = ifnull(@conceitoId,0))"));
             if (pessoa == null)
                 pars.Add(new SQLiteParameter("pessoaId", DBNull.Value));
             else
@@ -176,13 +208,14 @@ namespace DiretorSkinner.Negocio
             foreach (DataRow item in ds.Tables[0].Rows)
             {
                 SalaDeAula = new SalaDeAula();
+                SalaDeAula.Id = item.ToInteger("id");
                 SalaDeAula.Semestre = item.ToString("Semestre");
                 SalaDeAula.Disciplina = new Disciplina();
                 SalaDeAula.Disciplina.Id = item.ToInteger("disciplinaId");
-                SalaDeAula.Conceito = new Conceito();
-                SalaDeAula.Conceito.Id = item.ToInteger("conceitoId");
+                SalaDeAula.Nota = item.ToDecimalOrNull("Nota");
                 SalaDeAula.Pessoa = new Pessoa();
                 SalaDeAula.Pessoa.Id = item.ToInteger("pessoaId");
+                SalaDeAula.Pessoa.Nome = item.ToString("Nome");
                 SalaDeAula.Turma = new Turma();
                 SalaDeAula.Turma.Id = item.ToInteger("turmaId");
                 list.Add(SalaDeAula.ToDto());
@@ -193,15 +226,29 @@ namespace DiretorSkinner.Negocio
 
         public void SalvarSalaDeAula(SalaDeAulaDto SalaDeAula)
         {
-            DeletarSalaDeAula(SalaDeAula);
+            //DeletarSalaDeAula(SalaDeAula);
 
+            string comando = string.Empty;
             List<SQLiteParameter> pars = new List<SQLiteParameter>();
-            string comando = string.Format("insert into SalaDeAula (ConceitoId,PessoaId,DisciplinaId,Semestre,TurmaId) values (@conceitoId,@pessoaId,@disciplinaId,@semestre,@turmaId)");
-            pars.Add(new SQLiteParameter("conceitoId", SalaDeAula.ConceitoId));
-            pars.Add(new SQLiteParameter("pessoaId", SalaDeAula.PessoaId));
-            pars.Add(new SQLiteParameter("disciplinaId", SalaDeAula.DisciplinaId));
-            pars.Add(new SQLiteParameter("turmaId", SalaDeAula.TurmaId));
-            pars.Add(new SQLiteParameter("semestre", SalaDeAula.Semestre));
+            if (SalaDeAula.Id > 0)
+            {
+                comando = string.Format("update SalaDeAula set Nota = @Nota, PessoaId = @PessoaId, DisciplinaId = @DisciplinaId, Semestre = @Semestre where Id = @Id");
+                pars.Add(new SQLiteParameter("Nota", SalaDeAula.Nota));
+                pars.Add(new SQLiteParameter("pessoaId", SalaDeAula.PessoaId));
+                pars.Add(new SQLiteParameter("disciplinaId", SalaDeAula.DisciplinaId));
+                pars.Add(new SQLiteParameter("turmaId", SalaDeAula.TurmaId));
+                pars.Add(new SQLiteParameter("semestre", SalaDeAula.Semestre));
+                pars.Add(new SQLiteParameter("Id", SalaDeAula.Id));
+            }
+            else
+            {
+                comando = string.Format("insert into SalaDeAula (Nota,PessoaId,DisciplinaId,Semestre,TurmaId) values (@Nota,@pessoaId,@disciplinaId,@semestre,@turmaId)");
+                pars.Add(new SQLiteParameter("Nota", SalaDeAula.Nota));
+                pars.Add(new SQLiteParameter("pessoaId", SalaDeAula.PessoaId));
+                pars.Add(new SQLiteParameter("disciplinaId", SalaDeAula.DisciplinaId));
+                pars.Add(new SQLiteParameter("turmaId", SalaDeAula.TurmaId));
+                pars.Add(new SQLiteParameter("semestre", SalaDeAula.Semestre));
+            }
 
             SQLiteCommand cmd = new SQLiteCommand(comando);
             cmd.Parameters.AddRange(pars.ToArray());
@@ -211,12 +258,13 @@ namespace DiretorSkinner.Negocio
         public void DeletarSalaDeAula(SalaDeAulaDto SalaDeAula)
         {
             List<SQLiteParameter> pars = new List<SQLiteParameter>();
-            SQLiteCommand cmd = new SQLiteCommand(string.Format("delete from SalaDeAula where conceitoId = @conceitoId and pessoaId = @pessoaId and disciplinaId = @disciplinaId and semestre = @semestre"));
-            pars.Add(new SQLiteParameter("conceitoId", SalaDeAula.ConceitoId));
-            pars.Add(new SQLiteParameter("pessoaId", SalaDeAula.PessoaId));
-            pars.Add(new SQLiteParameter("disciplinaId", SalaDeAula.DisciplinaId));
-            pars.Add(new SQLiteParameter("semestre", SalaDeAula.Semestre));
-            pars.Add(new SQLiteParameter("turmaId", SalaDeAula.TurmaId));
+            SQLiteCommand cmd = new SQLiteCommand(string.Format("delete from SalaDeAula where Id = @Id"));
+            //pars.Add(new SQLiteParameter("conceitoId", SalaDeAula.ConceitoId));
+            //pars.Add(new SQLiteParameter("pessoaId", SalaDeAula.PessoaId));
+            //pars.Add(new SQLiteParameter("disciplinaId", SalaDeAula.DisciplinaId));
+            //pars.Add(new SQLiteParameter("semestre", SalaDeAula.Semestre));
+            //pars.Add(new SQLiteParameter("turmaId", SalaDeAula.TurmaId));
+            pars.Add(new SQLiteParameter("Id", SalaDeAula.Id));
             cmd.Parameters.AddRange(pars.ToArray());
             int retorno = Conexao.ExecuteNonQuery(cmd);
         }

@@ -65,6 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\PessoaPorConceito.cs" />
+    <Compile Include="PessoaPorConceitoNegocio.cs" />
+    <Compile Include="ProcessamentoNegocio.cs" />
     <Compile Include="DiretorSkinnerNegocio.cs" />
     <Compile Include="Entidades\SalaDeAula.cs" />
     <Compile Include="SalaDeAulaNegocio.cs" />

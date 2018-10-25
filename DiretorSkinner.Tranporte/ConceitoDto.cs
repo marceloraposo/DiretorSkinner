@@ -18,5 +18,11 @@ namespace DiretorSkinner.Tranporte
 
         [DataMember]
         public bool Aprovado { get; set; }
+
+        [DataMember]
+        public int Minimo { get; set; }
+
+        [DataMember]
+        public int Maximo { get; set; }
     }
 }

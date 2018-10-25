@@ -9,11 +9,25 @@ namespace DiretorSkinner.Negocio.Entidades
 {
     public class SalaDeAula
     {
+        private int id;
         private string semestre;
         private Pessoa pessoa;
         private Disciplina disciplina;
-        private Conceito conceito;
+        private decimal? nota;
         private Turma turma;
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
 
         public string Semestre
         {
@@ -51,16 +65,16 @@ namespace DiretorSkinner.Negocio.Entidades
                 disciplina = value;
             }
         }
-        public Conceito Conceito
+        public decimal? Nota
         {
             get
             {
-                return conceito;
+                return nota;
             }
 
             set
             {
-                conceito = value;
+                nota = value;
             }
         }
         public Turma Turma
@@ -80,13 +94,17 @@ namespace DiretorSkinner.Negocio.Entidades
         {
             SalaDeAulaDto dto = new SalaDeAulaDto();
 
+            dto.Id = this.Id;
             dto.Semestre = this.Semestre;
             if (this.Pessoa != null)
+            {
                 dto.PessoaId = this.Pessoa.Id;
+                dto.PessoaNome = this.Pessoa.Nome;
+            }
             if (this.Disciplina != null)
                 dto.DisciplinaId = this.Disciplina.Id;
-            if (this.Conceito != null)
-                dto.ConceitoId = this.Conceito.Id;
+            if (this.Nota != null)
+                dto.Nota = this.Nota;
             if (this.Turma != null)
                 dto.TurmaId = this.Turma.Id;
 
@@ -96,10 +114,11 @@ namespace DiretorSkinner.Negocio.Entidades
         public SalaDeAula FromDto(SalaDeAulaDto dto)
         {
             SalaDeAula salaDeAula = new SalaDeAula();
+            salaDeAula.Id = dto.Id;
             salaDeAula.Semestre = dto.Semestre;
             salaDeAula.Pessoa = new Pessoa() { Id = dto.PessoaId };
             salaDeAula.Disciplina = new Disciplina() { Id = dto.DisciplinaId };
-            salaDeAula.Conceito = new Conceito() { Id = dto.ConceitoId };
+            salaDeAula.Nota = dto.Nota;
             salaDeAula.Turma = new Turma() { Id = dto.TurmaId };
 
             return salaDeAula;

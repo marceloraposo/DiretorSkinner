@@ -25,6 +25,7 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="baa06788-62f8-4342-b0cb-d25608ee0398" SourceId="1" SourceUrl="net.tcp://localhost/DiretorSkinner/DiretorSkinner.Servico/DiretorSkinner/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="53e9b8e8-4aea-4e33-86ee-a976cb09f783" SourceId="1" SourceUrl="net.tcp://localhost/DiretorSkinner/DiretorSkinner.Servico/DiretorSkinner/mex" />
     <MetadataFile FileName="DiretorSkinner.Tranporte.xsd" MetadataType="Schema" ID="afe0e927-5e3c-41a7-b6d5-ab859a0027eb" SourceId="1" SourceUrl="net.tcp://localhost/DiretorSkinner/DiretorSkinner.Servico/DiretorSkinner/mex" />
+    <MetadataFile FileName="DiretorSkinner.Util.Acesso.xsd" MetadataType="Schema" ID="d23b4148-328c-4d8a-875d-8ef07fabd0cb" SourceId="1" SourceUrl="net.tcp://localhost/DiretorSkinner/DiretorSkinner.Servico/DiretorSkinner/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="ed155d6f-223a-4260-8a7d-a720c5fcfaad" SourceId="1" SourceUrl="net.tcp://localhost/DiretorSkinner/DiretorSkinner.Servico/DiretorSkinner/mex" />
   </Metadata>
   <Extensions>

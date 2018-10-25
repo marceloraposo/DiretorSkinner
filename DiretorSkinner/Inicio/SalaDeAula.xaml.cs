@@ -1,9 +1,13 @@
 ﻿using DiretorSkinner.Tranporte;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace DiretorSkinner.Inicio
@@ -113,7 +117,7 @@ namespace DiretorSkinner.Inicio
                 pessoaId = pessoaId.HasValue && pessoaId == 0 ? null : pessoaId;
                 disciplinaId = disciplinaId.HasValue && disciplinaId == 0 ? null : disciplinaId;
                 conceitoId = conceitoId.HasValue && conceitoId == 0 ? null : conceitoId;
-                this.ListaSalasDeAula = new ObservableCollection<SalaDeAulaDto>(App.Server.ListarSalaDeAula(conceitoId.HasValue ? new ConceitoDto() { Id = conceitoId.Value } : null, disciplinaId.HasValue ? new DisciplinaDto() { Id = disciplinaId.Value } : null, pessoaId.HasValue ? new PessoaDto() { Id = pessoaId.Value } : null, new TurmaDto() { Id = TurmaId } ));
+                this.ListaSalasDeAula = new ObservableCollection<SalaDeAulaDto>(App.Server.ListarSalaDeAulaPorFiltros(conceitoId.HasValue ? new ConceitoDto() { Id = conceitoId.Value } : null, disciplinaId.HasValue ? new DisciplinaDto() { Id = disciplinaId.Value } : null, pessoaId.HasValue ? new PessoaDto() { Id = pessoaId.Value } : null, new TurmaDto() { Id = TurmaId } ));
             }
             else
             {
@@ -181,12 +185,11 @@ namespace DiretorSkinner.Inicio
 
         private void SalvarSalaDeAula(SalaDeAulaDto SalaDeAulaDto)
         {
-                if (SalaDeAulaDto != null)
+            if (SalaDeAulaDto != null)
             {
-                var confirmaInserir = MessageBox.Show(string.Format("Confirma salvar {0} ?", SalaDeAulaDto.Semestre), "Confirmação", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var confirmaInserir = MessageBox.Show(string.Format("Confirma salvar {0} ?", SalaDeAulaDto.Id), "Confirmação", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (confirmaInserir == MessageBoxResult.Yes)
                 {
-                    App.Server.DeletarSalaDeAula(SalaDeAulaDto);
                     App.Server.SalvarSalaDeAula(SalaDeAulaDto);
                     MessageBox.Show(string.Format("{0} alterado.", SalaDeAulaDto.Semestre), "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                     this.CarregarDados();
@@ -224,9 +227,9 @@ namespace DiretorSkinner.Inicio
             var comboBox = (ComboBox)sender;
             string _filtro = string.Format("{0}{1}",comboBox.Text,e.Text);
 
-            if (string.IsNullOrEmpty(_filtro) || _filtro.Length <= 3)
+            if (string.IsNullOrEmpty(_filtro) || _filtro.Length <= 5)
             {
-                _filtro = string.Empty;
+                //_filtro = string.Empty;
                 return;
             }
 
@@ -234,6 +237,12 @@ namespace DiretorSkinner.Inicio
 
             comboBox.ItemsSource = this.ListaPessoa;
 
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

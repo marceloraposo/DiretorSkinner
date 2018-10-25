@@ -12,6 +12,9 @@ namespace DiretorSkinner.Interface
         List<SalaDeAulaDto> ListarSalasDeAula();
 
         [OperationContract]
+        SalaDeAulaDto ListarSalaDeAula(int id);
+
+        [OperationContract]
         List<SalaDeAulaDto> ListarSalaDeAulaPorPessoa(PessoaDto pessoa);
 
         [OperationContract]
@@ -24,7 +27,7 @@ namespace DiretorSkinner.Interface
         List<SalaDeAulaDto> ListarSalaDeAulaPorTurma(TurmaDto turma);
 
         [OperationContract]
-        List<SalaDeAulaDto> ListarSalaDeAula(ConceitoDto conceito, DisciplinaDto disciplina, PessoaDto pessoa, TurmaDto turma);
+        List<SalaDeAulaDto> ListarSalaDeAulaPorFiltros(ConceitoDto conceito, DisciplinaDto disciplina, PessoaDto pessoa, TurmaDto turma);
 
         [OperationContract]
         void SalvarSalaDeAula(SalaDeAulaDto SalaDeAula);

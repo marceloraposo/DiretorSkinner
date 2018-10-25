@@ -77,7 +77,7 @@ namespace DiretorSkinner.Util.Acesso
             try
             {
                 cmd.Connection = GetConnection();
-
+                cmd.CommandTimeout = 10000;
                 qtd = cmd.ExecuteNonQuery();
             }
             finally

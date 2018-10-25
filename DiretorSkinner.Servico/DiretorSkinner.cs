@@ -157,6 +157,11 @@ namespace DiretorSkinner.Servico
             return negocio.ListarSalasDeAula();
         }
 
+        public SalaDeAulaDto ListarSalaDeAula(int id)
+        {
+            return negocio.ListarSalaDeAula(id);
+        }
+
         public List<SalaDeAulaDto> ListarSalaDeAulaPorPessoa(PessoaDto pessoa)
         {
             return negocio.ListarSalaDeAulaPorPessoa(pessoa);
@@ -177,9 +182,9 @@ namespace DiretorSkinner.Servico
             return negocio.ListarSalaDeAulaPorTurma(turma);
         }
 
-        public List<SalaDeAulaDto> ListarSalaDeAula(ConceitoDto conceito, DisciplinaDto disciplina, PessoaDto pessoa, TurmaDto turma)
+        public List<SalaDeAulaDto> ListarSalaDeAulaPorFiltros(ConceitoDto conceito, DisciplinaDto disciplina, PessoaDto pessoa, TurmaDto turma)
         {
-            return negocio.ListarSalaDeAula(conceito, disciplina, pessoa, turma);
+            return negocio.ListarSalaDeAulaPorFiltros(conceito, disciplina, pessoa, turma);
         }
 
         public void SalvarSalaDeAula(SalaDeAulaDto turma)
@@ -205,6 +210,36 @@ namespace DiretorSkinner.Servico
         public void DeletarTurma(TurmaDto turma)
         {
             negocio.DeletarTurma(turma);
+        }
+
+        public ProcessamentoDto CargaInserirConceito(int tamanho)
+        {
+            return negocio.CargaInserirConceito(tamanho);
+        }
+
+        public ProcessamentoDto CargaAlterarConceito(int tamanho)
+        {
+            return negocio.CargaAlterarConceito(tamanho);
+        }
+
+        public ProcessamentoDto CargaExcluirConceito(int tamanho)
+        {
+            return negocio.CargaExcluirConceito(tamanho);
+        }
+
+        public ProcessamentoDto CargaSelecionarConceito(int tamanho)
+        {
+            return negocio.CargaSelecionarConceito(tamanho);
+        }
+
+        public List<PessoaPorConceitoDto> ListarPessoaPorTodosConceitos()
+        {
+            return negocio.ListarPessoaPorTodosConceitos();
+        }
+
+        public List<PessoaPorConceitoDto> ListarPessoaPorConceito(int id)
+        {
+            return negocio.ListarPessoaPorConceito(id);
         }
 
         public void Dispose()

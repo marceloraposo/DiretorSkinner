@@ -1,24 +1,23 @@
 ﻿using DiretorSkinner.Tranporte;
-using DiretorSkinner.Util.Acesso;
 using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace DiretorSkinner.Interface
 {
-    [ServiceKnownType(typeof(ConceitoDto))]
-    [ServiceKnownType(typeof(TipoAcesso))]
+    [ServiceKnownType(typeof(ProcessamentoDto))]
     public partial interface IDiretorSkinnerNegocio
     {
-        [OperationContract]
-        List<ConceitoDto> ListarConceitos();
 
         [OperationContract]
-        ConceitoDto ListarConceito(int id);
+        ProcessamentoDto CargaInserirConceito(int tamanho);
 
         [OperationContract]
-        void SalvarConceito(ConceitoDto conceito);
+        ProcessamentoDto CargaAlterarConceito(int tamanho);
 
         [OperationContract]
-        void DeletarConceito(ConceitoDto conceito);
+        ProcessamentoDto CargaExcluirConceito(int tamanho);
+
+        [OperationContract]
+        ProcessamentoDto CargaSelecionarConceito(int tamanho);
     }
 }

@@ -1,5 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DiretorSkinner.Tranporte" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="PessoaPorConceitoDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RootDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Conceito" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PessoaPorConceitoDto" nillable="true" type="tns:PessoaPorConceitoDto" />
+  <xs:complexType name="RootDto">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="RootDto" nillable="true" type="tns:RootDto" />
+  <xs:complexType name="ProcessamentoDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RootDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cpu" type="xs:long" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Memoria" type="xs:long" />
+          <xs:element minOccurs="0" name="Tamanho" type="xs:int" />
+          <xs:element minOccurs="0" name="Tempo" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessamentoDto" nillable="true" type="tns:ProcessamentoDto" />
   <xs:complexType name="PessoaDto">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:RootDto">
@@ -14,10 +44,6 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="PessoaDto" nillable="true" type="tns:PessoaDto" />
-  <xs:complexType name="RootDto">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:element name="RootDto" nillable="true" type="tns:RootDto" />
   <xs:complexType name="ArrayOfTipoPessoaDto">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoPessoaDto" nillable="true" type="tns:TipoPessoaDto" />
@@ -41,9 +67,11 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:RootDto">
         <xs:sequence>
-          <xs:element minOccurs="0" name="ConceitoId" type="xs:int" />
           <xs:element minOccurs="0" name="DisciplinaId" type="xs:int" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Nota" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="PessoaId" type="xs:int" />
+          <xs:element minOccurs="0" name="PessoaNome" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Semestre" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TurmaId" type="xs:int" />
         </xs:sequence>
@@ -102,12 +130,20 @@
           <xs:element minOccurs="0" name="Aprovado" type="xs:boolean" />
           <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Maximo" type="xs:int" />
+          <xs:element minOccurs="0" name="Minimo" type="xs:int" />
           <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="ConceitoDto" nillable="true" type="tns:ConceitoDto" />
+  <xs:complexType name="ArrayOfPessoaPorConceitoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PessoaPorConceitoDto" nillable="true" type="tns:PessoaPorConceitoDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPessoaPorConceitoDto" nillable="true" type="tns:ArrayOfPessoaPorConceitoDto" />
   <xs:complexType name="ArrayOfPessoaDto">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="PessoaDto" nillable="true" type="tns:PessoaDto" />

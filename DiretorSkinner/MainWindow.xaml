@@ -24,8 +24,8 @@
                             <MenuItem Header="_Pessoa" Name="menuItemPessoa" Click="MenuItemPessoa_Click" />
                             <MenuItem Header="_Disciplina" Name="menuItemDisciplina" Click="MenuItemDisciplina_Click" />
                             <Separator />                            
-                            <MenuItem Header="_TipoPessoa" Name="menuItemTipoPessoa" Click="MenuItemTipoPessoa_Click" />
-                            <MenuItem Header="_TipoDisciplina" Name="menuItemTipoDisciplina" Click="MenuItemTipoDisciplina_Click" />
+                            <MenuItem Header="_Tipo de Pessoa" Name="menuItemTipoPessoa" Click="MenuItemTipoPessoa_Click" />
+                            <MenuItem Header="_Tipo de Disciplina" Name="menuItemTipoDisciplina" Click="MenuItemTipoDisciplina_Click" />
                             <Separator />
                             <MenuItem Header="_Conceito" Name="menuItemConceito" Click="MenuItemConceito_Click" />
                             <MenuItem Header="_Turma" Name="menuItemTurma" Click="MenuItemTurma_Click" />
@@ -34,8 +34,17 @@
                             <MenuItem Header="_Sair" Click="MenuItemSair_Click" />
                         </MenuItem>
                         <MenuItem Header="_Relatorio" Name="menuItemRelatorios">
-
-                        </MenuItem>  
+                            <!--	Alefe Inicio	-->
+                            <MenuItem Header="_Pessoa por Conceito" Name="menuRelatPessoaPorConceito" Click="MenuRelatPessoaPorConceito_Click" />
+                            <Separator />
+                            <MenuItem Header="_Repetência de Disciplina por TipoPessoa" Name="menuRelatRepetenciaDeDisciplinaPorTipoPessoa" Click="MenuRelatRepetenciaDeDisciplinaPorTipoPessoa_Click" />
+                            <Separator />
+                            <MenuItem Header="_Qtde de Pessoa por Disciplina" Name="menuRelatQtdePessoaPorDisciplina" Click="MenuRelatQtdePessoaPorDisciplina_Click" />
+                            <!--	Alefe Fim	-->
+                        </MenuItem>
+                        <MenuItem Header="_Carga" Name="menuItemCargas">
+                            <MenuItem Header="_Conceito" Name="menuItemCargaConceito" Click="menuItemCargaConceito_Click" />
+                        </MenuItem>
                     </Menu>
                 </DockPanel>
                 <DockPanel Name="dockPanelTitulo" Grid.Row="1">

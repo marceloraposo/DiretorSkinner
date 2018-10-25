@@ -9,6 +9,8 @@ namespace DiretorSkinner.Negocio.Entidades
         private string codigo;
         private string nome;
         private bool aprovado;
+        private int minimo;
+        private int maximo;
 
         public int Id
         {
@@ -51,6 +53,23 @@ namespace DiretorSkinner.Negocio.Entidades
             get { return aprovado; }
             set { aprovado = value; }
         }
+        public int Minimo
+        {
+            get
+            {
+                return minimo;
+            }
+
+            set
+            {
+                minimo = value;
+            }
+        }
+        public int Maximo
+        {
+            get { return maximo; }
+            set { maximo = value; }
+        }
 
         public ConceitoDto ToDto()
         {
@@ -60,6 +79,8 @@ namespace DiretorSkinner.Negocio.Entidades
             dto.Nome = this.Nome;
             dto.Codigo = this.Codigo;
             dto.Aprovado = this.Aprovado;
+            dto.Minimo = this.Minimo;
+            dto.Maximo = this.Maximo;
 
             return dto;
         }
@@ -71,6 +92,8 @@ namespace DiretorSkinner.Negocio.Entidades
             conceito.Codigo = dto.Codigo;
             conceito.Nome = dto.Nome;
             conceito.Aprovado = dto.Aprovado;
+            conceito.Minimo = dto.Minimo;
+            conceito.Maximo = dto.Maximo;
 
             return conceito;
         }

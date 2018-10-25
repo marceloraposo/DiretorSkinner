@@ -11,4 +11,12 @@ namespace DiretorSkinner.Util.Acesso
         NoSql = 1,
         Sql = 2
     }
+
+    public enum TipoCarga
+    {
+        Incluir = 0,
+        Alterar = 1,
+        Excluir = 2,
+        Leitura = 3
+    }
 }

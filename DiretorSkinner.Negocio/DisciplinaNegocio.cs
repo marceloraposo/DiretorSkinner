@@ -60,7 +60,9 @@ namespace DiretorSkinner.Negocio
             SQLiteCommand cmd = new SQLiteCommand(string.Format("select * from disciplina where id = @id"));
             pars.Add(new SQLiteParameter("id", id));
             cmd.Parameters.AddRange(pars.ToArray());
+            //inicio
             DataSet ds = Conexao.ExecutarDataSet(cmd);
+            //fim
             foreach (DataRow item in ds.Tables[0].Rows)
             {
                 disciplina = new Disciplina();

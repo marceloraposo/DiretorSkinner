@@ -23,6 +23,20 @@
                             <dg:DataGridTextColumn Binding="{Binding Codigo, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="70" Header="Código"/>
                             <dg:DataGridTextColumn Binding="{Binding Nome, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="70" Header="Nome"/>
                             <dg:DataGridCheckBoxColumn Binding="{Binding Aprovado, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="70" Header="Aprovado"/>
+                            <dg:DataGridTextColumn Binding="{Binding Minimo, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="70" Header="Nota Mínima"/>
+                            <!--<dg:DataGridTemplateColumn Header="Nota Mínima">
+                                <dg:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox PreviewTextInput="NumberValidationTextBox" Text="{Binding Path=Minimo, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="70" />
+                                    </DataTemplate>
+                                </dg:DataGridTemplateColumn.CellTemplate>
+                                <dg:DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <TextBox PreviewTextInput="NumberValidationTextBox" Text="{Binding Path=Minimo, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="70" />
+                                    </DataTemplate>
+                                </dg:DataGridTemplateColumn.CellEditingTemplate>  
+                            </dg:DataGridTemplateColumn>-->
+                            <dg:DataGridTextColumn Binding="{Binding Maximo, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="70" Header="Nota Máxima"/>
                         </dg:DataGrid.Columns>
                     </dg:DataGrid>
                 </Grid>

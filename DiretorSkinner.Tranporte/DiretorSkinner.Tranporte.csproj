@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProcessamentoDto.cs" />
     <Compile Include="ConceitoDto.cs" />
     <Compile Include="DisciplinaDto.cs" />
+    <Compile Include="PessoaPorConceitoDto.cs" />
     <Compile Include="PessoaDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RootDto.cs" />

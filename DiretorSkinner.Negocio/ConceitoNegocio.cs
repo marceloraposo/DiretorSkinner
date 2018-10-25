@@ -5,6 +5,7 @@ using DiretorSkinner.Util.Acesso;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.Diagnostics;
 
 namespace DiretorSkinner.Negocio
 {
@@ -23,6 +24,8 @@ namespace DiretorSkinner.Negocio
                 conceito.Nome = item.ToString("Nome");
                 conceito.Codigo = item.ToString("codigo");
                 conceito.Aprovado = item.ToBoolean("aprovado");
+                conceito.Minimo = item.ToInteger("minimo");
+                conceito.Maximo = item.ToInteger("maximo");
                 list.Add(conceito.ToDto());
             }
 
@@ -44,6 +47,8 @@ namespace DiretorSkinner.Negocio
                 conceito.Nome = item.ToString("Nome");
                 conceito.Codigo = item.ToString("codigo");
                 conceito.Aprovado = item.ToBoolean("aprovado");
+                conceito.Minimo = item.ToInteger("minimo");
+                conceito.Maximo = item.ToInteger("maximo");
             }
 
             return conceito == null ? null : conceito.ToDto();
@@ -56,18 +61,22 @@ namespace DiretorSkinner.Negocio
 
             if (conceito.Id > 0)
             {
-                comando = string.Format("update conceito set Nome = @Nome, Codigo = @Codigo, Aprovado = @Aprovado where Id = @Id");
+                comando = string.Format("update conceito set Nome = @Nome, Codigo = @Codigo, Aprovado = @Aprovado, Minimo = @Minimo, Maximo = @Maximo where Id = @Id");
                 pars.Add(new SQLiteParameter("Nome", conceito.Nome));
                 pars.Add(new SQLiteParameter("Codigo", conceito.Codigo));
                 pars.Add(new SQLiteParameter("Aprovado", conceito.Aprovado));
+                pars.Add(new SQLiteParameter("Minimo", conceito.Minimo));
+                pars.Add(new SQLiteParameter("Maximo", conceito.Maximo));
                 pars.Add(new SQLiteParameter("Id", conceito.Id));
             }
             else
             {
-                comando = string.Format("insert into conceito (Nome,Codigo,Aprovado) values (@Nome,@Codigo,@Aprovado)");
+                comando = string.Format("insert into conceito (Nome,Codigo,Aprovado,Minimo,Maximo) values (@Nome,@Codigo,@Aprovado,@Minimo,@Maximo)");
                 pars.Add(new SQLiteParameter("Nome", conceito.Nome));
                 pars.Add(new SQLiteParameter("Codigo", conceito.Codigo));
                 pars.Add(new SQLiteParameter("Aprovado", conceito.Aprovado));
+                pars.Add(new SQLiteParameter("Minimo", conceito.Minimo));
+                pars.Add(new SQLiteParameter("Maximo", conceito.Maximo));
             }
             SQLiteCommand cmd = new SQLiteCommand(comando);
             cmd.Parameters.AddRange(pars.ToArray());
@@ -82,5 +91,6 @@ namespace DiretorSkinner.Negocio
             cmd.Parameters.AddRange(pars.ToArray());
             int retorno = Conexao.ExecuteNonQuery(cmd);
         }
+
     }
 }

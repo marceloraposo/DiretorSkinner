@@ -77,6 +77,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IPessoaPorConceitoNegocio.cs" />
+    <Compile Include="IProcessamentoNegocio.cs" />
     <Compile Include="IDiretorSkinnerNegocio.cs" />
     <Compile Include="IPessoaNegocio.cs" />
     <Compile Include="ISalaDeAulaNegocio.cs" />
@@ -91,6 +93,10 @@
     <ProjectReference Include="..\DiretorSkinner.Tranporte\DiretorSkinner.Tranporte.csproj">
       <Project>{24ec9744-9684-4bd1-b4a8-6208c32fcf1f}</Project>
       <Name>DiretorSkinner.Tranporte</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DiretorSkinner.Util\DiretorSkinner.Util.csproj">
+      <Project>{5FBF91E6-BF15-4652-9010-D9C2FD293C8B}</Project>
+      <Name>DiretorSkinner.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

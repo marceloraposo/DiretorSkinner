@@ -7,11 +7,7 @@
              xmlns:local="clr-namespace:DiretorSkinner.Inicio"
              xmlns:controle="clr-namespace:DiretorSkinner.Controle"
              mc:Ignorable="d" Height="Auto" Width="Auto">
-    <UserControl.Resources>
-        <ItemsPanelTemplate x:Key="ItemsTemplate">
-            <VirtualizingStackPanel/>
-        </ItemsPanelTemplate>        
-    </UserControl.Resources>
+ 
     <Grid>
         <ScrollViewer  HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
             <StackPanel>
@@ -50,9 +46,10 @@
                             <Button  Margin="5" Height="Auto" VerticalAlignment="Center" Grid.Column="3" Content="Pesquisar" Name="btnPesquisa" Click="btnPesquisa_Click" MinWidth="80" />
                         </Grid>
                     </GroupBox>
-                    <dg:DataGrid Grid.Row="1" Name="dgSalaDeAula" ItemsSource="{Binding ListaSalasDeAula,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewKeyDown="dgSalaDeAula_PreviewKeyDown" RowEditEnding="dgSalaDeAula_RowEditEnding" AutoGenerateColumns="False" CanUserAddRows="True" CanUserDeleteRows="True" CanUserSortColumns="True" >
+                    <dg:DataGrid Grid.Row="1" Name="dgSalaDeAula" ItemsSource="{Binding ListaSalasDeAula,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewKeyDown="dgSalaDeAula_PreviewKeyDown"  RowEditEnding="dgSalaDeAula_RowEditEnding" AutoGenerateColumns="False" CanUserAddRows="True" CanUserDeleteRows="True" CanUserSortColumns="True" >
                         <dg:DataGrid.Columns>
-                            <dg:DataGridTextColumn Binding="{Binding Semestre, NotifyOnTargetUpdated=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="50" Header="Semestre"/>
+                            <dg:DataGridTextColumn Binding="{Binding Id, NotifyOnTargetUpdated=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="50" Header="Id" IsReadOnly="True" />
+                            <dg:DataGridTextColumn Binding="{Binding Semestre, NotifyOnTargetUpdated=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="50" Header="Semestre"  />
                             <dg:DataGridComboBoxColumn Width="100" Header="Disciplina" SelectedValueBinding="{Binding DisciplinaId, NotifyOnTargetUpdated=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Nome" SelectedValuePath="Id" >
                                 <dg:DataGridComboBoxColumn.ElementStyle>
                                     <Style TargetType="{x:Type ComboBox}">
@@ -69,22 +66,7 @@
                                     </Style>
                                 </dg:DataGridComboBoxColumn.EditingElementStyle>
                             </dg:DataGridComboBoxColumn>
-                            <dg:DataGridComboBoxColumn Width="100" Header="Conceito" SelectedValueBinding="{Binding ConceitoId, NotifyOnTargetUpdated=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Nome" SelectedValuePath="Id" >
-                                <dg:DataGridComboBoxColumn.ElementStyle>
-                                    <Style TargetType="{x:Type ComboBox}">
-                                        <Setter Property="ItemsSource" Value="{Binding ListaConceito,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" />
-                                        <Setter Property="DisplayMemberPath" Value="{Binding Conceito.Nome,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" />
-                                        <Setter Property="SelectedValuePath" Value="{Binding Conceito.Id,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" />
-                                    </Style>
-                                </dg:DataGridComboBoxColumn.ElementStyle>
-                                <dg:DataGridComboBoxColumn.EditingElementStyle>
-                                    <Style TargetType="{x:Type ComboBox}">
-                                        <Setter Property="ItemsSource" Value="{Binding ListaConceito,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" />
-                                        <Setter Property="DisplayMemberPath" Value="{Binding Conceito.Nome,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" />
-                                        <Setter Property="SelectedValuePath" Value="{Binding Conceito.Id,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" />
-                                    </Style>
-                                </dg:DataGridComboBoxColumn.EditingElementStyle>
-                            </dg:DataGridComboBoxColumn>
+                            <dg:DataGridTextColumn Binding="{Binding Nota, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" Width="70" Header="Nota"/>
                             <dg:DataGridTemplateColumn Width="100" Header="Pessoa" x:Name="colPessoa">
                                 <dg:DataGridTemplateColumn.CellEditingTemplate>
                                     <DataTemplate>
@@ -98,7 +80,7 @@
                                 </dg:DataGridTemplateColumn.CellEditingTemplate>
                                 <dg:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Label x:Name="lblTexto" Content="{Binding PessoaId}" />
+                                        <Label x:Name="lblTexto" Content="{Binding PessoaNome}" />
                                         <!--<ComboBox x:Name="cmbGridPessoa" IsEditable="True" IsTextSearchCaseSensitive="False" IsTextSearchEnabled="False"
                                                 Height="Auto" VerticalAlignment="Center" MinWidth="100"  
                                                 DisplayMemberPath="Nome" SelectedValuePath="Id"
