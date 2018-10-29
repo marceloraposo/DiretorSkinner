@@ -5,8 +5,10 @@ namespace DiretorSkinner.Negocio.Entidades
     public class PessoaPorConceito
     {
         private int id;
+        private string codigo;
         private string nome;
-        private string conceito;
+        private Conceito conceito;
+        private decimal media;
 
         public int Id
         {
@@ -18,6 +20,18 @@ namespace DiretorSkinner.Negocio.Entidades
             set
             {
                 id = value;
+            }
+        }
+        public string Codigo
+        {
+            get
+            {
+                return codigo;
+            }
+
+            set
+            {
+                codigo = value;
             }
         }
         public string Nome
@@ -32,7 +46,7 @@ namespace DiretorSkinner.Negocio.Entidades
                 nome = value;
             }
         }
-        public string Conceito
+        public Conceito Conceito
         {
             get
             {
@@ -44,6 +58,18 @@ namespace DiretorSkinner.Negocio.Entidades
                 conceito = value;
             }
         }
+        public decimal Media
+        {
+            get
+            {
+                return media;
+            }
+
+            set
+            {
+                media = value;
+            }
+        }
 
         public PessoaPorConceitoDto ToDto()
         {
@@ -51,7 +77,13 @@ namespace DiretorSkinner.Negocio.Entidades
 
             dto.Id = this.Id;
             dto.Nome = this.Nome;
-            dto.Conceito = this.Conceito;
+            dto.Codigo = this.Codigo;
+            dto.Media = this.Media;
+            if (this.Conceito != null)
+            {
+                dto.ConceitoId = this.Conceito.Id;
+                dto.ConceitoNome = this.Conceito.Nome;
+            }
 
             return dto;
         }
@@ -60,8 +92,10 @@ namespace DiretorSkinner.Negocio.Entidades
         {
             PessoaPorConceito pessoaPorConceito = new PessoaPorConceito();
             pessoaPorConceito.Id = dto.Id;
+            pessoaPorConceito.Codigo = dto.Codigo;
+            pessoaPorConceito.Media = dto.Media;
             pessoaPorConceito.Nome = dto.Nome;
-            pessoaPorConceito.Conceito = dto.Conceito;
+            pessoaPorConceito.Conceito = new Conceito(){ Id = dto.ConceitoId, Nome = dto.Nome };
 
             return pessoaPorConceito;
         }

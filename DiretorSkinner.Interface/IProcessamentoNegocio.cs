@@ -19,5 +19,29 @@ namespace DiretorSkinner.Interface
 
         [OperationContract]
         ProcessamentoDto CargaSelecionarConceito(int tamanho);
+
+        [OperationContract]
+        ProcessamentoDto CargaInserirDisciplina(int tamanho);
+
+        [OperationContract]
+        ProcessamentoDto CargaAlterarDisciplina(int tamanho);
+
+        [OperationContract]
+        ProcessamentoDto CargaExcluirDisciplina(int tamanho);
+
+        [OperationContract]
+        ProcessamentoDto CargaSelecionarDisciplina(int tamanho);
+
+        [OperationContract]
+        ProcessamentoDto CargaInserirSalaDeAula(int tamanho);
+
+        [OperationContract]
+        ProcessamentoDto CargaAlterarSalaDeAula(int tamanho);
+
+        [OperationContract]
+        ProcessamentoDto CargaExcluirSalaDeAula(int tamanho);
+
+        [OperationContract]
+        ProcessamentoDto CargaSelecionarSalaDeAula(int tamanho);
     }
 }

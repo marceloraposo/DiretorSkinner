@@ -19,9 +19,10 @@
 					</Grid.RowDefinitions>
 					<dg:DataGrid Name="dgPessoaPorConceito" ItemsSource="{Binding ListaPessoaPorConceito}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserSortColumns="True" >
 						<dg:DataGrid.Columns>
-							<dg:DataGridTextColumn Binding="{Binding Id, NotifyOnTargetUpdated=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="50" Header="Id" IsReadOnly="True" />
-							<dg:DataGridTextColumn Binding="{Binding Nome, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="70" Header="Nome" IsReadOnly="True" />
-							<dg:DataGridTextColumn Binding="{Binding Conceito, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="70" Header="Conceito" IsReadOnly="True" />
+                            <dg:DataGridTextColumn Binding="{Binding Codigo, NotifyOnTargetUpdated=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" Header="Codigo" IsReadOnly="True" />
+							<dg:DataGridTextColumn Binding="{Binding Nome, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" Header="Nome" IsReadOnly="True" />
+                            <dg:DataGridTextColumn Binding="{Binding Media, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Header="Media" IsReadOnly="True" />
+                            <dg:DataGridTextColumn Binding="{Binding ConceitoNome, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Header="ConceitoNome" IsReadOnly="True" />
 						</dg:DataGrid.Columns>
 					</dg:DataGrid>
 				</Grid>

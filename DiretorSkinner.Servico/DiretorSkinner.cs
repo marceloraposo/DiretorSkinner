@@ -242,6 +242,46 @@ namespace DiretorSkinner.Servico
             return negocio.ListarPessoaPorConceito(id);
         }
 
+        public ProcessamentoDto CargaInserirDisciplina(int tamanho)
+        {
+            return negocio.CargaInserirDisciplina(tamanho);
+        }
+
+        public ProcessamentoDto CargaAlterarDisciplina(int tamanho)
+        {
+            return negocio.CargaAlterarDisciplina(tamanho);
+        }
+
+        public ProcessamentoDto CargaExcluirDisciplina(int tamanho)
+        {
+            return negocio.CargaExcluirDisciplina(tamanho);
+        }
+
+        public ProcessamentoDto CargaSelecionarDisciplina(int tamanho)
+        {
+            return negocio.CargaSelecionarDisciplina(tamanho);
+        }
+
+        public ProcessamentoDto CargaInserirSalaDeAula(int tamanho)
+        {
+            return negocio.CargaInserirSalaDeAula(tamanho);
+        }
+
+        public ProcessamentoDto CargaAlterarSalaDeAula(int tamanho)
+        {
+            return negocio.CargaAlterarSalaDeAula(tamanho);
+        }
+
+        public ProcessamentoDto CargaExcluirSalaDeAula(int tamanho)
+        {
+            return negocio.CargaExcluirSalaDeAula(tamanho);
+        }
+
+        public ProcessamentoDto CargaSelecionarSalaDeAula(int tamanho)
+        {
+            return negocio.CargaSelecionarSalaDeAula(tamanho);
+        }
+
         public void Dispose()
         {
             negocio = null;

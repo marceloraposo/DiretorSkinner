@@ -4,8 +4,11 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:RootDto">
         <xs:sequence>
-          <xs:element minOccurs="0" name="Conceito" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ConceitoId" type="xs:int" />
+          <xs:element minOccurs="0" name="ConceitoNome" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Media" type="xs:decimal" />
           <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>

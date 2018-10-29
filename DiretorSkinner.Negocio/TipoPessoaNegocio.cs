@@ -4,7 +4,7 @@ using DiretorSkinner.Tranporte;
 using DiretorSkinner.Util.Acesso;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SQLite;
+using System.Data.SqlClient;
 
 namespace DiretorSkinner.Negocio
 {
@@ -14,7 +14,7 @@ namespace DiretorSkinner.Negocio
         {
             List<TipoPessoaDto> list = new List<TipoPessoaDto>();
             TipoPessoa TipoPessoa;
-            SQLiteCommand cmd = new SQLiteCommand("select * from TipoPessoa");
+            SqlCommand cmd = new SqlCommand("select * from TipoPessoa");
             DataSet ds = Conexao.ExecutarDataSet(cmd);
             foreach (DataRow item in ds.Tables[0].Rows)
             {
@@ -31,9 +31,9 @@ namespace DiretorSkinner.Negocio
         public TipoPessoaDto ListarTipoPessoa(int id)
         {
             TipoPessoa tipoPessoa = null;
-            List<SQLiteParameter> pars = new List<SQLiteParameter>();
-            SQLiteCommand cmd = new SQLiteCommand(string.Format("select * from TipoPessoa where id = @id"));
-            pars.Add(new SQLiteParameter("id", id));
+            List<SqlParameter> pars = new List<SqlParameter>();
+            SqlCommand cmd = new SqlCommand(string.Format("select * from TipoPessoa where id = @id"));
+            pars.Add(new SqlParameter("id", id));
             cmd.Parameters.AddRange(pars.ToArray());
             DataSet ds = Conexao.ExecutarDataSet(cmd);
             foreach (DataRow item in ds.Tables[0].Rows)
@@ -51,9 +51,9 @@ namespace DiretorSkinner.Negocio
         {
             List<TipoPessoaDto> list = new List<TipoPessoaDto>();
             TipoPessoa TipoPessoa;
-            List<SQLiteParameter> pars = new List<SQLiteParameter>();
-            SQLiteCommand cmd = new SQLiteCommand(string.Format("select tp.Id,tp.nome,tp.codigo,count(ptp.pessoaId) as Selecionado from tipoPessoa tp left join pessoaTipoPessoa ptp on ptp.tipoPessoaId = tp.id and ptp.pessoaId = @pessoaId group by tp.Id, tp.nome, tp.codigo"));
-            pars.Add(new SQLiteParameter("pessoaId", pessoa.Id));
+            List<SqlParameter> pars = new List<SqlParameter>();
+            SqlCommand cmd = new SqlCommand(string.Format("select tp.Id,tp.nome,tp.codigo,count(ptp.pessoaId) as Selecionado from tipoPessoa tp left join pessoaTipoPessoa ptp on ptp.tipoPessoaId = tp.id and ptp.pessoaId = @pessoaId group by tp.Id, tp.nome, tp.codigo"));
+            pars.Add(new SqlParameter("pessoaId", pessoa.Id));
             cmd.Parameters.AddRange(pars.ToArray());
             DataSet ds = Conexao.ExecutarDataSet(cmd);
             foreach (DataRow item in ds.Tables[0].Rows)
@@ -72,31 +72,31 @@ namespace DiretorSkinner.Negocio
         public void SalvarTipoPessoa(TipoPessoaDto tipoPessoa)
         {
             string comando = string.Empty;
-            List<SQLiteParameter> pars = new List<SQLiteParameter>();
+            List<SqlParameter> pars = new List<SqlParameter>();
 
             if (tipoPessoa.Id > 0)
             {
                 comando = string.Format("update tipopessoa set Nome = @Nome, Codigo = @Codigo where Id = @Id");
-                pars.Add(new SQLiteParameter("Nome", tipoPessoa.Nome));
-                pars.Add(new SQLiteParameter("Codigo", tipoPessoa.Codigo));
-                pars.Add(new SQLiteParameter("Id", tipoPessoa.Id));
+                pars.Add(new SqlParameter("Nome", tipoPessoa.Nome));
+                pars.Add(new SqlParameter("Codigo", tipoPessoa.Codigo));
+                pars.Add(new SqlParameter("Id", tipoPessoa.Id));
             }
             else
             {
                 comando = string.Format("insert into tipopessoa (Nome,Codigo) values (@Nome,@Codigo)");
-                pars.Add(new SQLiteParameter("Nome", tipoPessoa.Nome));
-                pars.Add(new SQLiteParameter("Codigo", tipoPessoa.Codigo));
+                pars.Add(new SqlParameter("Nome", tipoPessoa.Nome));
+                pars.Add(new SqlParameter("Codigo", tipoPessoa.Codigo));
             }
-            SQLiteCommand cmd = new SQLiteCommand(comando);
+            SqlCommand cmd = new SqlCommand(comando);
             cmd.Parameters.AddRange(pars.ToArray());
             int retorno = Conexao.ExecuteNonQuery(cmd);
         }
 
         public void DeletarTipoPessoa(TipoPessoaDto tipoPessoa)
         {
-            List<SQLiteParameter> pars = new List<SQLiteParameter>();
-            SQLiteCommand cmd = new SQLiteCommand(string.Format("delete from tipopessoa where Id = @Id"));
-            pars.Add(new SQLiteParameter("Id", tipoPessoa.Id));
+            List<SqlParameter> pars = new List<SqlParameter>();
+            SqlCommand cmd = new SqlCommand(string.Format("delete from tipopessoa where Id = @Id"));
+            pars.Add(new SqlParameter("Id", tipoPessoa.Id));
             cmd.Parameters.AddRange(pars.ToArray());
             int retorno = Conexao.ExecuteNonQuery(cmd);
         }

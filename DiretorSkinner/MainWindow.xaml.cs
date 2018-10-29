@@ -129,7 +129,6 @@ namespace DiretorSkinner
             this.Close();
         }
 
-        //  Alefe Inicio    //
         private void MenuRelatPessoaPorConceito_Click(object sender, RoutedEventArgs e)
         {
             var pessoaPorConceitoUserControl = new PessoaPorConceito();
@@ -159,16 +158,35 @@ namespace DiretorSkinner
 
             textBlockTitulo.Text = "Qtde de Pessoa por Disciplina";
         }
-        //  Alefe Fim   //
 
         private void menuItemCargaConceito_Click(object sender, RoutedEventArgs e)
         {
-            var pessoaUserControl = new CargaConceito();
-            pessoaUserControl.SetValue(DockPanel.DockProperty, Dock.Top);
+            var conceitoUserControl = new CargaConceito();
+            conceitoUserControl.SetValue(DockPanel.DockProperty, Dock.Top);
             dockPanelCentral.Children.Clear();
-            dockPanelCentral.Children.Add(pessoaUserControl);
+            dockPanelCentral.Children.Add(conceitoUserControl);
 
-            textBlockTitulo.Text = "Carga do Conceito";
+            textBlockTitulo.Text = "Carga de Conceito";
+        }
+
+        private void menuItemCargaDisciplina_Click(object sender, RoutedEventArgs e)
+        {
+            var disciplinaUserControl = new CargaDisciplina();
+            disciplinaUserControl.SetValue(DockPanel.DockProperty, Dock.Top);
+            dockPanelCentral.Children.Clear();
+            dockPanelCentral.Children.Add(disciplinaUserControl);
+
+            textBlockTitulo.Text = "Carga de Disciplina";
+        }
+
+        private void menuItemCargaSalaDeAula_Click(object sender, RoutedEventArgs e)
+        {
+            var salaDeAulaUserControl = new CargaDisciplina();
+            salaDeAulaUserControl.SetValue(DockPanel.DockProperty, Dock.Top);
+            dockPanelCentral.Children.Clear();
+            dockPanelCentral.Children.Add(salaDeAulaUserControl);
+
+            textBlockTitulo.Text = "Carga de Sala De Aula";
         }
 
     }

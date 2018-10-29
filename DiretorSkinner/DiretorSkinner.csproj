@@ -95,6 +95,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Carga\CargaSalaDeAula.xaml.cs">
+      <DependentUpon>CargaSalaDeAula.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Carga\CargaDisciplina.xaml.cs">
+      <DependentUpon>CargaDisciplina.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Carga\CargaConceito.xaml.cs">
       <DependentUpon>CargaConceito.xaml</DependentUpon>
     </Compile>
@@ -124,6 +130,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Page Include="Carga\CargaSalaDeAula.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Carga\CargaDisciplina.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Carga\CargaConceito.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

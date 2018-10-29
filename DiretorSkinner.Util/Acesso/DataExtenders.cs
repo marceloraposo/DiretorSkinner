@@ -2,10 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DiretorSkinner.Util.Acesso
 {
@@ -13,21 +13,49 @@ namespace DiretorSkinner.Util.Acesso
     {
         #region Fields
 
-        private static Func<DataRow, bool> hasOracleErrorsFunc = row => Convert.ToInt32(row["ErrorNumber"]) != 0;
-        private static IFormatProvider oracleCulture = CultureInfo.GetCultureInfoByIetfLanguageTag("en-US");
+        private static Func<DataRow, bool> hasSqlErrorsFunc = row => Convert.ToInt32(row["ErrorNumber"]) != 0;
+        private static IFormatProvider SqlCulture = CultureInfo.GetCultureInfoByIetfLanguageTag("en-US");
 
         #endregion Fields
 
         #region Methods
 
-        public static bool HasOracleErrors(this DataTable tb)
+        private static object ReturnConvertValueType(object value, Type type, SqlDbType oraType)
+        {
+            object returnValue = value;
+            if (value != null)
+            {
+                //Verifica se é do tipo Enum e Pega o valor em inteiro
+                if (type.IsEnum)
+                {
+                    returnValue = EnumValueConverter.ToString(value);
+                }
+
+                //Verifica se o value não está vazio
+                if (!string.IsNullOrEmpty(value.ToString()))
+                    returnValue = ReturnValueType(returnValue, oraType);
+            }
+
+            return returnValue;
+        }
+
+        public static IEnumerable<T> GetEnumerator<T>(this IDataReader reader,
+            Func<IDataRecord, T> generator)
+        {
+            var sqlReader = reader as SqlDataReader;
+
+            while (reader.Read())
+                yield return generator(reader);
+        }
+
+        public static bool HasSqlErrors(this DataTable tb)
         {
             if (tb == null)
                 return true;
 
             bool hasErrors = false;
 
-            hasErrors = tb.Rows.Cast<DataRow>().Any(hasOracleErrorsFunc);
+            hasErrors = tb.Rows.Cast<DataRow>().Any(hasSqlErrorsFunc);
 
             return hasErrors;
         }
@@ -90,6 +118,13 @@ namespace DiretorSkinner.Util.Acesso
             return Convert.ToChar(ln[fieldName]);
         }
 
+        public static DateTime ToDateTime(this object obj)
+        {
+            SqlDateTime ts = (SqlDateTime)obj;
+
+            return ts.Value;
+        }
+
         public static DateTime ToDateTime(this DataRow ln, string fieldName)
         {
             if (ln.IsNull(fieldName))
@@ -134,7 +169,7 @@ namespace DiretorSkinner.Util.Acesso
             if (ln.IsNull(fieldName))
                 return 0.0m;
 
-            return Convert.ToDecimal(ln[fieldName], oracleCulture);
+            return Convert.ToDecimal(ln[fieldName], SqlCulture);
         }
 
         public static decimal ToDecimal(this IDataRecord ln, string fieldName)
@@ -142,7 +177,7 @@ namespace DiretorSkinner.Util.Acesso
             if (ln.IsNull(fieldName))
                 return 0.0m;
 
-            return Convert.ToDecimal(ln[fieldName], oracleCulture);
+            return Convert.ToDecimal(ln[fieldName], SqlCulture);
         }
 
         public static decimal? ToDecimalOrNull(this DataRow ln, string fieldName)
@@ -150,7 +185,7 @@ namespace DiretorSkinner.Util.Acesso
             if (ln.IsNull(fieldName))
                 return null;
 
-            return Convert.ToDecimal(ln[fieldName], oracleCulture);
+            return Convert.ToDecimal(ln[fieldName], SqlCulture);
         }
 
         public static decimal? ToDecimalOrNull(this IDataRecord ln, string fieldName)
@@ -158,7 +193,7 @@ namespace DiretorSkinner.Util.Acesso
             if (ln.IsNull(fieldName))
                 return null;
 
-            return Convert.ToDecimal(ln[fieldName], oracleCulture);
+            return Convert.ToDecimal(ln[fieldName], SqlCulture);
         }
 
         public static int ToInteger(this DataRow ln, string fieldName)
@@ -237,6 +272,13 @@ namespace DiretorSkinner.Util.Acesso
             return Convert.ToString(ln[fieldName]);
         }
 
+        public static DateTime ToTimeStamp(this object obj)
+        {
+            SqlDateTime ts = (SqlDateTime)obj;
+
+            return ts.Value;
+        }
+
         public static Type ToType(this DataRow ln, string fieldName)
         {
             return (Type)ln[fieldName];
@@ -262,6 +304,63 @@ namespace DiretorSkinner.Util.Acesso
             return ln.IsDBNull(ln.GetOrdinal(fieldName));
         }
 
+
+        /// <summary>
+        /// retorna o valor convertido para o tipo correspondente no .net para ser usado no método de salvar em lote AddArray
+        /// </summary>
+        /// <param name="value">Valor que será convertido</param>
+        /// <param name="oraType">Tipo do Sql</param>
+        /// <returns>retorna o valor convertido</returns>
+        private static object ReturnValueType(object value, SqlDbType oraType)
+        {
+            switch (oraType)
+            {
+                case SqlDbType.Bit:
+                    value = Convert.ToBoolean(value);
+                    break;
+                case SqlDbType.Char:
+                    value = Convert.ToString(value);
+                    break;
+                case SqlDbType.Text:
+                    break;
+                case SqlDbType.Date:
+                    value = Convert.ToDateTime(value);
+                    break;
+                case SqlDbType.Decimal:
+                    value = Convert.ToDecimal(value);
+                    break;
+                case SqlDbType.Real:
+                    value = Convert.ToDouble(value);
+                    break;
+                case SqlDbType.SmallInt:
+                    value = Convert.ToInt16(value);
+                    break;
+                case SqlDbType.Int:
+                    value = Convert.ToInt32(value);
+                    break;
+                case SqlDbType.BigInt:
+                    value = Convert.ToInt64(value);
+                    break;
+                case SqlDbType.TinyInt:
+                    value = Convert.ToInt16(value);
+                    break;
+                case SqlDbType.NChar:
+                    value = value as byte[];
+                    break;
+                case SqlDbType.Timestamp:
+                    value = Convert.ToDateTime(value).ToString("yyyy.MM.dd.HH:mm:ss.fff");
+                    break;
+                case SqlDbType.VarChar:
+                    value = Convert.ToString(value);
+                    break;
+                case SqlDbType.Xml:
+                    break;
+                default:
+                    break;
+            }
+
+            return value;
+        }
 
         #endregion Methods
     }

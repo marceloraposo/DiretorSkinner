@@ -4,7 +4,7 @@ using DiretorSkinner.Tranporte;
 using DiretorSkinner.Util.Acesso;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SQLite;
+using System.Data.SqlClient;
 
 namespace DiretorSkinner.Negocio
 {
@@ -14,7 +14,7 @@ namespace DiretorSkinner.Negocio
         {
             List<DisciplinaDto> list = new List<DisciplinaDto>();
             Disciplina disciplina;
-            SQLiteCommand cmd = new SQLiteCommand("select * from disciplina");
+            SqlCommand cmd = new SqlCommand("select * from disciplina");
             DataSet ds = Conexao.ExecutarDataSet(cmd);
             foreach (DataRow item in ds.Tables[0].Rows)
             {
@@ -34,9 +34,9 @@ namespace DiretorSkinner.Negocio
         {
             List<DisciplinaDto> list = new List<DisciplinaDto>();
             Disciplina disciplina;
-            List<SQLiteParameter> pars = new List<SQLiteParameter>();
-            SQLiteCommand cmd = new SQLiteCommand(string.Format("select * from disciplina where tipodisciplinaId = @tipodisciplinaId"));
-            pars.Add(new SQLiteParameter("tipodisciplinaId", tipoDisciplinaDto.Id));
+            List<SqlParameter> pars = new List<SqlParameter>();
+            SqlCommand cmd = new SqlCommand(string.Format("select * from disciplina where tipodisciplinaId = @tipodisciplinaId"));
+            pars.Add(new SqlParameter("tipodisciplinaId", tipoDisciplinaDto.Id));
             cmd.Parameters.AddRange(pars.ToArray());
             DataSet ds = Conexao.ExecutarDataSet(cmd);
             foreach (DataRow item in ds.Tables[0].Rows)
@@ -56,9 +56,9 @@ namespace DiretorSkinner.Negocio
         public DisciplinaDto ListarDisciplina(int id)
         {
             Disciplina disciplina = null;
-            List<SQLiteParameter> pars = new List<SQLiteParameter>();
-            SQLiteCommand cmd = new SQLiteCommand(string.Format("select * from disciplina where id = @id"));
-            pars.Add(new SQLiteParameter("id", id));
+            List<SqlParameter> pars = new List<SqlParameter>();
+            SqlCommand cmd = new SqlCommand(string.Format("select * from disciplina where id = @id"));
+            pars.Add(new SqlParameter("id", id));
             cmd.Parameters.AddRange(pars.ToArray());
             //inicio
             DataSet ds = Conexao.ExecutarDataSet(cmd);
@@ -79,33 +79,33 @@ namespace DiretorSkinner.Negocio
         public void SalvarDisciplina(DisciplinaDto disciplina)
         {
             string comando = string.Empty;
-            List<SQLiteParameter> pars = new List<SQLiteParameter>();
+            List<SqlParameter> pars = new List<SqlParameter>();
 
             if (disciplina.Id > 0)
             {
                 comando = string.Format("update disciplina set Nome = @Nome, Codigo = @Codigo,TipoDisciplinaId = @TipoDisciplinaId where Id = @Id");
-                pars.Add(new SQLiteParameter("Nome", disciplina.Nome));
-                pars.Add(new SQLiteParameter("Codigo", disciplina.Codigo));
-                pars.Add(new SQLiteParameter("TipoDisciplinaId", disciplina.TipoDisciplinaId));
-                pars.Add(new SQLiteParameter("Id", disciplina.Id));
+                pars.Add(new SqlParameter("Nome", disciplina.Nome));
+                pars.Add(new SqlParameter("Codigo", disciplina.Codigo));
+                pars.Add(new SqlParameter("TipoDisciplinaId", disciplina.TipoDisciplinaId));
+                pars.Add(new SqlParameter("Id", disciplina.Id));
             }
             else
             {
                 comando = string.Format("insert into disciplina (Nome,Codigo,TipoDisciplinaId) values (@Nome,@Codigo,@TipoDisciplinaId)");
-                pars.Add(new SQLiteParameter("Nome", disciplina.Nome));
-                pars.Add(new SQLiteParameter("Codigo", disciplina.Codigo));
-                pars.Add(new SQLiteParameter("TipoDisciplinaId", disciplina.TipoDisciplinaId));
+                pars.Add(new SqlParameter("Nome", disciplina.Nome));
+                pars.Add(new SqlParameter("Codigo", disciplina.Codigo));
+                pars.Add(new SqlParameter("TipoDisciplinaId", disciplina.TipoDisciplinaId));
             }
-            SQLiteCommand cmd = new SQLiteCommand(comando);
+            SqlCommand cmd = new SqlCommand(comando);
             cmd.Parameters.AddRange(pars.ToArray());
             int retorno = Conexao.ExecuteNonQuery(cmd);
         }
 
         public void DeletarDisciplina(DisciplinaDto disciplina)
         {
-            List<SQLiteParameter> pars = new List<SQLiteParameter>();
-            SQLiteCommand cmd = new SQLiteCommand(string.Format("delete from disciplina where Id = @Id"));
-            pars.Add(new SQLiteParameter("Id", disciplina.Id));
+            List<SqlParameter> pars = new List<SqlParameter>();
+            SqlCommand cmd = new SqlCommand(string.Format("delete from disciplina where Id = @Id"));
+            pars.Add(new SqlParameter("Id", disciplina.Id));
             cmd.Parameters.AddRange(pars.ToArray());
             int retorno = Conexao.ExecuteNonQuery(cmd);
         }

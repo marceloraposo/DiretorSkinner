@@ -34,16 +34,16 @@
                             <MenuItem Header="_Sair" Click="MenuItemSair_Click" />
                         </MenuItem>
                         <MenuItem Header="_Relatorio" Name="menuItemRelatorios">
-                            <!--	Alefe Inicio	-->
                             <MenuItem Header="_Pessoa por Conceito" Name="menuRelatPessoaPorConceito" Click="MenuRelatPessoaPorConceito_Click" />
                             <Separator />
                             <MenuItem Header="_Repetência de Disciplina por TipoPessoa" Name="menuRelatRepetenciaDeDisciplinaPorTipoPessoa" Click="MenuRelatRepetenciaDeDisciplinaPorTipoPessoa_Click" />
                             <Separator />
                             <MenuItem Header="_Qtde de Pessoa por Disciplina" Name="menuRelatQtdePessoaPorDisciplina" Click="MenuRelatQtdePessoaPorDisciplina_Click" />
-                            <!--	Alefe Fim	-->
                         </MenuItem>
                         <MenuItem Header="_Carga" Name="menuItemCargas">
                             <MenuItem Header="_Conceito" Name="menuItemCargaConceito" Click="menuItemCargaConceito_Click" />
+                            <MenuItem Header="_Disciplina" Name="menuItemCargaDisciplina" Click="menuItemCargaDisciplina_Click" />
+                            <MenuItem Header="_Sala De Aula" Name="menuItemCargaSalaDeAula" Click="menuItemCargaSalaDeAula_Click" />
                         </MenuItem>
                     </Menu>
                 </DockPanel>
