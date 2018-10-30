@@ -41,19 +41,19 @@ namespace DiretorSkinner.Carga
             {
                 if (this.rdInserir.IsChecked.HasValue && this.rdInserir.IsChecked.Value)
                 {
-                    this.ProcessamentoDto = App.Server.CargaInserirDisciplina(Tamanho);
+                    this.ProcessamentoDto = App.Server.CargaInserirSalaDeAula(Tamanho);
                 }
                 else if (this.rdAlterar.IsChecked.HasValue && this.rdAlterar.IsChecked.Value)
                 {
-                    this.ProcessamentoDto = App.Server.CargaAlterarDisciplina(Tamanho);
+                    this.ProcessamentoDto = App.Server.CargaAlterarSalaDeAula(Tamanho);
                 }
                 else if (this.rdExcluir.IsChecked.HasValue && this.rdExcluir.IsChecked.Value)
                 {
-                    this.ProcessamentoDto = App.Server.CargaExcluirDisciplina(Tamanho);
+                    this.ProcessamentoDto = App.Server.CargaExcluirSalaDeAula(Tamanho);
                 }
                 else if (this.rdSelecionar.IsChecked.HasValue && this.rdSelecionar.IsChecked.Value)
                 {
-                    this.ProcessamentoDto = App.Server.CargaSelecionarDisciplina(Tamanho);
+                    this.ProcessamentoDto = App.Server.CargaSelecionarSalaDeAula(Tamanho);
                 }
                 else
                 {

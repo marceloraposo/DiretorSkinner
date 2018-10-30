@@ -180,7 +180,7 @@ namespace DiretorSkinner.Negocio
             List<SalaDeAulaDto> list = new List<SalaDeAulaDto>();
             SalaDeAula SalaDeAula;
             List<SqlParameter> pars = new List<SqlParameter>();
-            SqlCommand cmd = new SqlCommand(string.Format("select sda.Id,sda.semestre,sda.disciplinaId,sda.Nota,sda.pessoaId,sda.turmaId,p.Nome from SalaDeAula sda, Pessoa p, Conceito c where  p.Id = sda.pessoaId and sda.Nota >= c.Minimo and sda.Nota <= c.Maximo and sda.turmaId = ifnull(@turmaId,sda.turmaId) and sda.pessoaId = ifnull(@pessoaId,sda.pessoaId) and sda.disciplinaId = ifnull(@disciplinaId,sda.disciplinaId) and (ifnull(c.Id,c.Id) = ifnull(@conceitoId,c.Id) OR ifnull(c.Id,0) = ifnull(@conceitoId,0))"));
+            SqlCommand cmd = new SqlCommand(string.Format("select sda.Id,sda.semestre,sda.disciplinaId,sda.Nota,sda.pessoaId,sda.turmaId,p.Nome from SalaDeAula sda, Pessoa p, Conceito c where  p.Id = sda.pessoaId and sda.Nota >= c.Minimo and sda.Nota <= c.Maximo and sda.turmaId = isnull(@turmaId,sda.turmaId) and sda.pessoaId = isnull(@pessoaId,sda.pessoaId) and sda.disciplinaId = isnull(@disciplinaId,sda.disciplinaId) and (isnull(c.Id,c.Id) = isnull(@conceitoId,c.Id) OR isnull(c.Id,0) = isnull(@conceitoId,0))"));
             if (pessoa == null)
                 pars.Add(new SqlParameter("pessoaId", DBNull.Value));
             else

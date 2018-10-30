@@ -164,7 +164,7 @@ namespace DiretorSkinner.Negocio
             memoria = Process.GetCurrentProcess().PrivateMemorySize64;
             st.Start();
 
-            SqlCommand cmd = new SqlCommand("select * from conceito limit @tamanho");
+            SqlCommand cmd = new SqlCommand("select top (@tamanho) * from Conceito");
             pars.Add(new SqlParameter("tamanho", tamanho));
             cmd.Parameters.AddRange(pars.ToArray());
             DataSet ds = Conexao.ExecutarDataSet(cmd);
@@ -323,7 +323,7 @@ namespace DiretorSkinner.Negocio
             memoria = Process.GetCurrentProcess().PrivateMemorySize64;
             st.Start();
 
-            SqlCommand cmd = new SqlCommand("select * from Disciplina limit @tamanho");
+            SqlCommand cmd = new SqlCommand("select top (@tamanho) * from Disciplina");
             pars.Add(new SqlParameter("tamanho", tamanho));
             cmd.Parameters.AddRange(pars.ToArray());
             DataSet ds = Conexao.ExecutarDataSet(cmd);
@@ -490,7 +490,7 @@ namespace DiretorSkinner.Negocio
             memoria = Process.GetCurrentProcess().PrivateMemorySize64;
             st.Start();
 
-            SqlCommand cmd = new SqlCommand("select * from SalaDeAula limit @tamanho");
+            SqlCommand cmd = new SqlCommand("select top (@tamanho) * from SalaDeAula");
             pars.Add(new SqlParameter("tamanho", tamanho));
             cmd.Parameters.AddRange(pars.ToArray());
             DataSet ds = Conexao.ExecutarDataSet(cmd);

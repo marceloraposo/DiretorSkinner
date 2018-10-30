@@ -181,7 +181,7 @@ namespace DiretorSkinner
 
         private void menuItemCargaSalaDeAula_Click(object sender, RoutedEventArgs e)
         {
-            var salaDeAulaUserControl = new CargaDisciplina();
+            var salaDeAulaUserControl = new CargaSalaDeAula();
             salaDeAulaUserControl.SetValue(DockPanel.DockProperty, Dock.Top);
             dockPanelCentral.Children.Clear();
             dockPanelCentral.Children.Add(salaDeAulaUserControl);
