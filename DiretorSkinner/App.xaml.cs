@@ -24,6 +24,14 @@ namespace DiretorSkinner
             }
         }
 
+        //public static DiretorSkinnerGrafoClient ServerGrafo
+        //{
+        //    get
+        //    {
+        //        return new DiretorSkinner.Chalmers.DiretorSkinnerGrafoClient();
+        //    }
+        //}
+
         private void Application_Exit(object sender, ExitEventArgs e)
         {
             if (Application.Current.Properties.Contains("pessoa"))

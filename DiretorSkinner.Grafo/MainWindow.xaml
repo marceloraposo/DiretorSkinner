@@ -1,0 +1,63 @@
+﻿<Window x:Class="DiretorSkinner.Grafo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Icon="./Resources/escola.png"
+        xmlns:local="clr-namespace:DiretorSkinner.Grafo"
+        mc:Ignorable="d"  SnapsToDevicePixels="True"
+        UseLayoutRounding="True" ResizeMode="CanMinimize"
+        Title="Gerenciamento Acadêmico" Height="365" Width="565" Background="#FFAAAAAA">
+    <Grid>
+        <StackPanel>
+            <Grid Margin="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="250" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <DockPanel Grid.Row="0">
+                    <Menu DockPanel.Dock="Top">
+                        <MenuItem Header="_Inicio" Name="menuItemInicio">
+                            <MenuItem Header="_Pessoa" Name="menuItemPessoa" Click="MenuItemPessoa_Click" />
+                            <MenuItem Header="_Disciplina" Name="menuItemDisciplina" Click="MenuItemDisciplina_Click" />
+                            <Separator />
+                            <MenuItem Header="_Tipo de Pessoa" Name="menuItemTipoPessoa" Click="MenuItemTipoPessoa_Click" />
+                            <MenuItem Header="_Tipo de Disciplina" Name="menuItemTipoDisciplina" Click="MenuItemTipoDisciplina_Click" />
+                            <Separator />
+                            <MenuItem Header="_Conceito" Name="menuItemConceito" Click="MenuItemConceito_Click" />
+                            <MenuItem Header="_Turma" Name="menuItemTurma" Click="MenuItemTurma_Click" />
+                            <Separator />
+                            <MenuItem Header="_Sobre" Click="MenuItemSobre_Click" />
+                            <MenuItem Header="_Sair" Click="MenuItemSair_Click" />
+                        </MenuItem>
+                        <MenuItem Header="_Relatorio" Name="menuItemRelatorios">
+                            <MenuItem Header="_Pessoa por Conceito" Name="menuRelatPessoaPorConceito" Click="MenuRelatPessoaPorConceito_Click" />
+                            <Separator />
+                            <MenuItem Header="_Repetência de Disciplina por TipoPessoa" Name="menuRelatRepetenciaDeDisciplinaPorTipoPessoa" Click="MenuRelatRepetenciaDeDisciplinaPorTipoPessoa_Click" />
+                            <Separator />
+                            <MenuItem Header="_Qtde de Pessoa por Disciplina" Name="menuRelatQtdePessoaPorDisciplina" Click="MenuRelatQtdePessoaPorDisciplina_Click" />
+                        </MenuItem>
+                        <MenuItem Header="_Carga" Name="menuItemCargas">
+                            <MenuItem Header="_Conceito" Name="menuItemCargaConceito" Click="menuItemCargaConceito_Click" />
+                            <MenuItem Header="_Disciplina" Name="menuItemCargaDisciplina" Click="menuItemCargaDisciplina_Click" />
+                            <MenuItem Header="_Sala De Aula" Name="menuItemCargaSalaDeAula" Click="menuItemCargaSalaDeAula_Click" />
+                        </MenuItem>
+                    </Menu>
+                </DockPanel>
+                <DockPanel Name="dockPanelTitulo" Grid.Row="1">
+                    <TextBlock Name="textBlockTitulo" Text="" FontSize="18" Margin="10,0,10,0" FontStyle="Normal" FontWeight="Bold" />
+                </DockPanel>
+                <DockPanel Name="dockPanelCentral" Grid.Row="2" LastChildFill="True" >
+                </DockPanel>
+                <DockPanel Name="dockPanelStatus" Grid.Row="3" DockPanel.Dock="Bottom">
+                    <StatusBar Name="statusBar">
+                        <TextBlock Name="txtPessoa" Margin="10,0,10,0" Text="" />
+                    </StatusBar>
+                </DockPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

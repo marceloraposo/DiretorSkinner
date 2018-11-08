@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="DiretorSkinner.Grafo.Inicio.Turma"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dg="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit"
+             xmlns:local="clr-namespace:DiretorSkinner.Grafo.Inicio"
+             mc:Ignorable="d" 
+             HorizontalAlignment="Stretch" VerticalAlignment="Stretch"	HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+
+
+
+    <Grid>
+        <ScrollViewer Grid.Column="0"
+                          HorizontalScrollBarVisibility="Hidden"
+                          VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <Grid Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <dg:DataGrid Name="dgTurma" ItemsSource="{Binding ListaTurmas,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewKeyDown="dgTurma_PreviewKeyDown" RowEditEnding="dgTurma_RowEditEnding" AutoGenerateColumns="False" CanUserAddRows="True" CanUserDeleteRows="True" CanUserSortColumns="True" >
+                        <dg:DataGrid.Columns>
+                            <dg:DataGridTextColumn Binding="{Binding Id, NotifyOnTargetUpdated=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="50" Header="Id" IsReadOnly="True" />
+                            <dg:DataGridTextColumn Binding="{Binding Codigo, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="70" Header="Código"/>
+                            <dg:DataGridTemplateColumn Header="Dt. de Ingresso">
+                                <dg:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding DataIngressoValor, StringFormat=\{0:d\}}" />
+                                    </DataTemplate>
+                                </dg:DataGridTemplateColumn.CellTemplate>
+                                <dg:DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <DatePicker Loaded="DatePicker_Loaded" SelectedDate="{Binding DataIngresso, NotifyOnSourceUpdated=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                                    </DataTemplate>
+                                </dg:DataGridTemplateColumn.CellEditingTemplate>
+                            </dg:DataGridTemplateColumn>
+                            <dg:DataGridTemplateColumn>
+                                <dg:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <Button x:Name="AbrirPopUp" Content="..." Click="AbrirPopUp_Click" CommandParameter="{Binding Id}" Width="28"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </dg:DataGridTemplateColumn.CellTemplate>
+                            </dg:DataGridTemplateColumn>
+                        </dg:DataGrid.Columns>
+                    </dg:DataGrid>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

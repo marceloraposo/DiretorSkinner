@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using DiretorSkinner.Tranporte;
+using DiretorSkinner.Grafo.Tranporte;
 using DiretorSkinner.Grafo.Negocio;
 using System;
 using System.ServiceModel;
@@ -152,29 +152,54 @@ namespace DiretorSkinner.Grafo.Servico
             negocio.DeletarTipoPessoa(tipoPessoa);
         }
 
+        public List<SalaDeAulaDto> ListarSalasDeAula()
+        {
+            return negocio.ListarSalasDeAula();
+        }
+
+        public SalaDeAulaDto ListarSalaDeAula(int id)
+        {
+            return negocio.ListarSalaDeAula(id);
+        }
+
+        public List<SalaDeAulaDto> ListarSalaDeAulaPorPessoa(PessoaDto pessoa)
+        {
+            return negocio.ListarSalaDeAulaPorPessoa(pessoa);
+        }
+
+        public List<SalaDeAulaDto> ListarSalaDeAulaPorDisciplina(DisciplinaDto disciplina)
+        {
+            return negocio.ListarSalaDeAulaPorDisciplina(disciplina);
+        }
+
+        public List<SalaDeAulaDto> ListarSalaDeAulaPorConceito(ConceitoDto conceito)
+        {
+            return negocio.ListarSalaDeAulaPorConceito(conceito);
+        }
+
+        public List<SalaDeAulaDto> ListarSalaDeAulaPorTurma(TurmaDto turma)
+        {
+            return negocio.ListarSalaDeAulaPorTurma(turma);
+        }
+
+        public List<SalaDeAulaDto> ListarSalaDeAulaPorFiltros(ConceitoDto conceito, DisciplinaDto disciplina, PessoaDto pessoa, TurmaDto turma)
+        {
+            return negocio.ListarSalaDeAulaPorFiltros(conceito, disciplina, pessoa, turma);
+        }
+
+        public void SalvarSalaDeAula(SalaDeAulaDto turma)
+        {
+            negocio.SalvarSalaDeAula(turma);
+        }
+
+        public void DeletarSalaDeAula(SalaDeAulaDto turma)
+        {
+            negocio.DeletarSalaDeAula(turma);
+        }
+
         public List<TurmaDto> ListarTurmas()
         {
             return negocio.ListarTurmas();
-        }
-
-        public List<TurmaDto> ListarTurmaPorPessoa(PessoaDto pessoa)
-        {
-            return negocio.ListarTurmaPorPessoa(pessoa);
-        }
-
-        public List<TurmaDto> ListarTurmaPorDisciplina(DisciplinaDto disciplina)
-        {
-            return negocio.ListarTurmaPorDisciplina(disciplina);
-        }
-
-        public List<TurmaDto> ListarTurmaPorConceito(ConceitoDto conceito)
-        {
-            return negocio.ListarTurmaPorConceito(conceito);
-        }
-
-        public List<TurmaDto> ListarTurma(ConceitoDto conceito, DisciplinaDto disciplina, PessoaDto pessoa)
-        {
-            return negocio.ListarTurma(conceito, disciplina, pessoa);
         }
 
         public void SalvarTurma(TurmaDto turma)
@@ -185,6 +210,66 @@ namespace DiretorSkinner.Grafo.Servico
         public void DeletarTurma(TurmaDto turma)
         {
             negocio.DeletarTurma(turma);
+        }
+
+        public ProcessamentoDto CargaInserirConceito(int tamanho)
+        {
+            return negocio.CargaInserirConceito(tamanho);
+        }
+
+        public ProcessamentoDto CargaAlterarConceito(int tamanho)
+        {
+            return negocio.CargaAlterarConceito(tamanho);
+        }
+
+        public ProcessamentoDto CargaExcluirConceito(int tamanho)
+        {
+            return negocio.CargaExcluirConceito(tamanho);
+        }
+
+        public ProcessamentoDto CargaSelecionarConceito(int tamanho)
+        {
+            return negocio.CargaSelecionarConceito(tamanho);
+        }
+
+        public ProcessamentoDto CargaInserirDisciplina(int tamanho)
+        {
+            return negocio.CargaInserirDisciplina(tamanho);
+        }
+
+        public ProcessamentoDto CargaAlterarDisciplina(int tamanho)
+        {
+            return negocio.CargaAlterarDisciplina(tamanho);
+        }
+
+        public ProcessamentoDto CargaExcluirDisciplina(int tamanho)
+        {
+            return negocio.CargaExcluirDisciplina(tamanho);
+        }
+
+        public ProcessamentoDto CargaSelecionarDisciplina(int tamanho)
+        {
+            return negocio.CargaSelecionarDisciplina(tamanho);
+        }
+
+        public ProcessamentoDto CargaInserirSalaDeAula(int tamanho)
+        {
+            return negocio.CargaInserirSalaDeAula(tamanho);
+        }
+
+        public ProcessamentoDto CargaAlterarSalaDeAula(int tamanho)
+        {
+            return negocio.CargaAlterarSalaDeAula(tamanho);
+        }
+
+        public ProcessamentoDto CargaExcluirSalaDeAula(int tamanho)
+        {
+            return negocio.CargaExcluirSalaDeAula(tamanho);
+        }
+
+        public ProcessamentoDto CargaSelecionarSalaDeAula(int tamanho)
+        {
+            return negocio.CargaSelecionarSalaDeAula(tamanho);
         }
 
         public void Dispose()

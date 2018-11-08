@@ -1,6 +1,7 @@
 ﻿using Neo4jClient;
 using System;
 using System.Configuration;
+using System.Net;
 
 namespace DiretorSkinner.Util.Acesso.Graphos
 {
@@ -14,6 +15,22 @@ namespace DiretorSkinner.Util.Acesso.Graphos
             }
         }
 
+        internal static string UserConnection
+        {
+            get
+            {
+                return string.Format(ConfigurationManager.AppSettings["UsrGrafo"]);
+            }
+        }
+
+        internal static string PwdConnection
+        {
+            get
+            {
+                return string.Format(ConfigurationManager.AppSettings["PwdGrafo"]);
+            }
+        }
+
         [ThreadStatic]
         private static GraphClient conn = null;
 
@@ -21,7 +38,13 @@ namespace DiretorSkinner.Util.Acesso.Graphos
         {
             if (conn == null)
             {
-                conn = new GraphClient(new Uri(StringConnection), ConfigurationManager.AppSettings["UsrGrafo"], ConfigurationManager.AppSettings["PwdGrafo"]);
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                using (conn = new GraphClient(new Uri(StringConnection), UserConnection, PwdConnection))
+                {
+                    conn.Connect(); // 👍
+                }
+                //conn = new GraphClient(new Uri(StringConnection), UserConnection, PwdConnection);
+                // conn.Connect();
             }
 
             return conn;
@@ -33,6 +56,29 @@ namespace DiretorSkinner.Util.Acesso.Graphos
             {
                 conn.Dispose();
                 conn = null;
+            }
+        }
+
+        public static GraphClient Client
+        {
+            get
+            {
+                GraphClient retorno;
+
+                try
+                {
+                    retorno = GetConnection();
+                }
+                finally
+                {
+                    if (conn != null && conn.IsConnected)
+                    {
+                        conn.Dispose();
+                        conn = null;
+                    }
+                }
+
+                return retorno;
             }
         }
 

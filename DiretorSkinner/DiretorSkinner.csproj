@@ -284,7 +284,6 @@
   <ItemGroup>
     <Resource Include="escola.ico" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DiretorSkinner.Tranporte\DiretorSkinner.Tranporte.csproj">
       <Project>{24ec9744-9684-4bd1-b4a8-6208c32fcf1f}</Project>

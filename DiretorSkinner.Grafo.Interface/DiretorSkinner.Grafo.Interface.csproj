@@ -46,15 +46,17 @@
     <Compile Include="IDiretorSkinnerNegocioGrafo.cs" />
     <Compile Include="IDisciplinaNegocioGrafo.cs" />
     <Compile Include="IPessoaNegocioGrafo.cs" />
+    <Compile Include="IProcessamentoNegocio.cs" />
+    <Compile Include="ISalaDeAulaNegocio.cs" />
     <Compile Include="ITipoDisciplinaNegocioGrafo.cs" />
     <Compile Include="ITipoPessoaNegocioGrafo.cs" />
     <Compile Include="ITurmaNegocioGrafo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DiretorSkinner.Tranporte\DiretorSkinner.Tranporte.csproj">
-      <Project>{24ec9744-9684-4bd1-b4a8-6208c32fcf1f}</Project>
-      <Name>DiretorSkinner.Tranporte</Name>
+    <ProjectReference Include="..\DiretorSkinner.Grafo.Transporte\DiretorSkinner.Grafo.Transporte.csproj">
+      <Project>{811c2db0-271c-4651-b9bc-19967c9a6bd5}</Project>
+      <Name>DiretorSkinner.Grafo.Transporte</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

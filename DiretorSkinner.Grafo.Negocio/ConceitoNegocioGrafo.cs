@@ -1,5 +1,5 @@
 ﻿using DiretorSkinner.Grafo.Interface;
-using DiretorSkinner.Tranporte;
+using DiretorSkinner.Grafo.Tranporte;
 using DiretorSkinner.Util.Acesso.Graphos;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +10,9 @@ namespace DiretorSkinner.Grafo.Negocio
     {
         public List<ConceitoDto> ListarConceitos()
         {
-            var graphClient = ConexaoGrafo.GetConnection();
-            List<ConceitoDto> list = graphClient.Cypher.Match($"(e:{typeof(ConceitoDto).Name})")
-                                     .Return(e => e.As<ConceitoDto>())
+            var graphClient = ConexaoGrafo.Client;
+            List<ConceitoDto> list = graphClient.Cypher.Match($"(conceito:Conceito)")
+                                     .Return(conceito => conceito.As<ConceitoDto>())
                                      .Results
                                      .ToList();
 
@@ -24,56 +24,71 @@ namespace DiretorSkinner.Grafo.Negocio
 
         public ConceitoDto ListarConceito(int id)
         {
-            var graphClient = ConexaoGrafo.GetConnection();
-            ConceitoDto conceito = graphClient.Cypher.Match($"(e:{typeof(ConceitoDto).Name})")
-                                     .Where<ConceitoDto>(e => e.Id == id)
+            var graphClient = ConexaoGrafo.Client;
+            ConceitoDto conceitoDto = graphClient.Cypher.Match($"(conceito:Conceito)")
+                                     .Where<ConceitoDto>(conceito => conceito.Id == id)
                                      .Return(e => e.As<ConceitoDto>())
                                      .Results
                                      .SingleOrDefault();
 
             graphClient.Dispose();
 
-            return conceito;
+            return conceitoDto;
         }
 
-        public void SalvarConceito(ConceitoDto conceito)
+        public void SalvarConceito(ConceitoDto conceitoDto)
         {
-            var graphClient = ConexaoGrafo.GetConnection();
+            var graphClient = ConexaoGrafo.Client;
 
-            if (conceito.Id > 0)
+            if (conceitoDto.Id > 0)
             {
-
-                graphClient.Cypher.Match($"(e:{typeof(ConceitoDto).Name})")
-                                         .Where<ConceitoDto>(e => e.Id == conceito.Id)
-                                         .Set("e = {model}")
-                                         .WithParam("model", conceito)
-                                         .Return(e => e.As<ConceitoDto>())
-                                         .Results
-                                         .Single();
+                graphClient.Cypher.Match("(conceito:Conceito)")
+                                         .Where<ConceitoDto>(conceito => conceito.Id == conceitoDto.Id)
+                                         .Set("conceito.Nome = {Nome}")
+                                         .Set("conceito.Codigo = {Codigo}")
+                                         .Set("conceito.Aprovado = {Aprovado}")
+                                         .Set("conceito.Minimo = {Minimo}")
+                                         .Set("conceito.Maximo = {Maximo}")
+                                         .WithParam("Nome", conceitoDto.Nome)
+                                         .WithParam("Codigo", conceitoDto.Codigo)
+                                         .WithParam("Aprovado", conceitoDto.Aprovado)
+                                         .WithParam("Minimo", conceitoDto.Minimo)
+                                         .WithParam("Maximo", conceitoDto.Maximo)
+                                         .ExecuteWithoutResults();
             }
             else
             {
-                graphClient.Cypher.Create($"(e:{typeof(ConceitoDto).Name} {{model}})")
-                                         .WithParam("model", conceito)
-                                         .Return(e => e.As<ConceitoDto>())
+
+                conceitoDto.Id = graphClient.Cypher.Match($"(conceito:Conceito)")
+                                         .Return(() => Neo4jClient.Cypher.Return.As<int>("MAX(conceito.Id)"))
                                          .Results
-                                         .Single();
+                                         .SingleOrDefault() + 1;
+
+                graphClient.Cypher.Create("(conceito:Conceito{ Nome: {Nome}, Codigo: {Codigo} , Aprovado: {Aprovado},Minimo: {Minimo},Maximo: {Maximo}, Id: {Id} } )")
+                                         .WithParam("Nome", conceitoDto.Nome)
+                                         .WithParam("Codigo", conceitoDto.Codigo)
+                                         .WithParam("Aprovado", conceitoDto.Aprovado)
+                                         .WithParam("Minimo", conceitoDto.Minimo)
+                                         .WithParam("Maximo", conceitoDto.Maximo)
+                                         .WithParam("Id", conceitoDto.Id)
+                                         .ExecuteWithoutResults();
             }
 
             graphClient.Dispose();
 
         }
 
-        public void DeletarConceito(ConceitoDto conceito)
+        public void DeletarConceito(ConceitoDto conceitoDto)
         {
-            var graphClient = ConexaoGrafo.GetConnection();
+            var graphClient = ConexaoGrafo.Client;
 
-            graphClient.Cypher.Match($"(e:{typeof(ConceitoDto).Name})")
-                              .Where<ConceitoDto>(e => e.Id == conceito.Id)
-                              .DetachDelete("e")
+            graphClient.Cypher.Match($"(conceito:Conceito)")
+                              .Where<PessoaDto>(conceito => conceito.Id == conceitoDto.Id)
+                              .DetachDelete("conceito")
                               .ExecuteWithoutResults();
 
             graphClient.Dispose();
         }
+
     }
 }

@@ -6,14 +6,14 @@ using System.Collections.Generic;
 
 namespace DiretorSkinner.Dados.Gerador
 {
-    class PessoaGerador
+    public class PessoaGerador
     {
         DiretorSkinnerNegocio negocio = new DiretorSkinnerNegocio();
         DiretorSkinnerNegocioGrafo negocioGrafo = new DiretorSkinnerNegocioGrafo();
 
         public void gerarPessoaTipoPessoa()
         {
-            List<PessoaDto> listPessoa = negocio.ListarPessoas();
+            List<PessoaDto> listPessoa = negocio.ListarPessoasPesquisa("raposo");
             int tipoPessoaId;
 
             foreach (PessoaDto pessoaDto in listPessoa)

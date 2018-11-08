@@ -1,4 +1,4 @@
-﻿using DiretorSkinner.Tranporte;
+﻿using DiretorSkinner.Grafo.Tranporte;
 using System.Collections.Generic;
 using System.ServiceModel;
 
@@ -10,18 +10,6 @@ namespace DiretorSkinner.Grafo.Interface
     {
         [OperationContract]
         List<TurmaDto> ListarTurmas();
-
-        [OperationContract]
-        List<TurmaDto> ListarTurmaPorPessoa(PessoaDto pessoa);
-
-        [OperationContract]
-        List<TurmaDto> ListarTurmaPorDisciplina(DisciplinaDto disciplina);
-
-        [OperationContract]
-        List<TurmaDto> ListarTurmaPorConceito(ConceitoDto conceito);
-
-        [OperationContract]
-        List<TurmaDto> ListarTurma(ConceitoDto conceito, DisciplinaDto disciplina, PessoaDto pessoa);
 
         [OperationContract]
         void SalvarTurma(TurmaDto turma);

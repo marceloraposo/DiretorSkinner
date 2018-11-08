@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DiretorSkinner.Grafo.Tranporte" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DiretorSkinner.Grafo.Tranporte" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ConceitoDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RootDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Aprovado" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Maximo" type="xs:int" />
+          <xs:element minOccurs="0" name="Minimo" type="xs:int" />
+          <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConceitoDto" nillable="true" type="tns:ConceitoDto" />
+  <xs:complexType name="RootDto">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="RootDto" nillable="true" type="tns:RootDto" />
+  <xs:complexType name="DisciplinaDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RootDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TipoDisciplinaId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DisciplinaDto" nillable="true" type="tns:DisciplinaDto" />
+  <xs:complexType name="PessoaDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RootDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Apelido" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TipoPessoas" nillable="true" type="tns:ArrayOfTipoPessoaDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PessoaDto" nillable="true" type="tns:PessoaDto" />
+  <xs:complexType name="ArrayOfTipoPessoaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoPessoaDto" nillable="true" type="tns:TipoPessoaDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoPessoaDto" nillable="true" type="tns:ArrayOfTipoPessoaDto" />
+  <xs:complexType name="TipoPessoaDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RootDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Selecionado" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TipoPessoaDto" nillable="true" type="tns:TipoPessoaDto" />
+  <xs:complexType name="ProcessamentoDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RootDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cpu" type="xs:long" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Memoria" type="xs:long" />
+          <xs:element minOccurs="0" name="Tamanho" type="xs:int" />
+          <xs:element minOccurs="0" name="Tempo" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessamentoDto" nillable="true" type="tns:ProcessamentoDto" />
+  <xs:complexType name="SalaDeAulaDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RootDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DisciplinaId" type="xs:int" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Nota" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PessoaId" type="xs:int" />
+          <xs:element minOccurs="0" name="PessoaNome" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Semestre" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TurmaId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SalaDeAulaDto" nillable="true" type="tns:SalaDeAulaDto" />
+  <xs:complexType name="TipoDisciplinaDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RootDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TipoDisciplinaDto" nillable="true" type="tns:TipoDisciplinaDto" />
+  <xs:complexType name="TurmaDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RootDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DataIngresso" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="SalasDeAula" nillable="true" type="tns:ArrayOfSalaDeAulaDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TurmaDto" nillable="true" type="tns:TurmaDto" />
+  <xs:complexType name="ArrayOfSalaDeAulaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SalaDeAulaDto" nillable="true" type="tns:SalaDeAulaDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSalaDeAulaDto" nillable="true" type="tns:ArrayOfSalaDeAulaDto" />
+  <xs:complexType name="ArrayOfConceitoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConceitoDto" nillable="true" type="tns:ConceitoDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConceitoDto" nillable="true" type="tns:ArrayOfConceitoDto" />
+  <xs:complexType name="ArrayOfDisciplinaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DisciplinaDto" nillable="true" type="tns:DisciplinaDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDisciplinaDto" nillable="true" type="tns:ArrayOfDisciplinaDto" />
+  <xs:complexType name="ArrayOfPessoaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PessoaDto" nillable="true" type="tns:PessoaDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPessoaDto" nillable="true" type="tns:ArrayOfPessoaDto" />
+  <xs:complexType name="ArrayOfTipoDisciplinaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoDisciplinaDto" nillable="true" type="tns:TipoDisciplinaDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoDisciplinaDto" nillable="true" type="tns:ArrayOfTipoDisciplinaDto" />
+  <xs:complexType name="ArrayOfTurmaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TurmaDto" nillable="true" type="tns:TurmaDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTurmaDto" nillable="true" type="tns:ArrayOfTurmaDto" />
+</xs:schema>

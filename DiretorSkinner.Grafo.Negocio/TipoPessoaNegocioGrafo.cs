@@ -1,5 +1,5 @@
 ﻿using DiretorSkinner.Grafo.Interface;
-using DiretorSkinner.Tranporte;
+using DiretorSkinner.Grafo.Tranporte;
 using DiretorSkinner.Util.Acesso.Graphos;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +11,8 @@ namespace DiretorSkinner.Grafo.Negocio
         public List<TipoPessoaDto> ListarTiposPessoa()
         {
             var graphClient = ConexaoGrafo.GetConnection();
-            List<TipoPessoaDto> list = graphClient.Cypher.Match($"(e:{typeof(PessoaDto).Name})")
-                                     .Return(e => e.As<TipoPessoaDto>())
+            List<TipoPessoaDto> list = graphClient.Cypher.Match($"(tipoPessoa:TipoPessoa)")
+                                     .Return(tipoPessoa => tipoPessoa.As<TipoPessoaDto>())
                                      .Results
                                      .ToList();
 
@@ -24,23 +24,23 @@ namespace DiretorSkinner.Grafo.Negocio
         public TipoPessoaDto ListarTipoPessoa(int id)
         {
             var graphClient = ConexaoGrafo.GetConnection();
-            TipoPessoaDto tipoPessoa = graphClient.Cypher.Match($"(e:{typeof(TipoPessoaDto).Name})")
-                                     .Where<TipoPessoaDto>(e => e.Id == id)
-                                     .Return(e => e.As<TipoPessoaDto>())
+            TipoPessoaDto tipoPessoaDto = graphClient.Cypher.Match($"(tipoPessoa:TipoPessoa)")
+                                     .Where<TipoPessoaDto>(tipoPessoa => tipoPessoa.Id == id)
+                                     .Return(tipoPessoa => tipoPessoa.As<TipoPessoaDto>())
                                      .Results
                                      .SingleOrDefault();
 
             graphClient.Dispose();
 
-            return tipoPessoa;
+            return tipoPessoaDto;
         }
 
         public List<TipoPessoaDto> ListarTipoPessoaPorPessoa(PessoaDto pessoa)
         {
             var graphClient = ConexaoGrafo.GetConnection();
-            List<TipoPessoaDto> list = graphClient.Cypher.Match($"(e:{typeof(PessoaDto).Name})")
-                                     .Where<PessoaDto>(e => e.Id == pessoa.Id)
-                                     .Return(e => e.As<TipoPessoaDto>())
+            List<TipoPessoaDto> list = graphClient.Cypher.Match($"(tipoPessoa:TipoPessoa)")
+                                     .Where<TipoPessoaDto>(tipoPessoa => tipoPessoa.Id == pessoa.Id)
+                                     .Return(tipoPessoa => tipoPessoa.As<TipoPessoaDto>())
                                      .Results
                                      .ToList();
 
@@ -49,40 +49,45 @@ namespace DiretorSkinner.Grafo.Negocio
             return list;
         }
 
-        public void SalvarTipoPessoa(TipoPessoaDto tipoPessoa)
+        public void SalvarTipoPessoa(TipoPessoaDto tipoPessoaDto)
         {
             var graphClient = ConexaoGrafo.GetConnection();
 
-            if (tipoPessoa.Id > 0)
+            if (tipoPessoaDto.Id > 0)
             {
 
-                graphClient.Cypher.Match($"(e:{typeof(TipoPessoaDto).Name})")
-                                         .Where<TipoPessoaDto>(e => e.Id == tipoPessoa.Id)
-                                         .Set("e = {model}")
-                                         .WithParam("model", tipoPessoa)
-                                         .Return(e => e.As<TipoPessoaDto>())
-                                         .Results
-                                         .Single();
+                graphClient.Cypher.Match($"(tipoPessoa:TipoPessoa)")
+                                         .Where<TipoPessoaDto>(e => e.Id == tipoPessoaDto.Id)
+                                         .Set("pessoa.Nome = {Nome}")
+                                         .Set("pessoa.Codigo = {Codigo}")
+                                         .WithParam("Nome", tipoPessoaDto.Nome)
+                                         .WithParam("Codigo", tipoPessoaDto.Codigo)
+                                         .ExecuteWithoutResults();
             }
             else
             {
-                graphClient.Cypher.Create($"(e:{typeof(TipoPessoaDto).Name} {{model}})")
-                                         .WithParam("model", tipoPessoa)
-                                         .Return(e => e.As<TipoPessoaDto>())
+                tipoPessoaDto.Id = graphClient.Cypher.Match($"(tipoPessoa:TipoPessoa)")
+                                         .Return(() => Neo4jClient.Cypher.Return.As<int>("MAX(tipoPessoa.Id)"))
                                          .Results
-                                         .Single();
+                                         .SingleOrDefault() + 1;
+
+                graphClient.Cypher.Create("(tipoPessoa:TipoPessoa{ Nome: {Nome}, Codigo: {Codigo} , Id: {Id} } )")
+                                         .WithParam("Nome", tipoPessoaDto.Nome)
+                                         .WithParam("Codigo", tipoPessoaDto.Codigo)
+                                         .WithParam("Id", tipoPessoaDto.Id)
+                                         .ExecuteWithoutResults();
             }
 
             graphClient.Dispose();
         }
 
-        public void DeletarTipoPessoa(TipoPessoaDto tipoPessoa)
+        public void DeletarTipoPessoa(TipoPessoaDto tipoPessoaDto)
         {
             var graphClient = ConexaoGrafo.GetConnection();
 
-            graphClient.Cypher.Match($"(e:{typeof(TipoPessoaDto).Name})")
-                              .Where<TipoPessoaDto>(e => e.Id == tipoPessoa.Id)
-                              .DetachDelete("e")
+            graphClient.Cypher.Match($"(tipoPessoa:TipoPessoa)")
+                              .Where<TipoPessoaDto>(tipoPessoa => tipoPessoa.Id == tipoPessoaDto.Id)
+                              .DetachDelete("tipoPessoa")
                               .ExecuteWithoutResults();
 
             graphClient.Dispose();

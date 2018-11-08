@@ -1,60 +1,48 @@
-﻿using DiretorSkinner.Tranporte;
+﻿using DiretorSkinner.Grafo.Tranporte;
+using System;
 
 namespace DiretorSkinner.Grafo.Negocio.Nodes
 {
     public class Turma
     {
-        private string semestre;
-        private Pessoa pessoa;
-        private Disciplina disciplina;
-        private Conceito conceito;
+        private int id;
+        private string codigo;
+        private DateTime dataIngresso;
 
-        public string Semestre
+        public int Id
         {
             get
             {
-                return semestre;
+                return id;
             }
 
             set
             {
-                semestre = value;
+                id = value;
             }
         }
-        public Pessoa Pessoa
+        public string Codigo
         {
             get
             {
-                return pessoa;
+                return codigo;
             }
 
             set
             {
-                pessoa = value;
+                codigo = value;
             }
         }
-        public Disciplina Disciplina
+        public DateTime DataIngresso
         {
             get
             {
-                return disciplina;
+                return dataIngresso;
             }
 
             set
             {
-                disciplina = value;
-            }
-        }
-        public Conceito Conceito
-        {
-            get
-            {
-                return conceito;
-            }
-
-            set
-            {
-                conceito = value;
+                dataIngresso = value;
             }
         }
 
@@ -62,13 +50,9 @@ namespace DiretorSkinner.Grafo.Negocio.Nodes
         {
             TurmaDto dto = new TurmaDto();
 
-            dto.Semestre = this.Semestre;
-            if (this.Pessoa != null)
-                dto.PessoaId = this.Pessoa.Id;
-            if (this.Disciplina != null)
-                dto.DisciplinaId = this.Disciplina.Id;
-            if (this.Conceito != null)
-                dto.ConceitoId = this.Conceito.Id;
+            dto.Id = this.Id;
+            dto.Codigo = this.Codigo;
+            dto.DataIngresso = this.DataIngresso;
 
             return dto;
         }
@@ -76,10 +60,9 @@ namespace DiretorSkinner.Grafo.Negocio.Nodes
         public Turma FromDto(TurmaDto dto)
         {
             Turma turma = new Turma();
-            turma.Semestre = dto.Semestre;
-            turma.Pessoa = new Pessoa() { Id = dto.PessoaId };
-            turma.Disciplina = new Disciplina() { Id = dto.DisciplinaId };
-            turma.Conceito = new Conceito() { Id = dto.ConceitoId };
+            turma.Id = dto.Id;
+            turma.Codigo = dto.Codigo;
+            turma.DataIngresso = dto.DataIngresso;
 
             return turma;
         }

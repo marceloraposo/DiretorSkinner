@@ -71,11 +71,14 @@
     <Compile Include="Nodes\Conceito.cs" />
     <Compile Include="Nodes\Disciplina.cs" />
     <Compile Include="Nodes\Pessoa.cs" />
+    <Compile Include="Nodes\SalaDeAula.cs" />
     <Compile Include="Nodes\TipoDisciplina.cs" />
     <Compile Include="Nodes\TipoPessoa.cs" />
     <Compile Include="Nodes\Turma.cs" />
     <Compile Include="PessoaNegocioGrafo.cs" />
+    <Compile Include="ProcessamentoNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalaDeAulaNegocio.cs" />
     <Compile Include="TipoDisciplinaNegocioGrafo.cs" />
     <Compile Include="TipoPessoaNegocioGrafo.cs" />
     <Compile Include="TurmaNegocioGrafo.cs" />
@@ -88,9 +91,9 @@
       <Project>{d21d4cd2-4033-492c-b7c3-8b26ee4b541d}</Project>
       <Name>DiretorSkinner.Grafo.Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DiretorSkinner.Tranporte\DiretorSkinner.Tranporte.csproj">
-      <Project>{24ec9744-9684-4bd1-b4a8-6208c32fcf1f}</Project>
-      <Name>DiretorSkinner.Tranporte</Name>
+    <ProjectReference Include="..\DiretorSkinner.Grafo.Transporte\DiretorSkinner.Grafo.Transporte.csproj">
+      <Project>{811c2db0-271c-4651-b9bc-19967c9a6bd5}</Project>
+      <Name>DiretorSkinner.Grafo.Transporte</Name>
     </ProjectReference>
     <ProjectReference Include="..\DiretorSkinner.Util\DiretorSkinner.Util.csproj">
       <Project>{5fbf91e6-bf15-4652-9010-d9c2fd293c8b}</Project>

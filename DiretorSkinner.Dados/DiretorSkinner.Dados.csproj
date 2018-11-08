@@ -64,6 +64,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DiretorSkinner.Grafo.Interface\DiretorSkinner.Grafo.Interface.csproj">
+      <Project>{d21d4cd2-4033-492c-b7c3-8b26ee4b541d}</Project>
+      <Name>DiretorSkinner.Grafo.Interface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DiretorSkinner.Grafo.Negocio\DiretorSkinner.Grafo.Negocio.csproj">
       <Project>{10585aef-92f7-4db3-af8a-9469d2353565}</Project>
       <Name>DiretorSkinner.Grafo.Negocio</Name>
@@ -82,7 +86,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

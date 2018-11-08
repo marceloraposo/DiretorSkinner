@@ -1,4 +1,4 @@
-﻿using DiretorSkinner.Tranporte;
+﻿using DiretorSkinner.Grafo.Tranporte;
 
 namespace DiretorSkinner.Grafo.Negocio.Nodes
 {

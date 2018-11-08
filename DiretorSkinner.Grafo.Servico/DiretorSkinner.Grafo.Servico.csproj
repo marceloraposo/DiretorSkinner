@@ -87,9 +87,9 @@
       <Project>{10585aef-92f7-4db3-af8a-9469d2353565}</Project>
       <Name>DiretorSkinner.Grafo.Negocio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DiretorSkinner.Tranporte\DiretorSkinner.Tranporte.csproj">
-      <Project>{24ec9744-9684-4bd1-b4a8-6208c32fcf1f}</Project>
-      <Name>DiretorSkinner.Tranporte</Name>
+    <ProjectReference Include="..\DiretorSkinner.Grafo.Transporte\DiretorSkinner.Grafo.Transporte.csproj">
+      <Project>{811c2db0-271c-4651-b9bc-19967c9a6bd5}</Project>
+      <Name>DiretorSkinner.Grafo.Transporte</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

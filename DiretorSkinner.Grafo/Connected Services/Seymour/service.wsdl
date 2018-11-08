@@ -1,0 +1,1106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DiretorSkinnerGrafo" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IDiretorSkinnerGrafo_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256>
+                </sp:Basic256>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict>
+                </sp:Strict>
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/DiretorSkinner.Grafo.Tranporte" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarConceitos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarConceitos" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarConceitos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarConceitosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarConceito_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarConceito" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarConceito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarConceitoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_SalvarConceito_InputMessage">
+    <wsdl:part name="parameters" element="tns:SalvarConceito" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_SalvarConceito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SalvarConceitoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_DeletarConceito_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarConceito" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_DeletarConceito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarConceitoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarDisciplinas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDisciplinas" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarDisciplinas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDisciplinasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarDisciplinaPorTipo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDisciplinaPorTipo" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarDisciplinaPorTipo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDisciplinaPorTipoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDisciplinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_SalvarDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:SalvarDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_SalvarDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SalvarDisciplinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_DeletarDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_DeletarDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarDisciplinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarPessoas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPessoas" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarPessoas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPessoasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarPessoasPesquisa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPessoasPesquisa" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarPessoasPesquisa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPessoasPesquisaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarPessoaPorTipo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPessoaPorTipo" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarPessoaPorTipo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPessoaPorTipoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarPessoa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPessoa" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarPessoa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPessoaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarPessoaPorApelido_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPessoaPorApelido" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarPessoaPorApelido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPessoaPorApelidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarPessoaPorCodigo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPessoaPorCodigo" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarPessoaPorCodigo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPessoaPorCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_SalvarPessoa_InputMessage">
+    <wsdl:part name="parameters" element="tns:SalvarPessoa" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_SalvarPessoa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SalvarPessoaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_DeletarPessoa_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarPessoa" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_DeletarPessoa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarPessoaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaInserirConceito_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaInserirConceito" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaInserirConceito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaInserirConceitoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaAlterarConceito_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaAlterarConceito" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaAlterarConceito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaAlterarConceitoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaExcluirConceito_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaExcluirConceito" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaExcluirConceito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaExcluirConceitoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaSelecionarConceito_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaSelecionarConceito" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaSelecionarConceito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaSelecionarConceitoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaInserirDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaInserirDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaInserirDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaInserirDisciplinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaAlterarDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaAlterarDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaAlterarDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaAlterarDisciplinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaExcluirDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaExcluirDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaExcluirDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaExcluirDisciplinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaSelecionarDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaSelecionarDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaSelecionarDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaSelecionarDisciplinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaInserirSalaDeAula_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaInserirSalaDeAula" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaInserirSalaDeAula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaInserirSalaDeAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaAlterarSalaDeAula_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaAlterarSalaDeAula" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaAlterarSalaDeAula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaAlterarSalaDeAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaExcluirSalaDeAula_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaExcluirSalaDeAula" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaExcluirSalaDeAula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaExcluirSalaDeAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaSelecionarSalaDeAula_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaSelecionarSalaDeAula" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaSelecionarSalaDeAula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaSelecionarSalaDeAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarSalasDeAula_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSalasDeAula" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarSalasDeAula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSalasDeAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarSalaDeAula_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSalaDeAula" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarSalaDeAula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSalaDeAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarSalaDeAulaPorPessoa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSalaDeAulaPorPessoa" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarSalaDeAulaPorPessoa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSalaDeAulaPorPessoaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarSalaDeAulaPorDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSalaDeAulaPorDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarSalaDeAulaPorDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSalaDeAulaPorDisciplinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarSalaDeAulaPorConceito_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSalaDeAulaPorConceito" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarSalaDeAulaPorConceito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSalaDeAulaPorConceitoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarSalaDeAulaPorTurma_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSalaDeAulaPorTurma" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarSalaDeAulaPorTurma_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSalaDeAulaPorTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarSalaDeAulaPorFiltros_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSalaDeAulaPorFiltros" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarSalaDeAulaPorFiltros_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSalaDeAulaPorFiltrosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_SalvarSalaDeAula_InputMessage">
+    <wsdl:part name="parameters" element="tns:SalvarSalaDeAula" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_SalvarSalaDeAula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SalvarSalaDeAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_DeletarSalaDeAula_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarSalaDeAula" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_DeletarSalaDeAula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarSalaDeAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTiposDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTiposDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTiposDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTiposDisciplinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTipoDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTipoDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTipoDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTipoDisciplinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_SalvarTipoDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:SalvarTipoDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_SalvarTipoDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SalvarTipoDisciplinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_DeletarTipoDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarTipoDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_DeletarTipoDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarTipoDisciplinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTiposPessoa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTiposPessoa" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTiposPessoa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTiposPessoaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTipoPessoa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTipoPessoa" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTipoPessoa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTipoPessoaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTipoPessoaPorPessoa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTipoPessoaPorPessoa" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTipoPessoaPorPessoa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTipoPessoaPorPessoaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_SalvarTipoPessoa_InputMessage">
+    <wsdl:part name="parameters" element="tns:SalvarTipoPessoa" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_SalvarTipoPessoa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SalvarTipoPessoaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_DeletarTipoPessoa_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarTipoPessoa" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_DeletarTipoPessoa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarTipoPessoaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTurmas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTurmas" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTurmas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTurmasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTurmaPorPessoa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTurmaPorPessoa" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTurmaPorPessoa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTurmaPorPessoaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTurmaPorDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTurmaPorDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTurmaPorDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTurmaPorDisciplinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTurmaPorConceito_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTurmaPorConceito" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTurmaPorConceito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTurmaPorConceitoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTurma_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTurma" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_ListarTurma_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_SalvarTurma_InputMessage">
+    <wsdl:part name="parameters" element="tns:SalvarTurma" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_SalvarTurma_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SalvarTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_DeletarTurma_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarTurma" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_DeletarTurma_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDiretorSkinnerGrafo">
+    <wsdl:operation name="ListarConceitos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarConceitos" message="tns:IDiretorSkinnerGrafo_ListarConceitos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarConceitosResponse" message="tns:IDiretorSkinnerGrafo_ListarConceitos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarConceito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarConceito" message="tns:IDiretorSkinnerGrafo_ListarConceito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarConceitoResponse" message="tns:IDiretorSkinnerGrafo_ListarConceito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvarConceito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarConceito" message="tns:IDiretorSkinnerGrafo_SalvarConceito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarConceitoResponse" message="tns:IDiretorSkinnerGrafo_SalvarConceito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarConceito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarConceito" message="tns:IDiretorSkinnerGrafo_DeletarConceito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarConceitoResponse" message="tns:IDiretorSkinnerGrafo_DeletarConceito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisciplinas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarDisciplinas" message="tns:IDiretorSkinnerGrafo_ListarDisciplinas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarDisciplinasResponse" message="tns:IDiretorSkinnerGrafo_ListarDisciplinas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisciplinaPorTipo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarDisciplinaPorTipo" message="tns:IDiretorSkinnerGrafo_ListarDisciplinaPorTipo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarDisciplinaPorTipoResponse" message="tns:IDiretorSkinnerGrafo_ListarDisciplinaPorTipo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarDisciplina" message="tns:IDiretorSkinnerGrafo_ListarDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarDisciplinaResponse" message="tns:IDiretorSkinnerGrafo_ListarDisciplina_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvarDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarDisciplina" message="tns:IDiretorSkinnerGrafo_SalvarDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarDisciplinaResponse" message="tns:IDiretorSkinnerGrafo_SalvarDisciplina_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarDisciplina" message="tns:IDiretorSkinnerGrafo_DeletarDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarDisciplinaResponse" message="tns:IDiretorSkinnerGrafo_DeletarDisciplina_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarPessoas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoas" message="tns:IDiretorSkinnerGrafo_ListarPessoas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoasResponse" message="tns:IDiretorSkinnerGrafo_ListarPessoas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarPessoasPesquisa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoasPesquisa" message="tns:IDiretorSkinnerGrafo_ListarPessoasPesquisa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoasPesquisaResponse" message="tns:IDiretorSkinnerGrafo_ListarPessoasPesquisa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarPessoaPorTipo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorTipo" message="tns:IDiretorSkinnerGrafo_ListarPessoaPorTipo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorTipoResponse" message="tns:IDiretorSkinnerGrafo_ListarPessoaPorTipo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarPessoa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoa" message="tns:IDiretorSkinnerGrafo_ListarPessoa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaResponse" message="tns:IDiretorSkinnerGrafo_ListarPessoa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarPessoaPorApelido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorApelido" message="tns:IDiretorSkinnerGrafo_ListarPessoaPorApelido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorApelidoResponse" message="tns:IDiretorSkinnerGrafo_ListarPessoaPorApelido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarPessoaPorCodigo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorCodigo" message="tns:IDiretorSkinnerGrafo_ListarPessoaPorCodigo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorCodigoResponse" message="tns:IDiretorSkinnerGrafo_ListarPessoaPorCodigo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvarPessoa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarPessoa" message="tns:IDiretorSkinnerGrafo_SalvarPessoa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarPessoaResponse" message="tns:IDiretorSkinnerGrafo_SalvarPessoa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarPessoa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarPessoa" message="tns:IDiretorSkinnerGrafo_DeletarPessoa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarPessoaResponse" message="tns:IDiretorSkinnerGrafo_DeletarPessoa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargaInserirConceito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirConceito" message="tns:IDiretorSkinnerGrafo_CargaInserirConceito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirConceitoResponse" message="tns:IDiretorSkinnerGrafo_CargaInserirConceito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargaAlterarConceito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaAlterarConceito" message="tns:IDiretorSkinnerGrafo_CargaAlterarConceito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaAlterarConceitoResponse" message="tns:IDiretorSkinnerGrafo_CargaAlterarConceito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargaExcluirConceito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaExcluirConceito" message="tns:IDiretorSkinnerGrafo_CargaExcluirConceito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaExcluirConceitoResponse" message="tns:IDiretorSkinnerGrafo_CargaExcluirConceito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargaSelecionarConceito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarConceito" message="tns:IDiretorSkinnerGrafo_CargaSelecionarConceito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarConceitoResponse" message="tns:IDiretorSkinnerGrafo_CargaSelecionarConceito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargaInserirDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirDisciplina" message="tns:IDiretorSkinnerGrafo_CargaInserirDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirDisciplinaResponse" message="tns:IDiretorSkinnerGrafo_CargaInserirDisciplina_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargaAlterarDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaAlterarDisciplina" message="tns:IDiretorSkinnerGrafo_CargaAlterarDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaAlterarDisciplinaResponse" message="tns:IDiretorSkinnerGrafo_CargaAlterarDisciplina_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargaExcluirDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaExcluirDisciplina" message="tns:IDiretorSkinnerGrafo_CargaExcluirDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaExcluirDisciplinaResponse" message="tns:IDiretorSkinnerGrafo_CargaExcluirDisciplina_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargaSelecionarDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarDisciplina" message="tns:IDiretorSkinnerGrafo_CargaSelecionarDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarDisciplinaResponse" message="tns:IDiretorSkinnerGrafo_CargaSelecionarDisciplina_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargaInserirSalaDeAula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirSalaDeAula" message="tns:IDiretorSkinnerGrafo_CargaInserirSalaDeAula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirSalaDeAulaResponse" message="tns:IDiretorSkinnerGrafo_CargaInserirSalaDeAula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargaAlterarSalaDeAula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaAlterarSalaDeAula" message="tns:IDiretorSkinnerGrafo_CargaAlterarSalaDeAula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaAlterarSalaDeAulaResponse" message="tns:IDiretorSkinnerGrafo_CargaAlterarSalaDeAula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargaExcluirSalaDeAula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaExcluirSalaDeAula" message="tns:IDiretorSkinnerGrafo_CargaExcluirSalaDeAula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaExcluirSalaDeAulaResponse" message="tns:IDiretorSkinnerGrafo_CargaExcluirSalaDeAula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargaSelecionarSalaDeAula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarSalaDeAula" message="tns:IDiretorSkinnerGrafo_CargaSelecionarSalaDeAula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarSalaDeAulaResponse" message="tns:IDiretorSkinnerGrafo_CargaSelecionarSalaDeAula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarSalasDeAula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalasDeAula" message="tns:IDiretorSkinnerGrafo_ListarSalasDeAula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalasDeAulaResponse" message="tns:IDiretorSkinnerGrafo_ListarSalasDeAula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarSalaDeAula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAula" message="tns:IDiretorSkinnerGrafo_ListarSalaDeAula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAulaResponse" message="tns:IDiretorSkinnerGrafo_ListarSalaDeAula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarSalaDeAulaPorPessoa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAulaPorPessoa" message="tns:IDiretorSkinnerGrafo_ListarSalaDeAulaPorPessoa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAulaPorPessoaResponse" message="tns:IDiretorSkinnerGrafo_ListarSalaDeAulaPorPessoa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarSalaDeAulaPorDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAulaPorDisciplina" message="tns:IDiretorSkinnerGrafo_ListarSalaDeAulaPorDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAulaPorDisciplinaResponse" message="tns:IDiretorSkinnerGrafo_ListarSalaDeAulaPorDisciplina_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarSalaDeAulaPorConceito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAulaPorConceito" message="tns:IDiretorSkinnerGrafo_ListarSalaDeAulaPorConceito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAulaPorConceitoResponse" message="tns:IDiretorSkinnerGrafo_ListarSalaDeAulaPorConceito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarSalaDeAulaPorTurma">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAulaPorTurma" message="tns:IDiretorSkinnerGrafo_ListarSalaDeAulaPorTurma_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAulaPorTurmaResponse" message="tns:IDiretorSkinnerGrafo_ListarSalaDeAulaPorTurma_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarSalaDeAulaPorFiltros">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAulaPorFiltros" message="tns:IDiretorSkinnerGrafo_ListarSalaDeAulaPorFiltros_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAulaPorFiltrosResponse" message="tns:IDiretorSkinnerGrafo_ListarSalaDeAulaPorFiltros_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvarSalaDeAula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarSalaDeAula" message="tns:IDiretorSkinnerGrafo_SalvarSalaDeAula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarSalaDeAulaResponse" message="tns:IDiretorSkinnerGrafo_SalvarSalaDeAula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarSalaDeAula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarSalaDeAula" message="tns:IDiretorSkinnerGrafo_DeletarSalaDeAula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarSalaDeAulaResponse" message="tns:IDiretorSkinnerGrafo_DeletarSalaDeAula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTiposDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTiposDisciplina" message="tns:IDiretorSkinnerGrafo_ListarTiposDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTiposDisciplinaResponse" message="tns:IDiretorSkinnerGrafo_ListarTiposDisciplina_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTipoDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTipoDisciplina" message="tns:IDiretorSkinnerGrafo_ListarTipoDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTipoDisciplinaResponse" message="tns:IDiretorSkinnerGrafo_ListarTipoDisciplina_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvarTipoDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarTipoDisciplina" message="tns:IDiretorSkinnerGrafo_SalvarTipoDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarTipoDisciplinaResponse" message="tns:IDiretorSkinnerGrafo_SalvarTipoDisciplina_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarTipoDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarTipoDisciplina" message="tns:IDiretorSkinnerGrafo_DeletarTipoDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarTipoDisciplinaResponse" message="tns:IDiretorSkinnerGrafo_DeletarTipoDisciplina_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTiposPessoa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTiposPessoa" message="tns:IDiretorSkinnerGrafo_ListarTiposPessoa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTiposPessoaResponse" message="tns:IDiretorSkinnerGrafo_ListarTiposPessoa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTipoPessoa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTipoPessoa" message="tns:IDiretorSkinnerGrafo_ListarTipoPessoa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTipoPessoaResponse" message="tns:IDiretorSkinnerGrafo_ListarTipoPessoa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTipoPessoaPorPessoa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTipoPessoaPorPessoa" message="tns:IDiretorSkinnerGrafo_ListarTipoPessoaPorPessoa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTipoPessoaPorPessoaResponse" message="tns:IDiretorSkinnerGrafo_ListarTipoPessoaPorPessoa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvarTipoPessoa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarTipoPessoa" message="tns:IDiretorSkinnerGrafo_SalvarTipoPessoa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarTipoPessoaResponse" message="tns:IDiretorSkinnerGrafo_SalvarTipoPessoa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarTipoPessoa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarTipoPessoa" message="tns:IDiretorSkinnerGrafo_DeletarTipoPessoa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarTipoPessoaResponse" message="tns:IDiretorSkinnerGrafo_DeletarTipoPessoa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTurmas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmas" message="tns:IDiretorSkinnerGrafo_ListarTurmas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmasResponse" message="tns:IDiretorSkinnerGrafo_ListarTurmas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTurmaPorPessoa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorPessoa" message="tns:IDiretorSkinnerGrafo_ListarTurmaPorPessoa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorPessoaResponse" message="tns:IDiretorSkinnerGrafo_ListarTurmaPorPessoa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTurmaPorDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorDisciplina" message="tns:IDiretorSkinnerGrafo_ListarTurmaPorDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorDisciplinaResponse" message="tns:IDiretorSkinnerGrafo_ListarTurmaPorDisciplina_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTurmaPorConceito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorConceito" message="tns:IDiretorSkinnerGrafo_ListarTurmaPorConceito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorConceitoResponse" message="tns:IDiretorSkinnerGrafo_ListarTurmaPorConceito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTurma">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurma" message="tns:IDiretorSkinnerGrafo_ListarTurma_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaResponse" message="tns:IDiretorSkinnerGrafo_ListarTurma_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvarTurma">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarTurma" message="tns:IDiretorSkinnerGrafo_SalvarTurma_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarTurmaResponse" message="tns:IDiretorSkinnerGrafo_SalvarTurma_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarTurma">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarTurma" message="tns:IDiretorSkinnerGrafo_DeletarTurma_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarTurmaResponse" message="tns:IDiretorSkinnerGrafo_DeletarTurma_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerGrafo/GetData" message="tns:IDiretorSkinnerGrafo_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerGrafo/GetDataResponse" message="tns:IDiretorSkinnerGrafo_GetData_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IDiretorSkinnerGrafo" type="tns:IDiretorSkinnerGrafo">
+    <wsp:PolicyReference URI="#NetTcpBinding_IDiretorSkinnerGrafo_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="ListarConceitos">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarConceitos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarConceito">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarConceito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarConceito">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarConceito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarConceito">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarConceito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisciplinas">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarDisciplinas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisciplinaPorTipo">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarDisciplinaPorTipo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarPessoas">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarPessoasPesquisa">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoasPesquisa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarPessoaPorTipo">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorTipo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarPessoa">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarPessoaPorApelido">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorApelido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarPessoaPorCodigo">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarPessoa">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarPessoa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarPessoa">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarPessoa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargaInserirConceito">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirConceito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargaAlterarConceito">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaAlterarConceito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargaExcluirConceito">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaExcluirConceito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargaSelecionarConceito">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarConceito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargaInserirDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargaAlterarDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaAlterarDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargaExcluirDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaExcluirDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargaSelecionarDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargaInserirSalaDeAula">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirSalaDeAula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargaAlterarSalaDeAula">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaAlterarSalaDeAula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargaExcluirSalaDeAula">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaExcluirSalaDeAula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargaSelecionarSalaDeAula">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarSalaDeAula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarSalasDeAula">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalasDeAula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarSalaDeAula">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarSalaDeAulaPorPessoa">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAulaPorPessoa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarSalaDeAulaPorDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAulaPorDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarSalaDeAulaPorConceito">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAulaPorConceito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarSalaDeAulaPorTurma">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAulaPorTurma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarSalaDeAulaPorFiltros">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalaDeAulaPorFiltros" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarSalaDeAula">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarSalaDeAula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarSalaDeAula">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarSalaDeAula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTiposDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTiposDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTipoDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTipoDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarTipoDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarTipoDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarTipoDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarTipoDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTiposPessoa">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTiposPessoa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTipoPessoa">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTipoPessoa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTipoPessoaPorPessoa">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTipoPessoaPorPessoa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarTipoPessoa">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarTipoPessoa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarTipoPessoa">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarTipoPessoa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTurmas">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTurmaPorPessoa">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorPessoa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTurmaPorDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTurmaPorConceito">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorConceito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTurma">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvarTurma">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarTurma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarTurma">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarTurma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerGrafo/GetData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DiretorSkinnerGrafo">
+    <wsdl:port name="NetTcpBinding_IDiretorSkinnerGrafo" binding="tns:NetTcpBinding_IDiretorSkinnerGrafo">
+      <soap12:address location="net.tcp://localhost:809/DiretorSkinner/DiretorSkinner.Grafo.Servico/DiretorSkinnerGrafo/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:809/DiretorSkinner/DiretorSkinner.Grafo.Servico/DiretorSkinnerGrafo/</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
