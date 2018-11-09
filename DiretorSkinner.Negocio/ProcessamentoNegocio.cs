@@ -164,7 +164,7 @@ namespace DiretorSkinner.Negocio
             memoria = Process.GetCurrentProcess().PrivateMemorySize64;
             st.Start();
 
-            SqlCommand cmd = new SqlCommand("select top (@tamanho) * from Conceito");
+            SqlCommand cmd = new SqlCommand("select top (@tamanho) id,codigo,nome,media,(select cc.Id from conceito cc where media > cc.Minimo and media <= cc.Maximo) conceitoid,(select cc.Nome from conceito cc where media > cc.Minimo and media <= cc.Maximo) conceitonome FROM (SELECT p.id,p.codigo,p.nome,AVG(sda.nota) AS media FROM saladeaula sda,pessoa p,conceito c WHERE p.id = sda.pessoaid AND sda.nota >= c.minimo AND   sda.nota <= c.maximo GROUP BY p.nome, p.codigo, p.codigo,p.id ) x");
             pars.Add(new SqlParameter("tamanho", tamanho));
             cmd.Parameters.AddRange(pars.ToArray());
             DataSet ds = Conexao.ExecutarDataSet(cmd);
@@ -323,7 +323,7 @@ namespace DiretorSkinner.Negocio
             memoria = Process.GetCurrentProcess().PrivateMemorySize64;
             st.Start();
 
-            SqlCommand cmd = new SqlCommand("select top (@tamanho) * from Disciplina");
+            SqlCommand cmd = new SqlCommand("select top (@tamanho) disciplina.Id as DisciplinaId , disciplina.Nome as DisciplinaNome, count(salaDeAula.pessoaId) as Quantidade from SalaDeAula salaDeAula , Disciplina disciplina where disciplina.Id = salaDeAula.disciplinaId group by disciplina.Id, disciplina.Nome");
             pars.Add(new SqlParameter("tamanho", tamanho));
             cmd.Parameters.AddRange(pars.ToArray());
             DataSet ds = Conexao.ExecutarDataSet(cmd);
@@ -490,7 +490,7 @@ namespace DiretorSkinner.Negocio
             memoria = Process.GetCurrentProcess().PrivateMemorySize64;
             st.Start();
 
-            SqlCommand cmd = new SqlCommand("select top (@tamanho) * from SalaDeAula");
+            SqlCommand cmd = new SqlCommand("select top (@tamanho) pessoa.Id as PessoaId,pessoa.Nome as PessoaNome,tipoPessoa.Id as TipoPessoaId,tipoPessoa.Nome as TipoPessoaNome,disciplina.Nome as DisciplinaNome,conceito.Nome as conceitoNome,salaDeAula.Semestre as Semestre from SalaDeAula salaDeAula ,Disciplina disciplina ,Pessoa pessoa ,TipoPessoa tipoPessoa, PessoaTipoPessoa pessoaTipoPessoa ,Conceito conceito where disciplina.Id = salaDeAula.DisciplinaId   and pessoa.Id = salaDeAula.PessoaId  and pessoa.Id = pessoaTipoPessoa.pessoaId  and tipoPessoa.Id = pessoaTipoPessoa.tipoPessoaId  and salaDeAula.Nota > conceito.Minimo   and salaDeAula.Nota <= conceito.Maximo");
             pars.Add(new SqlParameter("tamanho", tamanho));
             cmd.Parameters.AddRange(pars.ToArray());
             DataSet ds = Conexao.ExecutarDataSet(cmd);

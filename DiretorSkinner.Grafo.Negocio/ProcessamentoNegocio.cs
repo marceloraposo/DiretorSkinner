@@ -168,7 +168,7 @@ namespace DiretorSkinner.Grafo.Negocio
             long cpuUso = 0; long cpuUsoTotal = 0;
 
             Stopwatch st = new Stopwatch();
-            List<ConceitoDto> list = new List<ConceitoDto>();
+            List<PessoaPorConceitoDto> list = new List<PessoaPorConceitoDto>();
 
             var graphClient = ConexaoGrafo.Client;
 
@@ -176,8 +176,13 @@ namespace DiretorSkinner.Grafo.Negocio
             memoria = Process.GetCurrentProcess().PrivateMemorySize64;
             st.Start();
 
-            List<ConceitoDto> lista = graphClient.Cypher.Match($"(conceito:Conceito)")
-                                     .Return(conceito => conceito.As<ConceitoDto>())
+            list = graphClient.Cypher.Match($"(pessoa:Pessoa), (salaDeAula:SalaDeAula), (conceito:Conceito)")
+                                     .OptionalMatch("(pessoa:Pessoa)-[esta:ESTA]->(salaDeAula:SalaDeAula)")
+                                     .Where(" pessoa.Id = salaDeAula.PessoaId and salaDeAula.Nota > conceito.Minimo and salaDeAula.Nota <= conceito.Maximo ")
+                                     .With(" pessoa,conceito,{ media: avg(salaDeAula.Nota) } as media_pessoa")
+                                     .With(" conceito, { Id: pessoa.Id, Codigo: pessoa.Codigo, Nome: pessoa.Nome, Media: media_pessoa.media, ConceitoId: conceito.Id, ConceitoNome: conceito.Nome} as pessoa")
+                                     .Where(" pessoa.Media > conceito.Minimo and pessoa.Media <= conceito.Maximo ")
+                                     .Return(pessoa => pessoa.As<PessoaPorConceitoDto>())
                                      .Limit(tamanho)
                                      .Results
                                      .ToList();
@@ -347,7 +352,7 @@ namespace DiretorSkinner.Grafo.Negocio
             long memoria = 0; long memoriaTotal = 0;
             long cpuUso = 0; long cpuUsoTotal = 0;
             Stopwatch st = new Stopwatch();
-            List<DisciplinaDto> list = new List<DisciplinaDto>();
+            List<QtdePessoaPorDisciplinaDto> list = new List<QtdePessoaPorDisciplinaDto>();
 
             var graphClient = ConexaoGrafo.Client;
 
@@ -355,8 +360,12 @@ namespace DiretorSkinner.Grafo.Negocio
             memoria = Process.GetCurrentProcess().PrivateMemorySize64;
             st.Start();
 
-            List<DisciplinaDto> lista = graphClient.Cypher.Match($"(disciplina:Disciplina)")
-                                     .Return(disciplina => disciplina.As<DisciplinaDto>())
+            list = graphClient.Cypher.Match($"(pessoa:Pessoa)")
+                                     .OptionalMatch("(pessoa:Pessoa)-[esta:ESTA]->(salaDeAula:SalaDeAula)")
+                                     .OptionalMatch("(disciplina:Disciplina)-[tem:TEM]->(salaDeAula:SalaDeAula)")
+                                     .With(" disciplina,{ valor: count(salaDeAula.PessoaId) } as quantidade")
+                                     .With(" quantidade, { DisciplinaId: disciplina.Id, DisciplinaNome: disciplina.Nome, Quantidade: quantidade.valor} as pessoa")
+                                     .Return(pessoa => pessoa.As<QtdePessoaPorDisciplinaDto>())
                                      .Limit(tamanho)
                                      .Results
                                      .ToList();
@@ -548,7 +557,7 @@ namespace DiretorSkinner.Grafo.Negocio
             long memoria = 0; long memoriaTotal = 0;
             long cpuUso = 0; long cpuUsoTotal = 0;
             Stopwatch st = new Stopwatch();
-            List<SalaDeAulaDto> list = new List<SalaDeAulaDto>();
+            List<RepetenciaDeDisciplinaPorTipoPessoaDto> list = new List<RepetenciaDeDisciplinaPorTipoPessoaDto>();
 
             var graphClient = ConexaoGrafo.Client;
 
@@ -556,8 +565,12 @@ namespace DiretorSkinner.Grafo.Negocio
             memoria = Process.GetCurrentProcess().PrivateMemorySize64;
             st.Start();
 
-            List<SalaDeAulaDto> lista = graphClient.Cypher.Match($"(salaDeAula:SalaDeAula)")
-                                     .Return(salaDeAula => salaDeAula.As<SalaDeAulaDto>())
+            list = graphClient.Cypher.Match($"(pessoa:Pessoa), (salaDeAula:SalaDeAula), (conceito:Conceito),(disciplina:Disciplina)")
+                                     .Match("(pessoa:Pessoa)-[PessoaPertenceTipoPessoa:PESSOA_PERTENCE_TIPO_PESSOA]->(tipoPessoa:TipoPessoa)")
+                                     .Where(" pessoa.Id = salaDeAula.PessoaId and salaDeAula.Nota > conceito.Minimo and salaDeAula.Nota <= conceito.Maximo and disciplina.Id = salaDeAula.DisciplinaId ")
+                                     .With(" salaDeAula,pessoa,conceito,disciplina,tipoPessoa ")
+                                     .With(" { PessoaId: pessoa.Id, PessoaNome: pessoa.Nome, TipoPessoaId: tipoPessoa.Id, TipoPessoaNome: tipoPessoa.Nome, ConceitoNome: conceito.Nome, DisciplinaNome: disciplina.Nome, Semestre: salaDeAula.Semestre} as pessoa")
+                                     .Return(pessoa => pessoa.As<RepetenciaDeDisciplinaPorTipoPessoaDto>())
                                      .Limit(tamanho)
                                      .Results
                                      .ToList();

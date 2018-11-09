@@ -147,6 +147,32 @@ namespace DiretorSkinner.Seymour {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocio/DeletarPessoa", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocio/DeletarPessoaResponse")]
         System.Threading.Tasks.Task DeletarPessoaAsync(DiretorSkinner.Tranporte.PessoaDto pessoa);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarQtdePessoaPorTodasDisciplinas", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocio/ListarQtdePessoaPorTodasDisciplinasResp" +
+            "onse")]
+        DiretorSkinner.Tranporte.QtdePessoaPorDisciplinaDto[] ListarQtdePessoaPorTodasDisciplinas();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarQtdePessoaPorTodasDisciplinas", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocio/ListarQtdePessoaPorTodasDisciplinasResp" +
+            "onse")]
+        System.Threading.Tasks.Task<DiretorSkinner.Tranporte.QtdePessoaPorDisciplinaDto[]> ListarQtdePessoaPorTodasDisciplinasAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarQtdePessoaPorDisciplina", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocio/ListarQtdePessoaPorDisciplinaResponse")]
+        DiretorSkinner.Tranporte.QtdePessoaPorDisciplinaDto[] ListarQtdePessoaPorDisciplina(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarQtdePessoaPorDisciplina", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocio/ListarQtdePessoaPorDisciplinaResponse")]
+        System.Threading.Tasks.Task<DiretorSkinner.Tranporte.QtdePessoaPorDisciplinaDto[]> ListarQtdePessoaPorDisciplinaAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarRepetenciaPorTodosTipos", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocio/ListarRepetenciaPorTodosTiposResponse")]
+        DiretorSkinner.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto[] ListarRepetenciaPorTodosTipos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarRepetenciaPorTodosTipos", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocio/ListarRepetenciaPorTodosTiposResponse")]
+        System.Threading.Tasks.Task<DiretorSkinner.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto[]> ListarRepetenciaPorTodosTiposAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarRepetenciaPorTipo", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocio/ListarRepetenciaPorTipoResponse")]
+        DiretorSkinner.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto[] ListarRepetenciaPorTipo(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarRepetenciaPorTipo", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocio/ListarRepetenciaPorTipoResponse")]
+        System.Threading.Tasks.Task<DiretorSkinner.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto[]> ListarRepetenciaPorTipoAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarSalasDeAula", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocio/ListarSalasDeAulaResponse")]
         DiretorSkinner.Tranporte.SalaDeAulaDto[] ListarSalasDeAula();
         
@@ -535,6 +561,38 @@ namespace DiretorSkinner.Seymour {
         
         public System.Threading.Tasks.Task DeletarPessoaAsync(DiretorSkinner.Tranporte.PessoaDto pessoa) {
             return base.Channel.DeletarPessoaAsync(pessoa);
+        }
+        
+        public DiretorSkinner.Tranporte.QtdePessoaPorDisciplinaDto[] ListarQtdePessoaPorTodasDisciplinas() {
+            return base.Channel.ListarQtdePessoaPorTodasDisciplinas();
+        }
+        
+        public System.Threading.Tasks.Task<DiretorSkinner.Tranporte.QtdePessoaPorDisciplinaDto[]> ListarQtdePessoaPorTodasDisciplinasAsync() {
+            return base.Channel.ListarQtdePessoaPorTodasDisciplinasAsync();
+        }
+        
+        public DiretorSkinner.Tranporte.QtdePessoaPorDisciplinaDto[] ListarQtdePessoaPorDisciplina(int id) {
+            return base.Channel.ListarQtdePessoaPorDisciplina(id);
+        }
+        
+        public System.Threading.Tasks.Task<DiretorSkinner.Tranporte.QtdePessoaPorDisciplinaDto[]> ListarQtdePessoaPorDisciplinaAsync(int id) {
+            return base.Channel.ListarQtdePessoaPorDisciplinaAsync(id);
+        }
+        
+        public DiretorSkinner.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto[] ListarRepetenciaPorTodosTipos() {
+            return base.Channel.ListarRepetenciaPorTodosTipos();
+        }
+        
+        public System.Threading.Tasks.Task<DiretorSkinner.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto[]> ListarRepetenciaPorTodosTiposAsync() {
+            return base.Channel.ListarRepetenciaPorTodosTiposAsync();
+        }
+        
+        public DiretorSkinner.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto[] ListarRepetenciaPorTipo(int id) {
+            return base.Channel.ListarRepetenciaPorTipo(id);
+        }
+        
+        public System.Threading.Tasks.Task<DiretorSkinner.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto[]> ListarRepetenciaPorTipoAsync(int id) {
+            return base.Channel.ListarRepetenciaPorTipoAsync(id);
         }
         
         public DiretorSkinner.Tranporte.SalaDeAulaDto[] ListarSalasDeAula() {

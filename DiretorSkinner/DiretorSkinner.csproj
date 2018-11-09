@@ -125,6 +125,12 @@
     <Compile Include="Relatorio\PessoaPorConceito.xaml.cs">
       <DependentUpon>PessoaPorConceito.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Relatorio\QtdePessoaPorDisciplina.xaml.cs">
+      <DependentUpon>QtdePessoaPorDisciplina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorio\RepetenciaDeDisciplinaPorTipoPessoa.xaml.cs">
+      <DependentUpon>RepetenciaDeDisciplinaPorTipoPessoa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Service References\Seymour\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -196,6 +202,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Relatorio\PessoaPorConceito.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Relatorio\QtdePessoaPorDisciplina.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Relatorio\RepetenciaDeDisciplinaPorTipoPessoa.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

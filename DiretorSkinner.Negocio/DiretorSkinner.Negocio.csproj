@@ -66,10 +66,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\PessoaPorConceito.cs" />
+    <Compile Include="Entidades\QtdePessoaPorDisciplina.cs" />
+    <Compile Include="Entidades\RepetenciaDeDisciplinaPorTipoPessoa.cs" />
     <Compile Include="PessoaPorConceitoNegocio.cs" />
     <Compile Include="ProcessamentoNegocio.cs" />
     <Compile Include="DiretorSkinnerNegocio.cs" />
     <Compile Include="Entidades\SalaDeAula.cs" />
+    <Compile Include="QtdePessoaPorDisciplinaNegocio.cs" />
+    <Compile Include="RepetenciaDeDisciplinaPorTipoPessoaNegocio.cs" />
     <Compile Include="SalaDeAulaNegocio.cs" />
     <Compile Include="TurmaNegocio.cs" />
     <Compile Include="TipoPessoaNegocio.cs" />

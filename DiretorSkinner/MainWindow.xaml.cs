@@ -141,17 +141,17 @@ namespace DiretorSkinner
 
         private void MenuRelatRepetenciaDeDisciplinaPorTipoPessoa_Click(object sender, RoutedEventArgs e)
         {
-            var relatRepetenciaDeDisciplinaPorTipoPessoaUserControl = new TipoDisciplina();
+            var relatRepetenciaDeDisciplinaPorTipoPessoaUserControl = new RepetenciaDeDisciplinaPorTipoPessoa();
             relatRepetenciaDeDisciplinaPorTipoPessoaUserControl.SetValue(DockPanel.DockProperty, Dock.Top);
             dockPanelCentral.Children.Clear();
             dockPanelCentral.Children.Add(relatRepetenciaDeDisciplinaPorTipoPessoaUserControl);
 
-            textBlockTitulo.Text = "Repetência de Disciplina por TipoPessoa";
+            textBlockTitulo.Text = "Repetência de Disciplina por Tipo de Pessoa";
         }
 
         private void MenuRelatQtdePessoaPorDisciplina_Click(object sender, RoutedEventArgs e)
         {
-            var relatQtdePessoaPorDisciplinaUserControl = new TipoDisciplina();
+            var relatQtdePessoaPorDisciplinaUserControl = new QtdePessoaPorDisciplina();
             relatQtdePessoaPorDisciplinaUserControl.SetValue(DockPanel.DockProperty, Dock.Top);
             dockPanelCentral.Children.Clear();
             dockPanelCentral.Children.Add(relatQtdePessoaPorDisciplinaUserControl);

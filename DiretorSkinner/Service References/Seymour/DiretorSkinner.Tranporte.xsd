@@ -66,6 +66,34 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="TipoPessoaDto" nillable="true" type="tns:TipoPessoaDto" />
+  <xs:complexType name="QtdePessoaPorDisciplinaDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RootDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DisciplinaId" type="xs:int" />
+          <xs:element minOccurs="0" name="DisciplinaNome" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Quantidade" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="QtdePessoaPorDisciplinaDto" nillable="true" type="tns:QtdePessoaPorDisciplinaDto" />
+  <xs:complexType name="RepetenciaDeDisciplinaPorTipoPessoaDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RootDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ConceitoNome" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DisciplinaNome" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PessoaId" type="xs:int" />
+          <xs:element minOccurs="0" name="PessoaNome" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Semestre" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TipoPessoaId" type="xs:int" />
+          <xs:element minOccurs="0" name="TipoPessoaNome" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RepetenciaDeDisciplinaPorTipoPessoaDto" nillable="true" type="tns:RepetenciaDeDisciplinaPorTipoPessoaDto" />
   <xs:complexType name="SalaDeAulaDto">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:RootDto">
@@ -153,6 +181,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfPessoaDto" nillable="true" type="tns:ArrayOfPessoaDto" />
+  <xs:complexType name="ArrayOfQtdePessoaPorDisciplinaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QtdePessoaPorDisciplinaDto" nillable="true" type="tns:QtdePessoaPorDisciplinaDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQtdePessoaPorDisciplinaDto" nillable="true" type="tns:ArrayOfQtdePessoaPorDisciplinaDto" />
+  <xs:complexType name="ArrayOfRepetenciaDeDisciplinaPorTipoPessoaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RepetenciaDeDisciplinaPorTipoPessoaDto" nillable="true" type="tns:RepetenciaDeDisciplinaPorTipoPessoaDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRepetenciaDeDisciplinaPorTipoPessoaDto" nillable="true" type="tns:ArrayOfRepetenciaDeDisciplinaPorTipoPessoaDto" />
   <xs:complexType name="ArrayOfTurmaDto">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="TurmaDto" nillable="true" type="tns:TurmaDto" />

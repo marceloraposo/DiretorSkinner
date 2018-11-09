@@ -81,6 +81,8 @@
     <Compile Include="IProcessamentoNegocio.cs" />
     <Compile Include="IDiretorSkinnerNegocio.cs" />
     <Compile Include="IPessoaNegocio.cs" />
+    <Compile Include="IQtdePessoaPorDisciplinaNegocio.cs" />
+    <Compile Include="IRepetenciaDeDisciplinaPorTipoPessoaNegocio.cs" />
     <Compile Include="ISalaDeAulaNegocio.cs" />
     <Compile Include="ITurmaNegocio.cs" />
     <Compile Include="ITipoPessoaNegocio.cs" />

@@ -173,6 +173,30 @@
   <wsdl:message name="IDiretorSkinner_DeletarPessoa_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeletarPessoaResponse" />
   </wsdl:message>
+  <wsdl:message name="IDiretorSkinner_ListarQtdePessoaPorTodasDisciplinas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarQtdePessoaPorTodasDisciplinas" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinner_ListarQtdePessoaPorTodasDisciplinas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarQtdePessoaPorTodasDisciplinasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinner_ListarQtdePessoaPorDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarQtdePessoaPorDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinner_ListarQtdePessoaPorDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarQtdePessoaPorDisciplinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinner_ListarRepetenciaPorTodosTipos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarRepetenciaPorTodosTipos" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinner_ListarRepetenciaPorTodosTipos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarRepetenciaPorTodosTiposResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinner_ListarRepetenciaPorTipo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarRepetenciaPorTipo" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinner_ListarRepetenciaPorTipo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarRepetenciaPorTipoResponse" />
+  </wsdl:message>
   <wsdl:message name="IDiretorSkinner_ListarSalasDeAula_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarSalasDeAula" />
   </wsdl:message>
@@ -447,6 +471,22 @@
     <wsdl:operation name="DeletarPessoa">
       <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/DeletarPessoa" message="tns:IDiretorSkinner_DeletarPessoa_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/DeletarPessoaResponse" message="tns:IDiretorSkinner_DeletarPessoa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarQtdePessoaPorTodasDisciplinas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarQtdePessoaPorTodasDisciplinas" message="tns:IDiretorSkinner_ListarQtdePessoaPorTodasDisciplinas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarQtdePessoaPorTodasDisciplinasResponse" message="tns:IDiretorSkinner_ListarQtdePessoaPorTodasDisciplinas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarQtdePessoaPorDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarQtdePessoaPorDisciplina" message="tns:IDiretorSkinner_ListarQtdePessoaPorDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarQtdePessoaPorDisciplinaResponse" message="tns:IDiretorSkinner_ListarQtdePessoaPorDisciplina_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarRepetenciaPorTodosTipos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarRepetenciaPorTodosTipos" message="tns:IDiretorSkinner_ListarRepetenciaPorTodosTipos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarRepetenciaPorTodosTiposResponse" message="tns:IDiretorSkinner_ListarRepetenciaPorTodosTipos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarRepetenciaPorTipo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarRepetenciaPorTipo" message="tns:IDiretorSkinner_ListarRepetenciaPorTipo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarRepetenciaPorTipoResponse" message="tns:IDiretorSkinner_ListarRepetenciaPorTipo_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ListarSalasDeAula">
       <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarSalasDeAula" message="tns:IDiretorSkinner_ListarSalasDeAula_InputMessage" />
@@ -768,6 +808,42 @@
     </wsdl:operation>
     <wsdl:operation name="DeletarPessoa">
       <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocio/DeletarPessoa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarQtdePessoaPorTodasDisciplinas">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocio/ListarQtdePessoaPorTodasDisciplinas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarQtdePessoaPorDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocio/ListarQtdePessoaPorDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarRepetenciaPorTodosTipos">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocio/ListarRepetenciaPorTodosTipos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarRepetenciaPorTipo">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocio/ListarRepetenciaPorTipo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

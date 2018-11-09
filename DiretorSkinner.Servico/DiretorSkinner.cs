@@ -242,6 +242,26 @@ namespace DiretorSkinner.Servico
             return negocio.ListarPessoaPorConceito(id);
         }
 
+        public List<RepetenciaDeDisciplinaPorTipoPessoaDto> ListarRepetenciaPorTodosTipos()
+        {
+            return negocio.ListarRepetenciaPorTodosTipos();
+        }
+
+        public List<RepetenciaDeDisciplinaPorTipoPessoaDto> ListarRepetenciaPorTipo(int id)
+        {
+            return negocio.ListarRepetenciaPorTipo(id);
+        }
+
+        public List<QtdePessoaPorDisciplinaDto> ListarQtdePessoaPorTodasDisciplinas()
+        {
+            return negocio.ListarQtdePessoaPorTodasDisciplinas();
+        }
+
+        public List<QtdePessoaPorDisciplinaDto> ListarQtdePessoaPorDisciplina(int id)
+        {
+            return negocio.ListarQtdePessoaPorDisciplina(id);
+        }
+
         public ProcessamentoDto CargaInserirDisciplina(int tamanho)
         {
             return negocio.CargaInserirDisciplina(tamanho);
