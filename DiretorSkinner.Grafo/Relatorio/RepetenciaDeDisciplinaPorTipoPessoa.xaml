@@ -19,13 +19,14 @@
 					</Grid.RowDefinitions>
                     <dg:DataGrid Name="dgRepetenciaDeDisciplinaPorTipoPessoa" ItemsSource="{Binding ListaRepetenciaDeDisciplinaPorTipoPessoa}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserSortColumns="True" >
 						<dg:DataGrid.Columns>
-                            <dg:DataGridTextColumn Binding="{Binding PessoaId, NotifyOnTargetUpdated=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" Header="PessoaId" IsReadOnly="True" />
-                            <dg:DataGridTextColumn Binding="{Binding PessoaNome, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" Header="PessoaNome" IsReadOnly="True" />
-                            <dg:DataGridTextColumn Binding="{Binding TipoPessoaId, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Header="TipoPessoaId" IsReadOnly="True" />
-                            <dg:DataGridTextColumn Binding="{Binding TipoPessoaNome, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Header="TipoPessoaNome" IsReadOnly="True" />
-                            <dg:DataGridTextColumn Binding="{Binding DisciplinaNome, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Header="DisciplinaNome" IsReadOnly="True" />
-                            <dg:DataGridTextColumn Binding="{Binding ConceitoNome, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Header="ConceitoNome" IsReadOnly="True" />
-						</dg:DataGrid.Columns>
+                            <!--<dg:DataGridTextColumn Binding="{Binding PessoaId, NotifyOnTargetUpdated=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" Header="PessoaId" IsReadOnly="True" />-->
+                            <dg:DataGridTextColumn Binding="{Binding PessoaNome, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="180" Header="Pessoa" IsReadOnly="True" />
+                            <!--<dg:DataGridTextColumn Binding="{Binding TipoPessoaId, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Header="TipoPessoaId" IsReadOnly="True" />-->
+                            <dg:DataGridTextColumn Binding="{Binding TipoPessoaNome, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="70" Header="TipoPessoa" IsReadOnly="True" />
+                            <dg:DataGridTextColumn Binding="{Binding DisciplinaNome, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Header="Disciplina" IsReadOnly="True" />
+                            <dg:DataGridTextColumn Binding="{Binding ConceitoNome, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="80" Header="Conceito" IsReadOnly="True" />
+                            <dg:DataGridTextColumn Binding="{Binding Semestre, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="60" Header="Semestre" IsReadOnly="True" />
+                        </dg:DataGrid.Columns>
 					</dg:DataGrid>
 				</Grid>
 			</StackPanel>

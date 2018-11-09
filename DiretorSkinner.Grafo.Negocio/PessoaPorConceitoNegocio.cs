@@ -1,11 +1,7 @@
 ﻿using DiretorSkinner.Grafo.Interface;
-using DiretorSkinner.Grafo.Negocio.Nodes;
 using DiretorSkinner.Grafo.Tranporte;
-using DiretorSkinner.Util.Acesso;
 using DiretorSkinner.Util.Acesso.Graphos;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 
 namespace DiretorSkinner.Grafo.Negocio

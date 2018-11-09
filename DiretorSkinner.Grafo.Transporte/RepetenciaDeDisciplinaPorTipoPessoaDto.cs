@@ -8,6 +8,7 @@
         public string TipoPessoaNome { get; set; }
         public string DisciplinaNome { get; set; }
         public string ConceitoNome { get; set; }
+        public string Semestre { get; set; }
 
     }
 }
