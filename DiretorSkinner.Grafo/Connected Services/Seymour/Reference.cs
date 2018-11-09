@@ -117,6 +117,20 @@ namespace DiretorSkinner.Grafo.Seymour {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarPessoa", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/DeletarPessoaResponse")]
         System.Threading.Tasks.Task DeletarPessoaAsync(DiretorSkinner.Grafo.Tranporte.PessoaDto pessoa);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorTodosConceitos", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorTodosConceitosRespo" +
+            "nse")]
+        DiretorSkinner.Grafo.Tranporte.PessoaPorConceitoDto[] ListarPessoaPorTodosConceitos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorTodosConceitos", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorTodosConceitosRespo" +
+            "nse")]
+        System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.PessoaPorConceitoDto[]> ListarPessoaPorTodosConceitosAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorConceito", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorConceitoResponse")]
+        DiretorSkinner.Grafo.Tranporte.PessoaPorConceitoDto[] ListarPessoaPorConceito(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorConceito", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarPessoaPorConceitoResponse")]
+        System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.PessoaPorConceitoDto[]> ListarPessoaPorConceitoAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirConceito", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirConceitoResponse")]
         DiretorSkinner.Grafo.Tranporte.ProcessamentoDto CargaInserirConceito(int tamanho);
         
@@ -188,6 +202,38 @@ namespace DiretorSkinner.Grafo.Seymour {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarSalaDeAula", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarSalaDeAulaResponse")]
         System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.ProcessamentoDto> CargaSelecionarSalaDeAulaAsync(int tamanho);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarQtdePessoaPorTodasDisciplina" +
+            "s", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarQtdePessoaPorTodasDisciplina" +
+            "sResponse")]
+        DiretorSkinner.Grafo.Tranporte.QtdePessoaPorDisciplinaDto[] ListarQtdePessoaPorTodasDisciplinas();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarQtdePessoaPorTodasDisciplina" +
+            "s", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarQtdePessoaPorTodasDisciplina" +
+            "sResponse")]
+        System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.QtdePessoaPorDisciplinaDto[]> ListarQtdePessoaPorTodasDisciplinasAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarQtdePessoaPorDisciplina", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarQtdePessoaPorDisciplinaRespo" +
+            "nse")]
+        DiretorSkinner.Grafo.Tranporte.QtdePessoaPorDisciplinaDto[] ListarQtdePessoaPorDisciplina(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarQtdePessoaPorDisciplina", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarQtdePessoaPorDisciplinaRespo" +
+            "nse")]
+        System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.QtdePessoaPorDisciplinaDto[]> ListarQtdePessoaPorDisciplinaAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarRepetenciaPorTodosTipos", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarRepetenciaPorTodosTiposRespo" +
+            "nse")]
+        DiretorSkinner.Grafo.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto[] ListarRepetenciaPorTodosTipos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarRepetenciaPorTodosTipos", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarRepetenciaPorTodosTiposRespo" +
+            "nse")]
+        System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto[]> ListarRepetenciaPorTodosTiposAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarRepetenciaPorTipo", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarRepetenciaPorTipoResponse")]
+        DiretorSkinner.Grafo.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto[] ListarRepetenciaPorTipo(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarRepetenciaPorTipo", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarRepetenciaPorTipoResponse")]
+        System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto[]> ListarRepetenciaPorTipoAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalasDeAula", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarSalasDeAulaResponse")]
         DiretorSkinner.Grafo.Tranporte.SalaDeAulaDto[] ListarSalasDeAula();
@@ -308,30 +354,6 @@ namespace DiretorSkinner.Grafo.Seymour {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmas", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmasResponse")]
         System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.TurmaDto[]> ListarTurmasAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorPessoa", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorPessoaResponse")]
-        DiretorSkinner.Grafo.Tranporte.TurmaDto[] ListarTurmaPorPessoa(DiretorSkinner.Grafo.Tranporte.PessoaDto pessoa);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorPessoa", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorPessoaResponse")]
-        System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.TurmaDto[]> ListarTurmaPorPessoaAsync(DiretorSkinner.Grafo.Tranporte.PessoaDto pessoa);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorDisciplina", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorDisciplinaResponse")]
-        DiretorSkinner.Grafo.Tranporte.TurmaDto[] ListarTurmaPorDisciplina(DiretorSkinner.Grafo.Tranporte.DisciplinaDto disciplina);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorDisciplina", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorDisciplinaResponse")]
-        System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.TurmaDto[]> ListarTurmaPorDisciplinaAsync(DiretorSkinner.Grafo.Tranporte.DisciplinaDto disciplina);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorConceito", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorConceitoResponse")]
-        DiretorSkinner.Grafo.Tranporte.TurmaDto[] ListarTurmaPorConceito(DiretorSkinner.Grafo.Tranporte.ConceitoDto conceito);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorConceito", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaPorConceitoResponse")]
-        System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.TurmaDto[]> ListarTurmaPorConceitoAsync(DiretorSkinner.Grafo.Tranporte.ConceitoDto conceito);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurma", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaResponse")]
-        DiretorSkinner.Grafo.Tranporte.TurmaDto[] ListarTurma(DiretorSkinner.Grafo.Tranporte.ConceitoDto conceito, DiretorSkinner.Grafo.Tranporte.DisciplinaDto disciplina, DiretorSkinner.Grafo.Tranporte.PessoaDto pessoa);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurma", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarTurmaResponse")]
-        System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.TurmaDto[]> ListarTurmaAsync(DiretorSkinner.Grafo.Tranporte.ConceitoDto conceito, DiretorSkinner.Grafo.Tranporte.DisciplinaDto disciplina, DiretorSkinner.Grafo.Tranporte.PessoaDto pessoa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarTurma", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/SalvarTurmaResponse")]
         void SalvarTurma(DiretorSkinner.Grafo.Tranporte.TurmaDto turma);
@@ -515,6 +537,22 @@ namespace DiretorSkinner.Grafo.Seymour {
             return base.Channel.DeletarPessoaAsync(pessoa);
         }
         
+        public DiretorSkinner.Grafo.Tranporte.PessoaPorConceitoDto[] ListarPessoaPorTodosConceitos() {
+            return base.Channel.ListarPessoaPorTodosConceitos();
+        }
+        
+        public System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.PessoaPorConceitoDto[]> ListarPessoaPorTodosConceitosAsync() {
+            return base.Channel.ListarPessoaPorTodosConceitosAsync();
+        }
+        
+        public DiretorSkinner.Grafo.Tranporte.PessoaPorConceitoDto[] ListarPessoaPorConceito(int id) {
+            return base.Channel.ListarPessoaPorConceito(id);
+        }
+        
+        public System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.PessoaPorConceitoDto[]> ListarPessoaPorConceitoAsync(int id) {
+            return base.Channel.ListarPessoaPorConceitoAsync(id);
+        }
+        
         public DiretorSkinner.Grafo.Tranporte.ProcessamentoDto CargaInserirConceito(int tamanho) {
             return base.Channel.CargaInserirConceito(tamanho);
         }
@@ -609,6 +647,38 @@ namespace DiretorSkinner.Grafo.Seymour {
         
         public System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.ProcessamentoDto> CargaSelecionarSalaDeAulaAsync(int tamanho) {
             return base.Channel.CargaSelecionarSalaDeAulaAsync(tamanho);
+        }
+        
+        public DiretorSkinner.Grafo.Tranporte.QtdePessoaPorDisciplinaDto[] ListarQtdePessoaPorTodasDisciplinas() {
+            return base.Channel.ListarQtdePessoaPorTodasDisciplinas();
+        }
+        
+        public System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.QtdePessoaPorDisciplinaDto[]> ListarQtdePessoaPorTodasDisciplinasAsync() {
+            return base.Channel.ListarQtdePessoaPorTodasDisciplinasAsync();
+        }
+        
+        public DiretorSkinner.Grafo.Tranporte.QtdePessoaPorDisciplinaDto[] ListarQtdePessoaPorDisciplina(int id) {
+            return base.Channel.ListarQtdePessoaPorDisciplina(id);
+        }
+        
+        public System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.QtdePessoaPorDisciplinaDto[]> ListarQtdePessoaPorDisciplinaAsync(int id) {
+            return base.Channel.ListarQtdePessoaPorDisciplinaAsync(id);
+        }
+        
+        public DiretorSkinner.Grafo.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto[] ListarRepetenciaPorTodosTipos() {
+            return base.Channel.ListarRepetenciaPorTodosTipos();
+        }
+        
+        public System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto[]> ListarRepetenciaPorTodosTiposAsync() {
+            return base.Channel.ListarRepetenciaPorTodosTiposAsync();
+        }
+        
+        public DiretorSkinner.Grafo.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto[] ListarRepetenciaPorTipo(int id) {
+            return base.Channel.ListarRepetenciaPorTipo(id);
+        }
+        
+        public System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto[]> ListarRepetenciaPorTipoAsync(int id) {
+            return base.Channel.ListarRepetenciaPorTipoAsync(id);
         }
         
         public DiretorSkinner.Grafo.Tranporte.SalaDeAulaDto[] ListarSalasDeAula() {
@@ -761,38 +831,6 @@ namespace DiretorSkinner.Grafo.Seymour {
         
         public System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.TurmaDto[]> ListarTurmasAsync() {
             return base.Channel.ListarTurmasAsync();
-        }
-        
-        public DiretorSkinner.Grafo.Tranporte.TurmaDto[] ListarTurmaPorPessoa(DiretorSkinner.Grafo.Tranporte.PessoaDto pessoa) {
-            return base.Channel.ListarTurmaPorPessoa(pessoa);
-        }
-        
-        public System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.TurmaDto[]> ListarTurmaPorPessoaAsync(DiretorSkinner.Grafo.Tranporte.PessoaDto pessoa) {
-            return base.Channel.ListarTurmaPorPessoaAsync(pessoa);
-        }
-        
-        public DiretorSkinner.Grafo.Tranporte.TurmaDto[] ListarTurmaPorDisciplina(DiretorSkinner.Grafo.Tranporte.DisciplinaDto disciplina) {
-            return base.Channel.ListarTurmaPorDisciplina(disciplina);
-        }
-        
-        public System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.TurmaDto[]> ListarTurmaPorDisciplinaAsync(DiretorSkinner.Grafo.Tranporte.DisciplinaDto disciplina) {
-            return base.Channel.ListarTurmaPorDisciplinaAsync(disciplina);
-        }
-        
-        public DiretorSkinner.Grafo.Tranporte.TurmaDto[] ListarTurmaPorConceito(DiretorSkinner.Grafo.Tranporte.ConceitoDto conceito) {
-            return base.Channel.ListarTurmaPorConceito(conceito);
-        }
-        
-        public System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.TurmaDto[]> ListarTurmaPorConceitoAsync(DiretorSkinner.Grafo.Tranporte.ConceitoDto conceito) {
-            return base.Channel.ListarTurmaPorConceitoAsync(conceito);
-        }
-        
-        public DiretorSkinner.Grafo.Tranporte.TurmaDto[] ListarTurma(DiretorSkinner.Grafo.Tranporte.ConceitoDto conceito, DiretorSkinner.Grafo.Tranporte.DisciplinaDto disciplina, DiretorSkinner.Grafo.Tranporte.PessoaDto pessoa) {
-            return base.Channel.ListarTurma(conceito, disciplina, pessoa);
-        }
-        
-        public System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.TurmaDto[]> ListarTurmaAsync(DiretorSkinner.Grafo.Tranporte.ConceitoDto conceito, DiretorSkinner.Grafo.Tranporte.DisciplinaDto disciplina, DiretorSkinner.Grafo.Tranporte.PessoaDto pessoa) {
-            return base.Channel.ListarTurmaAsync(conceito, disciplina, pessoa);
         }
         
         public void SalvarTurma(DiretorSkinner.Grafo.Tranporte.TurmaDto turma) {

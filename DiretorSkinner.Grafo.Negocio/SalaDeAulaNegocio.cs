@@ -1,12 +1,8 @@
 ﻿using DiretorSkinner.Grafo.Interface;
-using DiretorSkinner.Grafo.Negocio.Nodes;
 using DiretorSkinner.Grafo.Tranporte;
-using DiretorSkinner.Util.Acesso;
 using DiretorSkinner.Util.Acesso.Graphos;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 
 namespace DiretorSkinner.Grafo.Negocio
@@ -43,8 +39,12 @@ namespace DiretorSkinner.Grafo.Negocio
         public List<SalaDeAulaDto> ListarSalaDeAulaPorTurma(TurmaDto turmaDto)
         {
             var graphClient = ConexaoGrafo.GetConnection();
-            List<SalaDeAulaDto> list = graphClient.Cypher.Match($"(salaDeAula:SalaDeAula)")
-                                     .Where<SalaDeAulaDto>(salaDeAula => salaDeAula.TurmaId == turmaDto.Id)
+
+            List<SalaDeAulaDto> list = graphClient.Cypher.Match("(salaDeAula:SalaDeAula),(pessoa:Pessoa)")
+                                     .Where(" pessoa.Id = salaDeAula.PessoaId ")
+                                     .With(" salaDeAula,{ PessoaId: pessoa.Id, PessoaNome: pessoa.Nome} as Pessoas")
+                                     .With(" { Id: salaDeAula.Id, Semestre: salaDeAula.Semestre, DisciplinaId: salaDeAula.DisciplinaId,Nota: salaDeAula.Nota,TurmaId: salaDeAula.TurmaId, PessoaId: Pessoas.PessoaId, PessoaNome: Pessoas.PessoaNome} as salaDeAula")
+                                     .Where<SalaDeAulaDto>(salaDeAula => salaDeAula.TurmaId == turmaDto.Id)     
                                      .Return(salaDeAula => salaDeAula.As<SalaDeAulaDto>())
                                      .Results
                                      .ToList();
@@ -57,9 +57,12 @@ namespace DiretorSkinner.Grafo.Negocio
         public List<SalaDeAulaDto> ListarSalaDeAulaPorDisciplina(DisciplinaDto disciplinaDto)
         {
             var graphClient = ConexaoGrafo.GetConnection();
-            List<SalaDeAulaDto> list = graphClient.Cypher.Match($"(salaDeAula:SalaDeAula)")
-                                     .Where<SalaDeAulaDto>(salaDeAula => salaDeAula.DisciplinaId == disciplinaDto.Id)
-                                     .Return(salaDeAula => salaDeAula.As<SalaDeAulaDto>())
+
+            List<SalaDeAulaDto> list = graphClient.Cypher.Match("(salaDeAula:SalaDeAula),(pessoa:Pessoa)")
+                                     .Where(" pessoa.Id = salaDeAula.PessoaId ")
+                                     .With(" salaDeAula,{ PessoaId: pessoa.Id, PessoaNome: pessoa.Nome} as Pessoas")
+                                     .With(" { Id: salaDeAula.Id, Semestre: salaDeAula.Semestre, DisciplinaId: salaDeAula.DisciplinaId,Nota: salaDeAula.Nota,TurmaId: salaDeAula.TurmaId, PessoaId: Pessoas.PessoaId, PessoaNome: Pessoas.PessoaNome} as salaDeAula")
+                                      .Where<SalaDeAulaDto>(salaDeAula => salaDeAula.DisciplinaId == disciplinaDto.Id).Return(salaDeAula => salaDeAula.As<SalaDeAulaDto>())
                                      .Results
                                      .ToList();
 
@@ -70,9 +73,12 @@ namespace DiretorSkinner.Grafo.Negocio
         public List<SalaDeAulaDto> ListarSalaDeAulaPorConceito(ConceitoDto conceitoDto)
         {
             var graphClient = ConexaoGrafo.GetConnection();
-            List<SalaDeAulaDto> list = graphClient.Cypher.Match("(salaDeAula:SalaDeAula)")
-                                     .Where<SalaDeAulaDto>(salaDeAula => salaDeAula.TurmaId == conceitoDto.Id)
-                                     .Return(salaDeAula => salaDeAula.As<SalaDeAulaDto>())
+
+            List<SalaDeAulaDto> list = graphClient.Cypher.Match("(salaDeAula:SalaDeAula),(pessoa:Pessoa)")
+                                     .Where(" pessoa.Id = salaDeAula.PessoaId ")
+                                     .With(" salaDeAula,{ PessoaId: pessoa.Id, PessoaNome: pessoa.Nome} as Pessoas")
+                                     .With(" { Id: salaDeAula.Id, Semestre: salaDeAula.Semestre, DisciplinaId: salaDeAula.DisciplinaId,Nota: salaDeAula.Nota,TurmaId: salaDeAula.TurmaId, PessoaId: Pessoas.PessoaId, PessoaNome: Pessoas.PessoaNome} as salaDeAula")
+                                      .Where<SalaDeAulaDto>(salaDeAula => salaDeAula.DisciplinaId == conceitoDto.Id).Return(salaDeAula => salaDeAula.As<SalaDeAulaDto>())
                                      .Results
                                      .ToList();
 
@@ -83,9 +89,12 @@ namespace DiretorSkinner.Grafo.Negocio
         public List<SalaDeAulaDto> ListarSalaDeAulaPorPessoa(PessoaDto pessoaDto)
         {
             var graphClient = ConexaoGrafo.GetConnection();
-            List<SalaDeAulaDto> list = graphClient.Cypher.Match("(salaDeAula:SalaDeAula)")
-                                     .Where<SalaDeAulaDto>(salaDeAula => salaDeAula.PessoaId == pessoaDto.Id)
-                                     .Return(salaDeAula => salaDeAula.As<SalaDeAulaDto>())
+
+            List<SalaDeAulaDto> list = graphClient.Cypher.Match("(salaDeAula:SalaDeAula),(pessoa:Pessoa)")
+                                     .Where(" pessoa.Id = salaDeAula.PessoaId ")
+                                     .With(" salaDeAula,{ PessoaId: pessoa.Id, PessoaNome: pessoa.Nome} as Pessoas")
+                                     .With(" { Id: salaDeAula.Id, Semestre: salaDeAula.Semestre, DisciplinaId: salaDeAula.DisciplinaId,Nota: salaDeAula.Nota,TurmaId: salaDeAula.TurmaId, PessoaId: Pessoas.PessoaId, PessoaNome: Pessoas.PessoaNome} as salaDeAula")
+                                      .Where<SalaDeAulaDto>(salaDeAula => salaDeAula.PessoaId == pessoaDto.Id).Return(salaDeAula => salaDeAula.As<SalaDeAulaDto>())
                                      .Results
                                      .ToList();
 
@@ -97,23 +106,23 @@ namespace DiretorSkinner.Grafo.Negocio
         {
             var graphClient = ConexaoGrafo.GetConnection();
 
+            Nullable<int> valorNulo = null;
 
-            var list = graphClient.Cypher.Match("(salaDeAula:SalaDeAula), (pessoa:Pessoa)")
-                                     .Match("(pessoa)-[esta:ESTA]->(salaDeAula)")
-                                     .Match("(disciplina)-[tem:TEM]->(salaDeAula)")
-                                     .Match("(salaDeAula)-[possui:POSSUI]->(turma)")
-                                     .Match("(conceito:Conceito)")
-                                     .Where("salaDeAula.Nota >= conceito.Minimo and salaDeAula.Nota <= conceito.Maximo")
+            List<SalaDeAulaDto> list = graphClient.Cypher.Match("(salaDeAula:SalaDeAula), (pessoa:Pessoa) , (conceito:Conceito)")
+                                     .Where(" pessoa.Id = salaDeAula.PessoaId and salaDeAula.Nota > conceito.Minimo and salaDeAula.Nota <= conceito.Maximo")
+                                     .With(" salaDeAula,{ PessoaId: pessoa.Id, PessoaNome: pessoa.Nome} as Pessoas, conceito")
+                                     .With(" conceito,{ Id: salaDeAula.Id, Semestre: salaDeAula.Semestre, DisciplinaId: salaDeAula.DisciplinaId,Nota: salaDeAula.Nota,TurmaId: salaDeAula.TurmaId, PessoaId: Pessoas.PessoaId, PessoaNome: Pessoas.PessoaNome} as salaDeAula")
+                                     .Where<SalaDeAulaDto>(salaDeAula => salaDeAula.TurmaId == turmaDto.Id)
 
-                                     //.AndWhere(" (coalesce(conceito.Id,conceito.Id) = coalesce({conceitoId},conceito.Id) OR coalesce(conceito.Id,0) = coalesce({conceitoId},0)) ")
-                                     //.AndWhere(" disciplina.Id = coalesce({disciplinaId},disciplina.Id) ")
-                                     //.AndWhere(" turma.Id = {turmaId}")
-                                     //.WithParam("conceitoId",conceitoDto == null ? 0 : conceitoDto.Id)
-                                     //.WithParam("disciplinaId", disciplinaDto == null ? null : disciplinaDto.Id.ToString())
-                                     //.WithParam("turmaId", turmaDto == null ? null : turmaDto.Id.ToString())
+                                     .AndWhere(" salaDeAula.DisciplinaId = coalesce({disciplinaId},salaDeAula.DisciplinaId)  ")
+                                     .WithParam("disciplinaId", disciplinaDto == null ? valorNulo : disciplinaDto.Id)
 
-                                     .With(" salaDeAula,{ PessoaId: pessoa.Id, PessoaNome: pessoa.Nome} as Pessoas,disciplina, turma")
-                                     .With(" { Id: salaDeAula.Id, Semestre: salaDeAula.Semestre, DisciplinaId: disciplina.Id,Nota: salaDeAula.Nota,TurmaId: turma.Id, PessoaId: Pessoas.PessoaId, PessoaNome: Pessoas.PessoaNome} as salaDeAula")
+                                     .AndWhere(" salaDeAula.PessoaId = coalesce({pessoaId},salaDeAula.PessoaId)  ")
+                                     .WithParam("pessoaId", pessoaDto == null ? valorNulo : pessoaDto.Id)
+
+                                     .AndWhere(" conceito.Id = coalesce({conceitoId},conceito.Id)  ")
+                                     .WithParam("conceitoId", conceitoDto == null ? valorNulo : conceitoDto.Id)
+
                                      .Return(salaDeAula => salaDeAula.As<SalaDeAulaDto>())
                                      .Results
                                      .ToList();

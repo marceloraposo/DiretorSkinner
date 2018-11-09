@@ -46,7 +46,10 @@
     <Compile Include="IDiretorSkinnerNegocioGrafo.cs" />
     <Compile Include="IDisciplinaNegocioGrafo.cs" />
     <Compile Include="IPessoaNegocioGrafo.cs" />
+    <Compile Include="IPessoaPorConceitoNegocio.cs" />
     <Compile Include="IProcessamentoNegocio.cs" />
+    <Compile Include="IQtdePessoaPorDisciplinaNegocio.cs" />
+    <Compile Include="IRepetenciaDeDisciplinaPorTipoPessoaNegocio.cs" />
     <Compile Include="ISalaDeAulaNegocio.cs" />
     <Compile Include="ITipoDisciplinaNegocioGrafo.cs" />
     <Compile Include="ITipoPessoaNegocioGrafo.cs" />

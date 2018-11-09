@@ -80,6 +80,15 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Relatorio\PessoaPorConceito.xaml.cs">
+      <DependentUpon>PessoaPorConceito.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorio\QtdePessoaPorDisciplina.xaml.cs">
+      <DependentUpon>QtdePessoaPorDisciplina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorio\RepetenciaDeDisciplinaPorTipoPessoa.xaml.cs">
+      <DependentUpon>RepetenciaDeDisciplinaPorTipoPessoa.xaml</DependentUpon>
+    </Compile>
     <Page Include="Carga\CargaConceito.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -162,6 +171,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Relatorio\PessoaPorConceito.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Relatorio\QtdePessoaPorDisciplina.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Relatorio\RepetenciaDeDisciplinaPorTipoPessoa.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Resources\BureauBlack.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -223,7 +244,10 @@
     <None Include="Properties\DataSources\DiretorSkinner.Grafo.Tranporte.ConceitoDto.datasource" />
     <None Include="Properties\DataSources\DiretorSkinner.Grafo.Tranporte.DisciplinaDto.datasource" />
     <None Include="Properties\DataSources\DiretorSkinner.Grafo.Tranporte.PessoaDto.datasource" />
+    <None Include="Properties\DataSources\DiretorSkinner.Grafo.Tranporte.PessoaPorConceitoDto.datasource" />
     <None Include="Properties\DataSources\DiretorSkinner.Grafo.Tranporte.ProcessamentoDto.datasource" />
+    <None Include="Properties\DataSources\DiretorSkinner.Grafo.Tranporte.QtdePessoaPorDisciplinaDto.datasource" />
+    <None Include="Properties\DataSources\DiretorSkinner.Grafo.Tranporte.RepetenciaDeDisciplinaPorTipoPessoaDto.datasource" />
     <None Include="Properties\DataSources\DiretorSkinner.Grafo.Tranporte.SalaDeAulaDto.datasource" />
     <None Include="Properties\DataSources\DiretorSkinner.Grafo.Tranporte.TipoDisciplinaDto.datasource" />
     <None Include="Properties\DataSources\DiretorSkinner.Grafo.Tranporte.TipoPessoaDto.datasource" />
@@ -273,8 +297,6 @@
   <ItemGroup>
     <Resource Include="escola.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Relatorio\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

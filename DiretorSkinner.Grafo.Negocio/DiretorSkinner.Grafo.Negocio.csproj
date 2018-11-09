@@ -76,8 +76,11 @@
     <Compile Include="Nodes\TipoPessoa.cs" />
     <Compile Include="Nodes\Turma.cs" />
     <Compile Include="PessoaNegocioGrafo.cs" />
+    <Compile Include="PessoaPorConceitoNegocio.cs" />
     <Compile Include="ProcessamentoNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QtdePessoaPorDisciplinaNegocio.cs" />
+    <Compile Include="RepetenciaDeDisciplinaPorTipoPessoaNegocio.cs" />
     <Compile Include="SalaDeAulaNegocio.cs" />
     <Compile Include="TipoDisciplinaNegocioGrafo.cs" />
     <Compile Include="TipoPessoaNegocioGrafo.cs" />

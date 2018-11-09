@@ -1,22 +1,11 @@
 ﻿using DiretorSkinner.Grafo.Carga;
 using DiretorSkinner.Grafo.Inicio;
-//using DiretorSkinner.Grafo.Relatorio;
+using DiretorSkinner.Grafo.Relatorio;
 using DiretorSkinner.Grafo.Tranporte;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DiretorSkinner.Grafo
 {
@@ -142,32 +131,32 @@ namespace DiretorSkinner.Grafo
 
         private void MenuRelatPessoaPorConceito_Click(object sender, RoutedEventArgs e)
         {
-            //var pessoaPorConceitoUserControl = new PessoaPorConceito();
-            //pessoaPorConceitoUserControl.SetValue(DockPanel.DockProperty, Dock.Top);
-            //dockPanelCentral.Children.Clear();
-            //dockPanelCentral.Children.Add(pessoaPorConceitoUserControl);
+            var pessoaPorConceitoUserControl = new PessoaPorConceito();
+            pessoaPorConceitoUserControl.SetValue(DockPanel.DockProperty, Dock.Top);
+            dockPanelCentral.Children.Clear();
+            dockPanelCentral.Children.Add(pessoaPorConceitoUserControl);
 
-            //textBlockTitulo.Text = "Pessoa por Conceito";
+            textBlockTitulo.Text = "Pessoa por Conceito";
         }
 
         private void MenuRelatRepetenciaDeDisciplinaPorTipoPessoa_Click(object sender, RoutedEventArgs e)
         {
-            //var relatRepetenciaDeDisciplinaPorTipoPessoaUserControl = new TipoDisciplina();
-            //relatRepetenciaDeDisciplinaPorTipoPessoaUserControl.SetValue(DockPanel.DockProperty, Dock.Top);
-            //dockPanelCentral.Children.Clear();
-            //dockPanelCentral.Children.Add(relatRepetenciaDeDisciplinaPorTipoPessoaUserControl);
+            var relatRepetenciaDeDisciplinaPorTipoPessoaUserControl = new RepetenciaDeDisciplinaPorTipoPessoa();
+            relatRepetenciaDeDisciplinaPorTipoPessoaUserControl.SetValue(DockPanel.DockProperty, Dock.Top);
+            dockPanelCentral.Children.Clear();
+            dockPanelCentral.Children.Add(relatRepetenciaDeDisciplinaPorTipoPessoaUserControl);
 
-            //textBlockTitulo.Text = "Repetência de Disciplina por TipoPessoa";
+            textBlockTitulo.Text = "Repetência de Disciplina por Tipo de Pessoa";
         }
 
         private void MenuRelatQtdePessoaPorDisciplina_Click(object sender, RoutedEventArgs e)
         {
-            //var relatQtdePessoaPorDisciplinaUserControl = new TipoDisciplina();
-            //relatQtdePessoaPorDisciplinaUserControl.SetValue(DockPanel.DockProperty, Dock.Top);
-            //dockPanelCentral.Children.Clear();
-            //dockPanelCentral.Children.Add(relatQtdePessoaPorDisciplinaUserControl);
+            var relatQtdePessoaPorDisciplinaUserControl = new QtdePessoaPorDisciplina();
+            relatQtdePessoaPorDisciplinaUserControl.SetValue(DockPanel.DockProperty, Dock.Top);
+            dockPanelCentral.Children.Clear();
+            dockPanelCentral.Children.Add(relatQtdePessoaPorDisciplinaUserControl);
 
-            //textBlockTitulo.Text = "Qtde de Pessoa por Disciplina";
+            textBlockTitulo.Text = "Qtde de Pessoa por Disciplina";
         }
 
         private void menuItemCargaConceito_Click(object sender, RoutedEventArgs e)

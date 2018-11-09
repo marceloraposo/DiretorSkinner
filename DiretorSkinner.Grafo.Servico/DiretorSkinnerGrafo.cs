@@ -212,6 +212,16 @@ namespace DiretorSkinner.Grafo.Servico
             negocio.DeletarTurma(turma);
         }
 
+        public List<PessoaPorConceitoDto> ListarPessoaPorTodosConceitos()
+        {
+            return negocio.ListarPessoaPorTodosConceitos();
+        }
+
+        public List<PessoaPorConceitoDto> ListarPessoaPorConceito(int id)
+        {
+            return negocio.ListarPessoaPorConceito(id);
+        }
+
         public ProcessamentoDto CargaInserirConceito(int tamanho)
         {
             return negocio.CargaInserirConceito(tamanho);
@@ -270,6 +280,26 @@ namespace DiretorSkinner.Grafo.Servico
         public ProcessamentoDto CargaSelecionarSalaDeAula(int tamanho)
         {
             return negocio.CargaSelecionarSalaDeAula(tamanho);
+        }
+
+        public List<RepetenciaDeDisciplinaPorTipoPessoaDto> ListarRepetenciaPorTodosTipos()
+        {
+            return negocio.ListarRepetenciaPorTodosTipos();
+        }
+
+        public List<RepetenciaDeDisciplinaPorTipoPessoaDto> ListarRepetenciaPorTipo(int id)
+        {
+            return negocio.ListarRepetenciaPorTipo(id);
+        }
+
+        public List<QtdePessoaPorDisciplinaDto> ListarQtdePessoaPorTodasDisciplinas()
+        {
+            return negocio.ListarQtdePessoaPorTodasDisciplinas();
+        }
+
+        public List<QtdePessoaPorDisciplinaDto> ListarQtdePessoaPorDisciplina(int id)
+        {
+            return negocio.ListarQtdePessoaPorDisciplina(id);
         }
 
         public void Dispose()

@@ -1,5 +1,4 @@
 ﻿using DiretorSkinner.Grafo.Interface;
-using DiretorSkinner.Grafo.Negocio.Nodes;
 using DiretorSkinner.Grafo.Tranporte;
 using DiretorSkinner.Util.Acesso.Graphos;
 using System.Collections.Generic;
@@ -30,11 +29,6 @@ namespace DiretorSkinner.Grafo.Negocio
         public List<PessoaDto> ListarPessoasPesquisa(string filtro)
         {
             var graphClient = ConexaoGrafo.Client;
-            //List<PessoaDto> list = graphClient.Cypher.Match($"(pessoa:Pessoa)")
-            //                         .Where<PessoaDto>(pessoa => pessoa.Apelido.Contains(filtro) || pessoa.Codigo.Contains(filtro) || pessoa.Nome.Contains(filtro))
-            //                         .Return(pessoa => pessoa.As<PessoaDto>())
-            //                         .Results
-            //                         .ToList();
 
             var list = graphClient.Cypher.Match($"(pessoa:Pessoa), (tipoPessoa:TipoPessoa)")
                                      .Where<PessoaDto>(pessoa => pessoa.Apelido.ToLower().Contains(filtro.ToLower()) || pessoa.Codigo.ToLower().Contains(filtro.ToLower()) || pessoa.Nome.ToLower().Contains(filtro.ToLower()))
@@ -54,11 +48,6 @@ namespace DiretorSkinner.Grafo.Negocio
         public List<PessoaDto> ListarPessoaPorTipo(TipoPessoaDto tipoPessoaDto)
         {
             var graphClient = ConexaoGrafo.Client;
-            //List<PessoaDto> list = graphClient.Cypher.Match($"(pessoa:Pessoa)")
-            //                         .Where<PessoaDto>(pessoa => pessoa.TipoPessoas.Any(tipoPessoa => tipoPessoa.Id == tipoPessoaDto.Id))
-            //                         .Return(pessoa => pessoa.As<PessoaDto>())
-            //                         .Results
-            //                         .ToList();
 
             var list = graphClient.Cypher.Match($"(pessoa:Pessoa), (tipoPessoa:TipoPessoa)")
                                      .Where<PessoaDto>(pessoa => pessoa.TipoPessoas.Any(tipoPessoa => tipoPessoa.Id == tipoPessoaDto.Id))
@@ -106,11 +95,6 @@ namespace DiretorSkinner.Grafo.Negocio
         public PessoaDto ListarPessoaPorCodigo(string codigo)
         {
             var graphClient = ConexaoGrafo.Client;
-            //PessoaDto pessoaDto = graphClient.Cypher.Match($"(pessoa:Pessoa)")
-            //                         .Where<PessoaDto>(pessoa => pessoa.Codigo == codigo)
-            //                         .Return(pessoa => pessoa.As<PessoaDto>())
-            //                         .Results
-            //                         .SingleOrDefault();
 
             PessoaDto pessoaDto = graphClient.Cypher.Match($"(pessoa:Pessoa), (tipoPessoa:TipoPessoa)")
                                      .Where<PessoaDto>(pessoa => pessoa.Codigo.ToLower() == codigo.ToLower())

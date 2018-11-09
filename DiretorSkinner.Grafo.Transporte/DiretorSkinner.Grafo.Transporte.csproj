@@ -48,6 +48,8 @@
     <Compile Include="PessoaPorConceitoDto.cs" />
     <Compile Include="ProcessamentoDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QtdePessoaPorDisciplinaDto.cs" />
+    <Compile Include="RepetenciaDeDisciplinaPorTipoPessoaDto.cs" />
     <Compile Include="RootDto.cs" />
     <Compile Include="SalaDeAulaDto.cs" />
     <Compile Include="TipoDisciplinaDto.cs" />
