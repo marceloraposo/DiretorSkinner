@@ -242,6 +242,11 @@ namespace DiretorSkinner.Grafo.Servico
             return negocio.CargaSelecionarConceito(tamanho);
         }
 
+        public ProcessamentoDto CargaRelatorioConceito(int tamanho)
+        {
+            return negocio.CargaRelatorioConceito(tamanho);
+        }
+
         public ProcessamentoDto CargaInserirDisciplina(int tamanho)
         {
             return negocio.CargaInserirDisciplina(tamanho);
@@ -262,6 +267,11 @@ namespace DiretorSkinner.Grafo.Servico
             return negocio.CargaSelecionarDisciplina(tamanho);
         }
 
+        public ProcessamentoDto CargaRelatorioDisciplina(int tamanho)
+        {
+            return negocio.CargaRelatorioDisciplina(tamanho);
+        }
+
         public ProcessamentoDto CargaInserirSalaDeAula(int tamanho)
         {
             return negocio.CargaInserirSalaDeAula(tamanho);
@@ -280,6 +290,11 @@ namespace DiretorSkinner.Grafo.Servico
         public ProcessamentoDto CargaSelecionarSalaDeAula(int tamanho)
         {
             return negocio.CargaSelecionarSalaDeAula(tamanho);
+        }
+
+        public ProcessamentoDto CargaRelatorioSalaDeAula(int tamanho)
+        {
+            return negocio.CargaRelatorioSalaDeAula(tamanho);
         }
 
         public List<RepetenciaDeDisciplinaPorTipoPessoaDto> ListarRepetenciaPorTodosTipos()

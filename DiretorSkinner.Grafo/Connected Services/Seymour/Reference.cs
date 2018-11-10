@@ -155,6 +155,12 @@ namespace DiretorSkinner.Grafo.Seymour {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarConceito", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarConceitoResponse")]
         System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.ProcessamentoDto> CargaSelecionarConceitoAsync(int tamanho);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioConceito", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioConceitoResponse")]
+        DiretorSkinner.Grafo.Tranporte.ProcessamentoDto CargaRelatorioConceito(int tamanho);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioConceito", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioConceitoResponse")]
+        System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.ProcessamentoDto> CargaRelatorioConceitoAsync(int tamanho);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirDisciplina", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirDisciplinaResponse")]
         DiretorSkinner.Grafo.Tranporte.ProcessamentoDto CargaInserirDisciplina(int tamanho);
         
@@ -179,6 +185,12 @@ namespace DiretorSkinner.Grafo.Seymour {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarDisciplina", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarDisciplinaResponse")]
         System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.ProcessamentoDto> CargaSelecionarDisciplinaAsync(int tamanho);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioDisciplina", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioDisciplinaResponse")]
+        DiretorSkinner.Grafo.Tranporte.ProcessamentoDto CargaRelatorioDisciplina(int tamanho);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioDisciplina", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioDisciplinaResponse")]
+        System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.ProcessamentoDto> CargaRelatorioDisciplinaAsync(int tamanho);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirSalaDeAula", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirSalaDeAulaResponse")]
         DiretorSkinner.Grafo.Tranporte.ProcessamentoDto CargaInserirSalaDeAula(int tamanho);
         
@@ -202,6 +214,12 @@ namespace DiretorSkinner.Grafo.Seymour {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarSalaDeAula", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarSalaDeAulaResponse")]
         System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.ProcessamentoDto> CargaSelecionarSalaDeAulaAsync(int tamanho);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioSalaDeAula", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioSalaDeAulaResponse")]
+        DiretorSkinner.Grafo.Tranporte.ProcessamentoDto CargaRelatorioSalaDeAula(int tamanho);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioSalaDeAula", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioSalaDeAulaResponse")]
+        System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.ProcessamentoDto> CargaRelatorioSalaDeAulaAsync(int tamanho);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarQtdePessoaPorTodasDisciplina" +
             "s", ReplyAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarQtdePessoaPorTodasDisciplina" +
@@ -585,6 +603,14 @@ namespace DiretorSkinner.Grafo.Seymour {
             return base.Channel.CargaSelecionarConceitoAsync(tamanho);
         }
         
+        public DiretorSkinner.Grafo.Tranporte.ProcessamentoDto CargaRelatorioConceito(int tamanho) {
+            return base.Channel.CargaRelatorioConceito(tamanho);
+        }
+        
+        public System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.ProcessamentoDto> CargaRelatorioConceitoAsync(int tamanho) {
+            return base.Channel.CargaRelatorioConceitoAsync(tamanho);
+        }
+        
         public DiretorSkinner.Grafo.Tranporte.ProcessamentoDto CargaInserirDisciplina(int tamanho) {
             return base.Channel.CargaInserirDisciplina(tamanho);
         }
@@ -617,6 +643,14 @@ namespace DiretorSkinner.Grafo.Seymour {
             return base.Channel.CargaSelecionarDisciplinaAsync(tamanho);
         }
         
+        public DiretorSkinner.Grafo.Tranporte.ProcessamentoDto CargaRelatorioDisciplina(int tamanho) {
+            return base.Channel.CargaRelatorioDisciplina(tamanho);
+        }
+        
+        public System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.ProcessamentoDto> CargaRelatorioDisciplinaAsync(int tamanho) {
+            return base.Channel.CargaRelatorioDisciplinaAsync(tamanho);
+        }
+        
         public DiretorSkinner.Grafo.Tranporte.ProcessamentoDto CargaInserirSalaDeAula(int tamanho) {
             return base.Channel.CargaInserirSalaDeAula(tamanho);
         }
@@ -647,6 +681,14 @@ namespace DiretorSkinner.Grafo.Seymour {
         
         public System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.ProcessamentoDto> CargaSelecionarSalaDeAulaAsync(int tamanho) {
             return base.Channel.CargaSelecionarSalaDeAulaAsync(tamanho);
+        }
+        
+        public DiretorSkinner.Grafo.Tranporte.ProcessamentoDto CargaRelatorioSalaDeAula(int tamanho) {
+            return base.Channel.CargaRelatorioSalaDeAula(tamanho);
+        }
+        
+        public System.Threading.Tasks.Task<DiretorSkinner.Grafo.Tranporte.ProcessamentoDto> CargaRelatorioSalaDeAulaAsync(int tamanho) {
+            return base.Channel.CargaRelatorioSalaDeAulaAsync(tamanho);
         }
         
         public DiretorSkinner.Grafo.Tranporte.QtdePessoaPorDisciplinaDto[] ListarQtdePessoaPorTodasDisciplinas() {

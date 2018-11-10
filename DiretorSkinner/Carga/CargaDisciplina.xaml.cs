@@ -55,6 +55,10 @@ namespace DiretorSkinner.Carga
                 {
                     this.ProcessamentoDto = App.Server.CargaSelecionarDisciplina(Tamanho);
                 }
+                else if (this.rdRelatorio.IsChecked.HasValue && this.rdRelatorio.IsChecked.Value)
+                {
+                    this.ProcessamentoDto = App.Server.CargaRelatorioDisciplina(Tamanho);
+                }
                 else
                 {
                     MessageBox.Show("Preencha os filtros");

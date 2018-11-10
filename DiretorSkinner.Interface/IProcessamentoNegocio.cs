@@ -21,6 +21,9 @@ namespace DiretorSkinner.Interface
         ProcessamentoDto CargaSelecionarConceito(int tamanho);
 
         [OperationContract]
+        ProcessamentoDto CargaRelatorioConceito(int tamanho);
+
+        [OperationContract]
         ProcessamentoDto CargaInserirDisciplina(int tamanho);
 
         [OperationContract]
@@ -33,6 +36,9 @@ namespace DiretorSkinner.Interface
         ProcessamentoDto CargaSelecionarDisciplina(int tamanho);
 
         [OperationContract]
+        ProcessamentoDto CargaRelatorioDisciplina(int tamanho);
+
+        [OperationContract]
         ProcessamentoDto CargaInserirSalaDeAula(int tamanho);
 
         [OperationContract]
@@ -43,5 +49,8 @@ namespace DiretorSkinner.Interface
 
         [OperationContract]
         ProcessamentoDto CargaSelecionarSalaDeAula(int tamanho);
+
+        [OperationContract]
+        ProcessamentoDto CargaRelatorioSalaDeAula(int tamanho);
     }
 }

@@ -29,7 +29,8 @@
                         <RadioButton Margin="5" GroupName="grupoCarga" Content="Inserir" x:Name="rdInserir" />
                         <RadioButton Margin="5" GroupName="grupoCarga" Content="Alterar" x:Name="rdAlterar" />
                         <RadioButton Margin="5" GroupName="grupoCarga" Content="Excluir" x:Name="rdExcluir" />
-                        <RadioButton Margin="5" GroupName="grupoCarga" Content="Qtde de Pessoa por Disciplina" x:Name="rdSelecionar" />
+                        <RadioButton Margin="5" GroupName="grupoCarga" Content="Selecionar" x:Name="rdSelecionar" /> 
+                        <RadioButton Margin="5" GroupName="grupoCarga" Content="Qtde de Pessoa por Disciplina" x:Name="rdRelatorio" />
                     </StackPanel>
                 </GroupBox>
                 <Grid Grid.Row="1" Grid.Column="0">

@@ -168,6 +168,36 @@ namespace DiretorSkinner.Grafo.Negocio
             long cpuUso = 0; long cpuUsoTotal = 0;
 
             Stopwatch st = new Stopwatch();
+            List<ConceitoDto> list = new List<ConceitoDto>();
+
+            var graphClient = ConexaoGrafo.Client;
+
+            cpuUso = Process.GetCurrentProcess().TotalProcessorTime.Milliseconds;
+            memoria = Process.GetCurrentProcess().PrivateMemorySize64;
+            st.Start();
+
+            list = graphClient.Cypher.Match($"(conceito:Conceito)")
+                                     .Return(conceito => conceito.As<ConceitoDto>())
+                                     .Limit(tamanho)
+                                     .Results
+                                     .ToList();
+
+            st.Stop();
+            memoriaTotal += (Process.GetCurrentProcess().PrivateMemorySize64 - memoria);
+            cpuUsoTotal += (Process.GetCurrentProcess().TotalProcessorTime.Milliseconds - cpuUso);
+
+            graphClient.Dispose();
+
+            return new ProcessamentoDto() { Tempo = st.ElapsedMilliseconds, Memoria = memoriaTotal, Cpu = cpuUsoTotal, Tamanho = tamanho };
+        }
+
+        public ProcessamentoDto CargaRelatorioConceito(int tamanho)
+        {
+            string comando = string.Empty;
+            long memoria = 0; long memoriaTotal = 0;
+            long cpuUso = 0; long cpuUsoTotal = 0;
+
+            Stopwatch st = new Stopwatch();
             List<PessoaPorConceitoDto> list = new List<PessoaPorConceitoDto>();
 
             var graphClient = ConexaoGrafo.Client;
@@ -347,6 +377,35 @@ namespace DiretorSkinner.Grafo.Negocio
         }
 
         public ProcessamentoDto CargaSelecionarDisciplina(int tamanho)
+        {
+            string comando = string.Empty;
+            long memoria = 0; long memoriaTotal = 0;
+            long cpuUso = 0; long cpuUsoTotal = 0;
+            Stopwatch st = new Stopwatch();
+            List<DisciplinaDto> list = new List<DisciplinaDto>();
+
+            var graphClient = ConexaoGrafo.Client;
+
+            cpuUso = Process.GetCurrentProcess().TotalProcessorTime.Milliseconds;
+            memoria = Process.GetCurrentProcess().PrivateMemorySize64;
+            st.Start();
+
+            list = graphClient.Cypher.Match($"(disciplina:Disciplina)")
+                                     .Return(disciplina => disciplina.As<DisciplinaDto>())
+                                     .Limit(tamanho)
+                                     .Results
+                                     .ToList();
+
+            st.Stop();
+            memoriaTotal += (Process.GetCurrentProcess().PrivateMemorySize64 - memoria);
+            cpuUsoTotal += (Process.GetCurrentProcess().TotalProcessorTime.Milliseconds - cpuUso);
+
+            graphClient.Dispose();
+
+            return new ProcessamentoDto() { Tempo = st.ElapsedMilliseconds, Memoria = memoriaTotal, Cpu = cpuUsoTotal, Tamanho = tamanho };
+        }
+
+        public ProcessamentoDto CargaRelatorioDisciplina(int tamanho)
         {
             string comando = string.Empty;
             long memoria = 0; long memoriaTotal = 0;
@@ -552,6 +611,35 @@ namespace DiretorSkinner.Grafo.Negocio
         }
 
         public ProcessamentoDto CargaSelecionarSalaDeAula(int tamanho)
+        {
+            string comando = string.Empty;
+            long memoria = 0; long memoriaTotal = 0;
+            long cpuUso = 0; long cpuUsoTotal = 0;
+            Stopwatch st = new Stopwatch();
+            List<SalaDeAulaDto> list = new List<SalaDeAulaDto>();
+
+            var graphClient = ConexaoGrafo.Client;
+
+            cpuUso = Process.GetCurrentProcess().TotalProcessorTime.Milliseconds;
+            memoria = Process.GetCurrentProcess().PrivateMemorySize64;
+            st.Start();
+
+            list = graphClient.Cypher.Match($"(salaDeAula:SalaDeAula)")
+                                     .Return(salaDeAula => salaDeAula.As<SalaDeAulaDto>())
+                                     .Limit(tamanho)
+                                     .Results
+                                     .ToList();
+
+            st.Stop();
+            memoriaTotal += (Process.GetCurrentProcess().PrivateMemorySize64 - memoria);
+            cpuUsoTotal += (Process.GetCurrentProcess().TotalProcessorTime.Milliseconds - cpuUso);
+
+            graphClient.Dispose();
+
+            return new ProcessamentoDto() { Tempo = st.ElapsedMilliseconds, Memoria = memoriaTotal, Cpu = cpuUsoTotal, Tamanho = tamanho };
+        }
+
+        public ProcessamentoDto CargaRelatorioSalaDeAula(int tamanho)
         {
             string comando = string.Empty;
             long memoria = 0; long memoriaTotal = 0;

@@ -56,6 +56,10 @@ namespace DiretorSkinner.Grafo.Carga
                 {
                     this.ProcessamentoDto = App.Server.CargaSelecionarConceito(Tamanho);
                 }
+                else if (this.rdRelatorio.IsChecked.HasValue && this.rdRelatorio.IsChecked.Value)
+                {
+                    this.ProcessamentoDto = App.Server.CargaRelatorioConceito(Tamanho);
+                }
                 else
                 {
                     MessageBox.Show("Preencha os filtros");

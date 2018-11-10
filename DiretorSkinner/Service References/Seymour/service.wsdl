@@ -77,6 +77,12 @@
   <wsdl:message name="IDiretorSkinner_CargaSelecionarConceito_OutputMessage">
     <wsdl:part name="parameters" element="tns:CargaSelecionarConceitoResponse" />
   </wsdl:message>
+  <wsdl:message name="IDiretorSkinner_CargaRelatorioConceito_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaRelatorioConceito" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinner_CargaRelatorioConceito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaRelatorioConceitoResponse" />
+  </wsdl:message>
   <wsdl:message name="IDiretorSkinner_CargaInserirDisciplina_InputMessage">
     <wsdl:part name="parameters" element="tns:CargaInserirDisciplina" />
   </wsdl:message>
@@ -101,6 +107,12 @@
   <wsdl:message name="IDiretorSkinner_CargaSelecionarDisciplina_OutputMessage">
     <wsdl:part name="parameters" element="tns:CargaSelecionarDisciplinaResponse" />
   </wsdl:message>
+  <wsdl:message name="IDiretorSkinner_CargaRelatorioDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaRelatorioDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinner_CargaRelatorioDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaRelatorioDisciplinaResponse" />
+  </wsdl:message>
   <wsdl:message name="IDiretorSkinner_CargaInserirSalaDeAula_InputMessage">
     <wsdl:part name="parameters" element="tns:CargaInserirSalaDeAula" />
   </wsdl:message>
@@ -124,6 +136,12 @@
   </wsdl:message>
   <wsdl:message name="IDiretorSkinner_CargaSelecionarSalaDeAula_OutputMessage">
     <wsdl:part name="parameters" element="tns:CargaSelecionarSalaDeAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinner_CargaRelatorioSalaDeAula_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaRelatorioSalaDeAula" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinner_CargaRelatorioSalaDeAula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaRelatorioSalaDeAulaResponse" />
   </wsdl:message>
   <wsdl:message name="IDiretorSkinner_ListarPessoas_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarPessoas" />
@@ -408,6 +426,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/CargaSelecionarConceito" message="tns:IDiretorSkinner_CargaSelecionarConceito_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/CargaSelecionarConceitoResponse" message="tns:IDiretorSkinner_CargaSelecionarConceito_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="CargaRelatorioConceito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/CargaRelatorioConceito" message="tns:IDiretorSkinner_CargaRelatorioConceito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/CargaRelatorioConceitoResponse" message="tns:IDiretorSkinner_CargaRelatorioConceito_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CargaInserirDisciplina">
       <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/CargaInserirDisciplina" message="tns:IDiretorSkinner_CargaInserirDisciplina_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/CargaInserirDisciplinaResponse" message="tns:IDiretorSkinner_CargaInserirDisciplina_OutputMessage" />
@@ -424,6 +446,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/CargaSelecionarDisciplina" message="tns:IDiretorSkinner_CargaSelecionarDisciplina_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/CargaSelecionarDisciplinaResponse" message="tns:IDiretorSkinner_CargaSelecionarDisciplina_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="CargaRelatorioDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/CargaRelatorioDisciplina" message="tns:IDiretorSkinner_CargaRelatorioDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/CargaRelatorioDisciplinaResponse" message="tns:IDiretorSkinner_CargaRelatorioDisciplina_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CargaInserirSalaDeAula">
       <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/CargaInserirSalaDeAula" message="tns:IDiretorSkinner_CargaInserirSalaDeAula_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/CargaInserirSalaDeAulaResponse" message="tns:IDiretorSkinner_CargaInserirSalaDeAula_OutputMessage" />
@@ -439,6 +465,10 @@
     <wsdl:operation name="CargaSelecionarSalaDeAula">
       <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/CargaSelecionarSalaDeAula" message="tns:IDiretorSkinner_CargaSelecionarSalaDeAula_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/CargaSelecionarSalaDeAulaResponse" message="tns:IDiretorSkinner_CargaSelecionarSalaDeAula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargaRelatorioSalaDeAula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/CargaRelatorioSalaDeAula" message="tns:IDiretorSkinner_CargaRelatorioSalaDeAula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/CargaRelatorioSalaDeAulaResponse" message="tns:IDiretorSkinner_CargaRelatorioSalaDeAula_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ListarPessoas">
       <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocio/ListarPessoas" message="tns:IDiretorSkinner_ListarPessoas_InputMessage" />
@@ -671,6 +701,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CargaRelatorioConceito">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocio/CargaRelatorioConceito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CargaInserirDisciplina">
       <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocio/CargaInserirDisciplina" style="document" />
       <wsdl:input>
@@ -707,6 +746,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CargaRelatorioDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocio/CargaRelatorioDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CargaInserirSalaDeAula">
       <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocio/CargaInserirSalaDeAula" style="document" />
       <wsdl:input>
@@ -736,6 +784,15 @@
     </wsdl:operation>
     <wsdl:operation name="CargaSelecionarSalaDeAula">
       <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocio/CargaSelecionarSalaDeAula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargaRelatorioSalaDeAula">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocio/CargaRelatorioSalaDeAula" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

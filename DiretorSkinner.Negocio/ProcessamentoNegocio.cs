@@ -164,6 +164,31 @@ namespace DiretorSkinner.Negocio
             memoria = Process.GetCurrentProcess().PrivateMemorySize64;
             st.Start();
 
+            SqlCommand cmd = new SqlCommand("select top (@tamanho) from Conceito");
+            pars.Add(new SqlParameter("tamanho", tamanho));
+            cmd.Parameters.AddRange(pars.ToArray());
+            DataSet ds = Conexao.ExecutarDataSet(cmd);
+
+            st.Stop();
+            memoriaTotal += (Process.GetCurrentProcess().PrivateMemorySize64 - memoria);
+            cpuUsoTotal += (Process.GetCurrentProcess().TotalProcessorTime.Milliseconds - cpuUso);
+
+            return new ProcessamentoDto() { Tempo = st.ElapsedMilliseconds, Memoria = memoriaTotal, Cpu = cpuUsoTotal, Tamanho = tamanho };
+        }
+
+        public ProcessamentoDto CargaRelatorioConceito(int tamanho)
+        {
+            string comando = string.Empty;
+            long memoria = 0; long memoriaTotal = 0;
+            long cpuUso = 0; long cpuUsoTotal = 0;
+            List<SqlParameter> pars = new List<SqlParameter>();
+            Stopwatch st = new Stopwatch();
+            List<ConceitoDto> list = new List<ConceitoDto>();
+
+            cpuUso = Process.GetCurrentProcess().TotalProcessorTime.Milliseconds;
+            memoria = Process.GetCurrentProcess().PrivateMemorySize64;
+            st.Start();
+
             SqlCommand cmd = new SqlCommand("select top (@tamanho) id,codigo,nome,media,(select cc.Id from conceito cc where media > cc.Minimo and media <= cc.Maximo) conceitoid,(select cc.Nome from conceito cc where media > cc.Minimo and media <= cc.Maximo) conceitonome FROM (SELECT p.id,p.codigo,p.nome,AVG(sda.nota) AS media FROM saladeaula sda,pessoa p,conceito c WHERE p.id = sda.pessoaid AND sda.nota >= c.minimo AND   sda.nota <= c.maximo GROUP BY p.nome, p.codigo, p.codigo,p.id ) x");
             pars.Add(new SqlParameter("tamanho", tamanho));
             cmd.Parameters.AddRange(pars.ToArray());
@@ -311,6 +336,31 @@ namespace DiretorSkinner.Negocio
         }
 
         public ProcessamentoDto CargaSelecionarDisciplina(int tamanho)
+        {
+            string comando = string.Empty;
+            long memoria = 0; long memoriaTotal = 0;
+            long cpuUso = 0; long cpuUsoTotal = 0;
+            List<SqlParameter> pars = new List<SqlParameter>();
+            Stopwatch st = new Stopwatch();
+            List<DisciplinaDto> list = new List<DisciplinaDto>();
+
+            cpuUso = Process.GetCurrentProcess().TotalProcessorTime.Milliseconds;
+            memoria = Process.GetCurrentProcess().PrivateMemorySize64;
+            st.Start();
+
+            SqlCommand cmd = new SqlCommand("select top (@tamanho) from Disciplina");
+            pars.Add(new SqlParameter("tamanho", tamanho));
+            cmd.Parameters.AddRange(pars.ToArray());
+            DataSet ds = Conexao.ExecutarDataSet(cmd);
+
+            st.Stop();
+            memoriaTotal += (Process.GetCurrentProcess().PrivateMemorySize64 - memoria);
+            cpuUsoTotal += (Process.GetCurrentProcess().TotalProcessorTime.Milliseconds - cpuUso);
+
+            return new ProcessamentoDto() { Tempo = st.ElapsedMilliseconds, Memoria = memoriaTotal, Cpu = cpuUsoTotal, Tamanho = tamanho };
+        }
+
+        public ProcessamentoDto CargaRelatorioDisciplina(int tamanho)
         {
             string comando = string.Empty;
             long memoria = 0; long memoriaTotal = 0;
@@ -490,7 +540,7 @@ namespace DiretorSkinner.Negocio
             memoria = Process.GetCurrentProcess().PrivateMemorySize64;
             st.Start();
 
-            SqlCommand cmd = new SqlCommand("select top (@tamanho) pessoa.Id as PessoaId,pessoa.Nome as PessoaNome,tipoPessoa.Id as TipoPessoaId,tipoPessoa.Nome as TipoPessoaNome,disciplina.Nome as DisciplinaNome,conceito.Nome as conceitoNome,salaDeAula.Semestre as Semestre from SalaDeAula salaDeAula ,Disciplina disciplina ,Pessoa pessoa ,TipoPessoa tipoPessoa, PessoaTipoPessoa pessoaTipoPessoa ,Conceito conceito where disciplina.Id = salaDeAula.DisciplinaId   and pessoa.Id = salaDeAula.PessoaId  and pessoa.Id = pessoaTipoPessoa.pessoaId  and tipoPessoa.Id = pessoaTipoPessoa.tipoPessoaId  and salaDeAula.Nota > conceito.Minimo   and salaDeAula.Nota <= conceito.Maximo");
+            SqlCommand cmd = new SqlCommand("select top (@tamanho) from SalaDeAula");
             pars.Add(new SqlParameter("tamanho", tamanho));
             cmd.Parameters.AddRange(pars.ToArray());
             DataSet ds = Conexao.ExecutarDataSet(cmd);
@@ -502,6 +552,30 @@ namespace DiretorSkinner.Negocio
             return new ProcessamentoDto() { Tempo = st.ElapsedMilliseconds, Memoria = memoriaTotal, Cpu = cpuUsoTotal, Tamanho = tamanho };
         }
 
+        public ProcessamentoDto CargaRelatorioSalaDeAula(int tamanho)
+        {
+            string comando = string.Empty;
+            long memoria = 0; long memoriaTotal = 0;
+            long cpuUso = 0; long cpuUsoTotal = 0;
+            List<SqlParameter> pars = new List<SqlParameter>();
+            Stopwatch st = new Stopwatch();
+            List<SalaDeAulaDto> list = new List<SalaDeAulaDto>();
+
+            cpuUso = Process.GetCurrentProcess().TotalProcessorTime.Milliseconds;
+            memoria = Process.GetCurrentProcess().PrivateMemorySize64;
+            st.Start();
+
+            SqlCommand cmd = new SqlCommand("select top (@tamanho) pessoa.Id as PessoaId,pessoa.Nome as PessoaNome,tipoPessoa.Id as TipoPessoaId,tipoPessoa.Nome as TipoPessoaNome,disciplina.Nome as DisciplinaNome,conceito.Nome as conceitoNome,salaDeAula.Semestre as Semestre from SalaDeAula salaDeAula ,Disciplina disciplina ,Pessoa pessoa ,TipoPessoa tipoPessoa, PessoaTipoPessoa pessoaTipoPessoa ,Conceito conceito where disciplina.Id = salaDeAula.DisciplinaId   and pessoa.Id = salaDeAula.PessoaId  and pessoa.Id = pessoaTipoPessoa.pessoaId  and tipoPessoa.Id = pessoaTipoPessoa.tipoPessoaId  and salaDeAula.Nota > conceito.Minimo   and salaDeAula.Nota <= conceito.Maximo");
+            pars.Add(new SqlParameter("tamanho", tamanho));
+            cmd.Parameters.AddRange(pars.ToArray());
+            DataSet ds = Conexao.ExecutarDataSet(cmd);
+
+            st.Stop();
+            memoriaTotal += (Process.GetCurrentProcess().PrivateMemorySize64 - memoria);
+            cpuUsoTotal += (Process.GetCurrentProcess().TotalProcessorTime.Milliseconds - cpuUso);
+
+            return new ProcessamentoDto() { Tempo = st.ElapsedMilliseconds, Memoria = memoriaTotal, Cpu = cpuUsoTotal, Tamanho = tamanho };
+        }
         #endregion
     }
 }

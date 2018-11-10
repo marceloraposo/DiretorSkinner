@@ -98,10 +98,9 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:RootDto">
         <xs:sequence>
-          <xs:element minOccurs="0" name="IdDisciplina" type="xs:int" />
-          <xs:element minOccurs="0" name="IdPessoa" type="xs:int" />
-          <xs:element minOccurs="0" name="NomeDisciplina" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="NomePessoa" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DisciplinaId" type="xs:int" />
+          <xs:element minOccurs="0" name="DisciplinaNome" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Quantidade" type="xs:int" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -115,6 +114,7 @@
           <xs:element minOccurs="0" name="DisciplinaNome" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="PessoaId" type="xs:int" />
           <xs:element minOccurs="0" name="PessoaNome" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Semestre" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TipoPessoaId" type="xs:int" />
           <xs:element minOccurs="0" name="TipoPessoaNome" nillable="true" type="xs:string" />
         </xs:sequence>

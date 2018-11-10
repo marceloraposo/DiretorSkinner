@@ -178,6 +178,12 @@
   <wsdl:message name="IDiretorSkinnerGrafo_CargaSelecionarConceito_OutputMessage">
     <wsdl:part name="parameters" element="tns:CargaSelecionarConceitoResponse" />
   </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaRelatorioConceito_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaRelatorioConceito" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaRelatorioConceito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaRelatorioConceitoResponse" />
+  </wsdl:message>
   <wsdl:message name="IDiretorSkinnerGrafo_CargaInserirDisciplina_InputMessage">
     <wsdl:part name="parameters" element="tns:CargaInserirDisciplina" />
   </wsdl:message>
@@ -202,6 +208,12 @@
   <wsdl:message name="IDiretorSkinnerGrafo_CargaSelecionarDisciplina_OutputMessage">
     <wsdl:part name="parameters" element="tns:CargaSelecionarDisciplinaResponse" />
   </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaRelatorioDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaRelatorioDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaRelatorioDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaRelatorioDisciplinaResponse" />
+  </wsdl:message>
   <wsdl:message name="IDiretorSkinnerGrafo_CargaInserirSalaDeAula_InputMessage">
     <wsdl:part name="parameters" element="tns:CargaInserirSalaDeAula" />
   </wsdl:message>
@@ -225,6 +237,12 @@
   </wsdl:message>
   <wsdl:message name="IDiretorSkinnerGrafo_CargaSelecionarSalaDeAula_OutputMessage">
     <wsdl:part name="parameters" element="tns:CargaSelecionarSalaDeAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaRelatorioSalaDeAula_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaRelatorioSalaDeAula" />
+  </wsdl:message>
+  <wsdl:message name="IDiretorSkinnerGrafo_CargaRelatorioSalaDeAula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaRelatorioSalaDeAulaResponse" />
   </wsdl:message>
   <wsdl:message name="IDiretorSkinnerGrafo_ListarQtdePessoaPorTodasDisciplinas_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarQtdePessoaPorTodasDisciplinas" />
@@ -475,6 +493,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarConceito" message="tns:IDiretorSkinnerGrafo_CargaSelecionarConceito_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarConceitoResponse" message="tns:IDiretorSkinnerGrafo_CargaSelecionarConceito_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="CargaRelatorioConceito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioConceito" message="tns:IDiretorSkinnerGrafo_CargaRelatorioConceito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioConceitoResponse" message="tns:IDiretorSkinnerGrafo_CargaRelatorioConceito_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CargaInserirDisciplina">
       <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirDisciplina" message="tns:IDiretorSkinnerGrafo_CargaInserirDisciplina_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirDisciplinaResponse" message="tns:IDiretorSkinnerGrafo_CargaInserirDisciplina_OutputMessage" />
@@ -491,6 +513,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarDisciplina" message="tns:IDiretorSkinnerGrafo_CargaSelecionarDisciplina_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarDisciplinaResponse" message="tns:IDiretorSkinnerGrafo_CargaSelecionarDisciplina_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="CargaRelatorioDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioDisciplina" message="tns:IDiretorSkinnerGrafo_CargaRelatorioDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioDisciplinaResponse" message="tns:IDiretorSkinnerGrafo_CargaRelatorioDisciplina_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CargaInserirSalaDeAula">
       <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirSalaDeAula" message="tns:IDiretorSkinnerGrafo_CargaInserirSalaDeAula_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirSalaDeAulaResponse" message="tns:IDiretorSkinnerGrafo_CargaInserirSalaDeAula_OutputMessage" />
@@ -506,6 +532,10 @@
     <wsdl:operation name="CargaSelecionarSalaDeAula">
       <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarSalaDeAula" message="tns:IDiretorSkinnerGrafo_CargaSelecionarSalaDeAula_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarSalaDeAulaResponse" message="tns:IDiretorSkinnerGrafo_CargaSelecionarSalaDeAula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargaRelatorioSalaDeAula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioSalaDeAula" message="tns:IDiretorSkinnerGrafo_CargaRelatorioSalaDeAula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioSalaDeAulaResponse" message="tns:IDiretorSkinnerGrafo_CargaRelatorioSalaDeAula_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ListarQtdePessoaPorTodasDisciplinas">
       <wsdl:input wsaw:Action="http://tempuri.org/IDiretorSkinnerNegocioGrafo/ListarQtdePessoaPorTodasDisciplinas" message="tns:IDiretorSkinnerGrafo_ListarQtdePessoaPorTodasDisciplinas_InputMessage" />
@@ -823,6 +853,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CargaRelatorioConceito">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioConceito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CargaInserirDisciplina">
       <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirDisciplina" style="document" />
       <wsdl:input>
@@ -859,6 +898,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CargaRelatorioDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CargaInserirSalaDeAula">
       <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaInserirSalaDeAula" style="document" />
       <wsdl:input>
@@ -888,6 +936,15 @@
     </wsdl:operation>
     <wsdl:operation name="CargaSelecionarSalaDeAula">
       <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaSelecionarSalaDeAula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargaRelatorioSalaDeAula">
+      <soap12:operation soapAction="http://tempuri.org/IDiretorSkinnerNegocioGrafo/CargaRelatorioSalaDeAula" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
